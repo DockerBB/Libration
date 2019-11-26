@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="中南头号黑子的学习记录" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":6,"onmobile":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Js迭代器和函数深入">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript迭代器和函数深入">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5&#x2F;index.html">
+<meta property="og:site_name" content="中南头号黑子的学习记录">
+<meta property="og:description" content="Js迭代器和函数深入">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-26T14:19:45.966Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>JavaScript迭代器和函数深入 | 中南头号黑子的学习记录</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中南头号黑子的学习记录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ff.jpg">
+      <meta itemprop="name" content="中南头号黑子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中南头号黑子的学习记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript迭代器和函数深入
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-26 17:54:55 / 修改时间：22:19:45" itemprop="dateCreated datePublished" datetime="2019-11-26T17:54:55+08:00">2019-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">评论次数:：</span>
+    
+    <a title="valine" href="/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>Js迭代器和函数深入</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//迭代器和生成器</span></span><br><span class="line"><span class="keyword">const</span> book = [</span><br><span class="line">    <span class="string">"Twinkle, twinkle, little bat!"</span>,</span><br><span class="line">    <span class="string">"How I wonder what you're at!"</span>,</span><br><span class="line">    <span class="string">"Up above the world you fly,"</span>,</span><br><span class="line">    <span class="string">"Like a tea tray in the sky."</span>,</span><br><span class="line">    <span class="string">"Twinkle, twinkle, little bat!"</span>,</span><br><span class="line">    <span class="string">"How I wonder what you're at!"</span></span><br><span class="line">];</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"\n"</span>);</span><br><span class="line"><span class="keyword">const</span> it = book.values();<span class="comment">//values（）方法获取迭代器</span></span><br><span class="line"><span class="keyword">for</span> (let i = it.next(); !i.done; i = it.next()) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(i.value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代协议</span></span><br><span class="line"><span class="comment">/*迭代器协议可以让任何对象变得可迭代</span></span><br><span class="line"><span class="comment">* 如果一个类提供了一个符号方法Symbol.iterator，这个方法返回一个具有迭代行为</span></span><br><span class="line"><span class="comment">* 的对象（比如：对象有next()方法，同时next方法返回一个包含value和done的对象</span></span><br><span class="line"><span class="comment">* ），那么这个类就是可迭代的*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Log</span> &#123;</span></span><br><span class="line">    constructor() &#123;</span><br><span class="line">        <span class="keyword">this</span>.messages = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    add(message) &#123;</span><br><span class="line">        <span class="keyword">this</span>.messages.push(&#123;message, timestamp: Date.now()&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [Symbol.iterator]() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.messages.values();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">log</span> = <span class="keyword">new</span> Log();</span><br><span class="line"><span class="built_in">log</span>.add(<span class="string">"first day at sea"</span>);</span><br><span class="line"><span class="built_in">log</span>.add(<span class="string">"spotted whale"</span>);</span><br><span class="line"><span class="built_in">log</span>.add(<span class="string">"spotted another vessel"</span>);</span><br><span class="line"><span class="keyword">for</span> (let i of <span class="built_in">log</span>) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(`$&#123;i.message&#125; @ $&#123;i.timestamp&#125;`);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以编写自己的迭代器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Log2</span> &#123;</span></span><br><span class="line">    constructor() &#123;</span><br><span class="line">        <span class="keyword">this</span>.messages = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    add(message) &#123;</span><br><span class="line">        <span class="keyword">this</span>.messages.push(&#123;message, timestamp: Date.now()&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [Symbol.iterator]() &#123;</span><br><span class="line">        <span class="keyword">const</span> messages = <span class="keyword">this</span>.messages;</span><br><span class="line">        let i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            next() &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt;= messages.length)</span><br><span class="line">                    <span class="keyword">return</span> &#123;value: undefined, done: <span class="literal">true</span>&#125;;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> &#123;value: messages[i++], done: <span class="literal">false</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"\n"</span>);</span><br><span class="line"><span class="keyword">const</span> log2 = <span class="keyword">new</span> Log2();</span><br><span class="line">log2.add(<span class="string">"first day at sea"</span>);</span><br><span class="line">log2.add(<span class="string">"spotted whale"</span>);</span><br><span class="line">log2.add(<span class="string">"spotted another vessel"</span>);</span><br><span class="line"><span class="keyword">for</span> (let i of log2) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(`$&#123;i.message&#125; @ $&#123;i.timestamp&#125;`);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*至此，以上使用的例子都是迭代预先定义好元素个数的数组：一本书的页数，或者log中</span></span><br><span class="line"><span class="comment">* 的日期消息记录。迭代器还可以用来表示含有无穷值的对象。*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FibonacciSequence</span> &#123;</span></span><br><span class="line">    [Symbol.iterator]() &#123;</span><br><span class="line">        let a = <span class="number">0</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            next() &#123;</span><br><span class="line">                let temp = b;</span><br><span class="line">                b += a;</span><br><span class="line">                a = temp;</span><br><span class="line">                <span class="keyword">return</span> &#123;value: temp, done: <span class="literal">false</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fib = <span class="keyword">new</span> FibonacciSequence();</span><br><span class="line">let i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (let n of fib) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(n);</span><br><span class="line">    <span class="keyword">if</span> (++i &gt; <span class="number">9</span>) <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//IIEFs和异步代码</span></span><br><span class="line"><span class="comment">/*setTimeout函数会根据第二个参数设置的时间延迟执行第一个参数（一个函数）*/</span></span><br><span class="line"><span class="comment">// setTimeout(function () &#123;</span></span><br><span class="line"><span class="comment">//     console.log("hello");</span></span><br><span class="line"><span class="comment">// &#125;,1500);</span></span><br><span class="line"><span class="comment">//有了这些知识储备，可以编写倒计时代码</span></span><br><span class="line">var j;</span><br><span class="line"><span class="comment">// for(j=5;j&gt;=0;j--)&#123;</span></span><br><span class="line"><span class="comment">//     setTimeout(function () &#123;</span></span><br><span class="line"><span class="comment">//         console.log(j===0? "go!":j);</span></span><br><span class="line"><span class="comment">//     &#125;,(5-j)*1000);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">/*运行结果是6个-1 异步编程。。还没理解这里的setTimeout函数再循环中没有被调用他</span></span><br><span class="line"><span class="comment">们会在未来的某个时间点被调用。所以循环会正常运行，从5开始，到-1结束..而这发生</span></span><br><span class="line"><span class="comment">在函数被调用之前。所以，当函数被调用是j的值是-1。*/</span></span><br><span class="line"><span class="comment">/*for (j = 5; j &gt;= 0; j--) &#123;</span></span><br><span class="line"><span class="comment">    (function (j) &#123;</span></span><br><span class="line"><span class="comment">        setTimeout(function () &#123;</span></span><br><span class="line"><span class="comment">            console.log(j === 0 ? "go!" : j);</span></span><br><span class="line"><span class="comment">        &#125;, (5 - j) * 1000);</span></span><br><span class="line"><span class="comment">    &#125;)(j);//IIFE + 匿名函数 + 闭包解决问题</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="comment">// for(let j=5;j&gt;=0;j--)&#123;</span></span><br><span class="line"><span class="comment">//     setTimeout(function () &#123;</span></span><br><span class="line"><span class="comment">//         console.log(j===0? "go!":j);</span></span><br><span class="line"><span class="comment">//     &#125;,(5-j)*1000);</span></span><br><span class="line"><span class="comment">// &#125;/*for循环使用let关键字也可以解决作用域的问题*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*函数变量：函数被调用之前和其他变量一样是静态的，被调用的时候是动态的</span></span><br><span class="line"><span class="comment">* 凡是能够使用变量的地方，都可以使用函数，意味着除了变量的普通用法外，</span></span><br><span class="line"><span class="comment">* 还可以做这些事</span></span><br><span class="line"><span class="comment">* · 通过创建一个指向函数的变量来给函数起一个别名</span></span><br><span class="line"><span class="comment">* · 将函数放入数组中（可能混合其他类型的数据）</span></span><br><span class="line"><span class="comment">* · 将函数当作对象的属性</span></span><br><span class="line"><span class="comment">* · 将函数传入到另一个函数中</span></span><br><span class="line"><span class="comment">* · 从一个函数中返回一个函数</span></span><br><span class="line"><span class="comment">* · 从一个把函数当作参数的函数中返回一个函数*/</span></span><br><span class="line"><span class="comment">//别名</span></span><br><span class="line"><span class="function">function <span class="title">addThreeSquareAddFiveTakeSquareRoot</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Math.<span class="built_in">sqrt</span>(Math.<span class="built_in">pow</span>(x+<span class="number">3</span>,<span class="number">2</span>)+<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> f3 = addThreeSquareAddFiveTakeSquareRoot;</span><br><span class="line"><span class="keyword">const</span> answer = (f3(<span class="number">5</span>)+f3(<span class="number">2</span>))/f3(<span class="number">7</span>);</span><br><span class="line">console.<span class="built_in">log</span>(answer);</span><br><span class="line"><span class="comment">//数组中的函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">cos</span> = Math.<span class="built_in">cos</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">sin</span> = Math.<span class="built_in">sin</span>;</span><br><span class="line"><span class="keyword">const</span> theta = Math.PI/<span class="number">4</span>;</span><br><span class="line"><span class="keyword">const</span> zoom = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> offset = [<span class="number">1</span>,<span class="number">-3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pipeline = [</span><br><span class="line">    function rotate(p)&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            x: p.x * <span class="built_in">cos</span>(theta) - p.y * <span class="built_in">sin</span>(theta),</span><br><span class="line">            y: p.x * <span class="built_in">sin</span>(theta) + p.y * <span class="built_in">cos</span>(theta)</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function">function <span class="title">scale</span><span class="params">(p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;x: p.x * zoom, y: p.y * zoom&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function">function <span class="title">translate</span><span class="params">(p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;x: p.x + offset[<span class="number">0</span>],y: p.y + offset[<span class="number">1</span>]&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> p = &#123;x: <span class="number">1</span>,y: <span class="number">1</span>&#125;;</span><br><span class="line">let p2 = p;</span><br><span class="line"><span class="keyword">for</span>(let i=<span class="number">0</span>;i&lt;pipeline.length;i++)&#123;</span><br><span class="line">    p2 = pipeline[i](p2);</span><br><span class="line">    console.<span class="built_in">log</span>(p2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将函数传给函数</span></span><br><span class="line"><span class="comment">/*之前已经接触了很多将函数传给函数的例子。比如把函数传给setTimeout或forEach。这样做</span></span><br><span class="line"><span class="comment">* 的另一个原因是为了管理异步编程。实现异步执行的常见方法是将一个函数(通常叫回调函数)</span></span><br><span class="line"><span class="comment">* 传给另一个函数。该函数在闭包函数执行完成时被调用*/</span></span><br><span class="line"><span class="function">function <span class="title">sum</span><span class="params">(arr,f)</span> </span>&#123;</span><br><span class="line">    if(typeof f != 'function')f = x =&gt; x;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce((a,x) =&gt; a+=f(x),<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"\n"</span> + sum([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]));</span><br><span class="line">console.<span class="built_in">log</span>(sum([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],x =&gt; x*x));</span><br><span class="line">console.<span class="built_in">log</span>(sum([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],x =&gt; Math.<span class="built_in">pow</span>(x,<span class="number">3</span>)));</span><br><span class="line"><span class="comment">//在函数中返回函数(有点难理解)</span></span><br><span class="line"><span class="comment">// function sumOfSquares(arr) &#123;</span></span><br><span class="line"><span class="comment">//     return sum(arr,x =&gt; x*x);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function">function <span class="title">newSummer</span><span class="params">(f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr =&gt; sum(arr,f);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> sumOfSquares = newSummer(x =&gt; x*x);</span><br><span class="line"><span class="keyword">const</span> sumOfCubes = newSummer(x =&gt; Math.<span class="built_in">pow</span>(x,<span class="number">3</span>));</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"\n"</span>+sumOfSquares([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]));</span><br><span class="line">console.<span class="built_in">log</span>(sumOfCubes([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]));</span><br><span class="line"></span><br><span class="line"><span class="comment">//14章 异步编程</span></span><br><span class="line"><span class="comment">/*JavaScript对异步编程的支持有三个不同的阶段：</span></span><br><span class="line"><span class="comment">回调(callback)阶段</span></span><br><span class="line"><span class="comment">* promise阶段</span></span><br><span class="line"><span class="comment">* 生成器(generator)阶段*/</span></span><br><span class="line"><span class="comment">/*如果知识简单的说生成器比任何出现在它之前的阶段都好，那么只要了解生成</span></span><br><span class="line"><span class="comment">* 器的工作原理跳过其他的就行了，但实际上没这么简单。生成器本身并不提供</span></span><br><span class="line"><span class="comment">* 任何对异步的支持：他们依赖于承诺或特定类型的回调来提供异步行为。同样</span></span><br><span class="line"><span class="comment">* 像承诺这样有用的东西，会依赖于回调（而回调本身又由于具有对象而变得更</span></span><br><span class="line"><span class="comment">* 有用）。除了用户输入外，异步编程技术的三个主要使用场景是：</span></span><br><span class="line"><span class="comment">* 网络请求（如Ajax请求）</span></span><br><span class="line"><span class="comment">* 文件系统操作（读/写文件等）</span></span><br><span class="line"><span class="comment">* 刻意的时间延迟功能（比如警告等）*/</span></span><br><span class="line"><span class="comment">/*类比：在一个人满为患且没有预定的餐厅里找一个空桌子。此时不需要排队等</span></span><br><span class="line"><span class="comment">* ，当有位子的时候餐厅会给打电话。这就类似回调：给餐厅的工作人员提供了</span></span><br><span class="line"><span class="comment">* 一些信息，允许他们在有位子的时候通知客户。所以餐厅可以做自己的事，客</span></span><br><span class="line"><span class="comment">* 户也可以做自己的事，没有人在等其他人。另一家餐厅也许会给客户一个传呼</span></span><br><span class="line"><span class="comment">* 机，在位子准备好的时候就会响。这更像是一个承诺：餐厅工作人员会给客户</span></span><br><span class="line"><span class="comment">* 一个承诺，承诺在有空桌子的时候通知客户。*/</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>中南头号黑子
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/" title="JavaScript迭代器和函数深入">http://yoursite.com/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/26/JavaScript%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%8A%A8%E6%80%81%E5%B1%9E%E6%80%A7-%E5%8E%9F%E5%9E%8B-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%BB%A7%E6%89%BF-map-WeakMap-%E5%BC%82%E5%B8%B8/" rel="prev" title="JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常">
+      <i class="fa fa-chevron-left"></i> JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/26/leetcode329%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84/" rel="next" title="leetcode329矩阵中的最长递增路径">
+      leetcode329矩阵中的最长递增路径 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="中南头号黑子"
+      src="/images/ff.jpg">
+  <p class="site-author-name" itemprop="name">中南头号黑子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DockerBB" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DockerBB" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:adfihvg.fijd@gmail.com" title="E-Mail → mailto:adfihvg.fijd@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/VirusGeek" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;VirusGeek" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wf1996wf" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wf1996wf" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.six1110.top/" title="https:&#x2F;&#x2F;www.six1110.top" rel="noopener" target="_blank">中南大学头号黑子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备19011307号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-中南头号黑子"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">中南头号黑子</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">22k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'UTzIhDRhsCUnXsliXJX4fFUv-gzGzoHsz',
+    appKey: 'JLt2BY0iO0dqcWYwRkvWwGRS',
+    placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

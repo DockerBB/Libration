@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>中南头号黑子的学习记录</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-11-26T14:04:58.319Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>中南头号黑子</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode329矩阵中的最长递增路径</title>
+    <link href="http://yoursite.com/2019/11/26/leetcode329%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84/"/>
+    <id>http://yoursite.com/2019/11/26/leetcode329%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84/</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-26T14:04:58.319Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个整数矩阵，找出最长递增路径的长度。&lt;br&gt;对于每个单元格，你可以往上，下，左，右四个方向移动。 你不能在对角线方向上移动或移动到边界外（即不允许环绕）。（就是非常经典的滑雪题）&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript迭代器和函数深入</title>
+    <link href="http://yoursite.com/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/"/>
+    <id>http://yoursite.com/2019/11/26/JavaScript%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%87%BD%E6%95%B0%E6%B7%B1%E5%85%A5/</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-26T14:19:45.966Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Js迭代器和函数深入&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
+    <link href="http://yoursite.com/2019/11/26/JavaScript%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%8A%A8%E6%80%81%E5%B1%9E%E6%80%A7-%E5%8E%9F%E5%9E%8B-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%BB%A7%E6%89%BF-map-WeakMap-%E5%BC%82%E5%B8%B8/"/>
+    <id>http://yoursite.com/2019/11/26/JavaScript%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%8A%A8%E6%80%81%E5%B1%9E%E6%80%A7-%E5%8E%9F%E5%9E%8B-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E7%BB%A7%E6%89%BF-map-WeakMap-%E5%BC%82%E5%B8%B8/</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-26T14:20:24.262Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Js面向对象编程&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Script学习记录 异步深入</title>
+    <link href="http://yoursite.com/2019/11/26/Script%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%20%E5%BC%82%E6%AD%A5%E6%B7%B1%E5%85%A5/"/>
+    <id>http://yoursite.com/2019/11/26/Script%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%20%E5%BC%82%E6%AD%A5%E6%B7%B1%E5%85%A5/</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-26T14:21:47.030Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>01背包总结</title>
+    <link href="http://yoursite.com/2019/11/26/01%E8%83%8C%E5%8C%85%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2019/11/26/01%E8%83%8C%E5%8C%85%E6%80%BB%E7%BB%93/</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-26T14:14:48.310Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。第i件物品的体积是 vi，价值是 wi。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode322零钱兑换</title>
+    <link href="http://yoursite.com/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/"/>
+    <id>http://yoursite.com/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-26T14:24:51.750Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode357计算各个位数不同的数字个数</title>
+    <link href="http://yoursite.com/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-26T14:27:30.586Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="数学" scheme="http://yoursite.com/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="数学" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+</feed>

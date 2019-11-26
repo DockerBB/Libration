@@ -339,31 +339,28 @@ td {
   margin-top: 3px;
 }
 .toggle.toggle-arrow .toggle-line-first {
-  left: 50%;
   top: 2px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 50%;
 }
 .toggle.toggle-arrow .toggle-line-middle {
-  left: 2px;
   width: 90%;
 }
 .toggle.toggle-arrow .toggle-line-last {
-  left: 50%;
   top: -2px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 50%;
 }
 .toggle.toggle-close .toggle-line-first {
-  transform: rotate(-45deg);
   top: 5px;
+  transform: rotate(-45deg);
 }
 .toggle.toggle-close .toggle-line-middle {
   opacity: 0;
 }
 .toggle.toggle-close .toggle-line-last {
-  transform: rotate(45deg);
   top: -5px;
+  transform: rotate(45deg);
 }
 .highlight,
 pre {
@@ -1088,11 +1085,6 @@ pre .javascript .function {
   border-bottom-color: #eee;
   color: #eee;
 }
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar-inner {
   color: #999;
   padding: 20px 10px;
@@ -1123,6 +1115,13 @@ pre .javascript .function {
   margin: 0 auto;
   max-width: 96px;
   padding: 2px;
+  border-radius: 50%;
+}
+.site-author-image {
+  transition: transform 1s ease-out;
+}
+.site-author-image:hover {
+  transform: rotateZ(360deg);
 }
 .site-author-name {
   color: #f5f5f5;
@@ -1150,7 +1149,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3b216a;
+  background: #1c5457;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1278,7 +1277,6 @@ pre .javascript .function {
   .sidebar-toggle {
     left: 20px;
     opacity: 0.8;
-    display: none;
   }
 }
 .sidebar-toggle:hover .toggle-line {
@@ -2276,6 +2274,10 @@ ul.breadcrumb li + li:last-child {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.has-jax {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 a {
   border-bottom-color: #ccc;
 }
@@ -2467,7 +2469,7 @@ hr {
 }
 .posts-expand .home .post-title,
 .posts-expand .home .post-meta {
-  text-align: left;
+  text-align: center;
 }
 @media (max-width: 767px) {
   .posts-expand .home .post-title,
@@ -2487,6 +2489,13 @@ hr {
 .posts-expand .post-block:not(:first-child) {
   margin-top: 120px;
 }
+.posts-expand .post-block {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(180,180,180,0.5);
+  -moz-box-shadow: 0 0 5px rgba(180,180,180,0.5);
+}
 .posts-expand .post-title,
 .posts-expand .post-meta {
   text-align: center;
@@ -2496,6 +2505,9 @@ hr {
 }
 .posts-expand .post-body img {
   margin-left: 0;
+}
+.posts-expand .post-body {
+  text-align: center;
 }
 .posts-expand .post-tags {
   text-align: left;
@@ -2527,10 +2539,24 @@ hr {
   border-bottom-color: #222;
 }
 .sidebar {
-  left: -320px;
+  right: -320px;
 }
 .sidebar.sidebar-active {
-  left: 0;
+  right: 0;
+}
+.sidebar-toggle,
+.back-to-top {
+  left: auto;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle,
+  .back-to-top {
+    right: 20px;
+  }
+}
+.book-mark-link {
+  left: 30px;
 }
 .sidebar {
   transition: all 0.4s;
