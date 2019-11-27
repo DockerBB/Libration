@@ -15,12 +15,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
+    hostname: new URL('https://www.six1110.top').hostname,
     root: '/',
     scheme: 'Mist',
     version: '7.5.0',
@@ -29,7 +30,7 @@
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
+    fancybox: true,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
@@ -48,17 +49,17 @@
 </script>
 
   <meta name="description" content="给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。">
-<meta name="keywords" content="动态规划,leetcode,数学">
+<meta name="keywords" content="leetcode,动态规划,数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode357计算各个位数不同的数字个数">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;2019&#x2F;11&#x2F;26&#x2F;leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
 <meta property="og:description" content="给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-26T14:27:30.586Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/">
+<link rel="canonical" href="https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -211,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ff.jpg">
@@ -325,7 +326,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" title="leetcode357计算各个位数不同的数字个数">http://yoursite.com/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/</a>
+    <a href="https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" title="leetcode357计算各个位数不同的数字个数">https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -337,8 +338,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
               <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
               <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
           </div>
 
@@ -347,10 +348,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" rel="next" title="leetcode322零钱兑换">
-      leetcode322零钱兑换 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/11/26/leetcode486%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6%20-%20%E5%89%AF%E6%9C%AC/" rel="prev" title="leetcode486预测赢家">
+      <i class="fa fa-chevron-left"></i> leetcode486预测赢家
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/26/01%E8%83%8C%E5%8C%85%E6%80%BB%E7%BB%93/" rel="next" title="01背包总结">
+      01背包总结 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -405,16 +409,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -447,7 +451,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.six1110.top/" title="https:&#x2F;&#x2F;www.six1110.top" rel="noopener" target="_blank">中南大学头号黑子</a>
+          <a href="https://www.six1110.top/" title="https:&#x2F;&#x2F;www.six1110.top">中南大学头号黑子</a>
         </li>
     </ul>
   </div>
@@ -481,13 +485,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
 </div>
 
         
@@ -508,6 +512,8 @@
   
   <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
