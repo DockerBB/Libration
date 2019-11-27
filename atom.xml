@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2019-11-27T02:00:03.333Z</updated>
+  <updated>2019-11-27T07:48:46.408Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -17,25 +17,117 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JavaScript迭代器和函数深入</title>
-    <link href="https://www.six1110.top/posts/ba033a64.html"/>
-    <id>https://www.six1110.top/posts/ba033a64.html</id>
-    <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.333Z</updated>
+    <title>LLeetcode动态规划专题</title>
+    <link href="https://www.six1110.top/posts/59a5b963.html"/>
+    <id>https://www.six1110.top/posts/59a5b963.html</id>
+    <published>2019-11-27T03:13:35.000Z</published>
+    <updated>2019-11-27T07:48:46.408Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Js迭代器和函数深入&lt;/p&gt;
+&lt;p&gt;感觉dp真的很困难，刷不动。打算后面几天刷一下dp的题。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
     
-      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 377 组合总和Ⅳ</title>
+    <link href="https://www.six1110.top/posts/758b2bfb.html"/>
+    <id>https://www.six1110.top/posts/758b2bfb.html</id>
+    <published>2019-11-27T03:09:16.000Z</published>
+    <updated>2019-11-27T03:12:54.888Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 72 编辑距离</title>
+    <link href="https://www.six1110.top/posts/5a2e5835.html"/>
+    <id>https://www.six1110.top/posts/5a2e5835.html</id>
+    <published>2019-11-27T03:05:00.000Z</published>
+    <updated>2019-11-27T03:08:16.676Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。&lt;br&gt;你可以对一个单词进行如下三种操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;插入一个字符&lt;/li&gt;
+&lt;li&gt;删除一个字符&lt;/li&gt;
+&lt;li&gt;替换一个字符&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 52 N皇后题解</title>
+    <link href="https://www.six1110.top/posts/d11b2892.html"/>
+    <id>https://www.six1110.top/posts/d11b2892.html</id>
+    <published>2019-11-27T02:57:24.000Z</published>
+    <updated>2019-11-27T03:04:06.872Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="dfs" scheme="https://www.six1110.top/categories/leetcode/dfs/"/>
+    
+      <category term="回溯" scheme="https://www.six1110.top/categories/leetcode/dfs/%E5%9B%9E%E6%BA%AF/"/>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="dfs" scheme="https://www.six1110.top/tags/dfs/"/>
+    
+      <category term="回溯" scheme="https://www.six1110.top/tags/%E5%9B%9E%E6%BA%AF/"/>
     
   </entry>
   
@@ -50,6 +142,29 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;Js面向对象编程&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript迭代器和函数深入</title>
+    <link href="https://www.six1110.top/posts/ba033a64.html"/>
+    <id>https://www.six1110.top/posts/ba033a64.html</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-27T02:00:03.333Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Js迭代器和函数深入&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -117,7 +232,7 @@
     <link href="https://www.six1110.top/posts/2b28a584.html"/>
     <id>https://www.six1110.top/posts/2b28a584.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:00:03.318Z</updated>
+    <updated>2019-11-27T02:32:56.088Z</updated>
     
     <summary type="html">
     
@@ -132,6 +247,33 @@
     
     
       <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode322零钱兑换</title>
+    <link href="https://www.six1110.top/posts/89f24625.html"/>
+    <id>https://www.six1110.top/posts/89f24625.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:00:03.335Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
   </entry>
   
@@ -203,10 +345,10 @@
   
   <entry>
     <title>leetcode486预测赢家</title>
-    <link href="https://www.six1110.top/posts/4651617e.html"/>
-    <id>https://www.six1110.top/posts/4651617e.html</id>
+    <link href="https://www.six1110.top/posts/4651617d.html"/>
+    <id>https://www.six1110.top/posts/4651617d.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:00:03.337Z</updated>
+    <updated>2019-11-27T02:32:12.989Z</updated>
     
     <summary type="html">
     
@@ -229,43 +371,108 @@
   </entry>
   
   <entry>
-    <title>leetcode486预测赢家</title>
-    <link href="https://www.six1110.top/posts/4651617e.html"/>
-    <id>https://www.six1110.top/posts/4651617e.html</id>
+    <title>多重背包</title>
+    <link href="https://www.six1110.top/posts/4651617g.html"/>
+    <id>https://www.six1110.top/posts/4651617g.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:00:03.337Z</updated>
+    <updated>2019-11-27T02:35:12.656Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
+&lt;p&gt;多重背包模型如下：&lt;br&gt;有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
     
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
       <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>leetcode322零钱兑换</title>
-    <link href="https://www.six1110.top/posts/89f24625.html"/>
-    <id>https://www.six1110.top/posts/89f24625.html</id>
+    <title>随笔</title>
+    <link href="https://www.six1110.top/posts/4651617e.html"/>
+    <id>https://www.six1110.top/posts/4651617e.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:00:03.335Z</updated>
+    <updated>2019-11-27T02:30:28.608Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。&lt;/p&gt;
+&lt;p&gt;27号放假在家咸鱼了将近20天所以鸽了近20天。。15号回学校了，可以继续跟新博客了hhh。今天主要学习了一点机器学习的东西。&lt;br&gt;(今天有个老同学来了，虽然啥也没干，也还是很开心的hhh)&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.six1110.top/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.six1110.top/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随笔2</title>
+    <link href="https://www.six1110.top/posts/4651617f.html"/>
+    <id>https://www.six1110.top/posts/4651617f.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:42:02.246Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.six1110.top/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.six1110.top/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>完全背包</title>
+    <link href="https://www.six1110.top/posts/4651617h.html"/>
+    <id>https://www.six1110.top/posts/4651617h.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:51:52.431Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;完全背包问题的模型如下：&lt;br&gt;有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。第 i 种物品的体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-50-Pow-x-n</title>
+    <link href="https://www.six1110.top/posts/89f24699.html"/>
+    <id>https://www.six1110.top/posts/89f24699.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:55:36.768Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;实现 pow(x, n) ，即计算 x 的 n 次幂函数。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -273,12 +480,12 @@
     
       <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
     
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="位运算" scheme="https://www.six1110.top/categories/leetcode/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   
