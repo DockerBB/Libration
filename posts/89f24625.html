@@ -48,18 +48,18 @@
   };
 </script>
 
-  <meta name="description" content="给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。">
-<meta name="keywords" content="leetcode,动态规划,数学">
+  <meta name="description" content="给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。">
+<meta name="keywords" content="动态规划,leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode357计算各个位数不同的数字个数">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;2019&#x2F;11&#x2F;26&#x2F;leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0&#x2F;index.html">
+<meta property="og:title" content="leetcode322零钱兑换">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;89f24625.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
-<meta property="og:description" content="给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。">
+<meta property="og:description" content="给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-26T14:27:30.586Z">
+<meta property="og:updated_time" content="2019-11-27T02:00:03.335Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/">
+<link rel="canonical" href="https://www.six1110.top/posts/89f24625.html">
 
 
 <script id="page-configurations">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>leetcode357计算各个位数不同的数字个数 | 中南头号黑子的学习记录</title>
+  <title>leetcode322零钱兑换 | 中南头号黑子的学习记录</title>
   
 
 
@@ -212,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/89f24625.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ff.jpg">
@@ -225,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode357计算各个位数不同的数字个数
+          leetcode322零钱兑换
         </h1>
 
         <div class="post-meta">
@@ -234,10 +234,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-26 17:44:14 / 修改时间：22:27:30" itemprop="dateCreated datePublished" datetime="2019-11-26T17:44:14+08:00">2019-11-26</time>
+              <time title="创建时间：2019-11-26 17:44:14" itemprop="dateCreated datePublished" datetime="2019-11-26T17:44:14+08:00">2019-11-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-27 10:00:03" itemprop="dateModified" datetime="2019-11-27T10:00:03+08:00">2019-11-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -254,12 +260,6 @@
                     <span itemprop="name">动态规划</span>
                   </a>
                 </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index">
-                    <span itemprop="name">数学</span>
-                  </a>
-                </span>
             </span>
 
           
@@ -271,8 +271,8 @@
       </span>
       <span class="post-meta-item-text">评论次数:：</span>
     
-    <a title="valine" href="/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/89f24625.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/89f24625.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -282,7 +282,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>623</span>
+              <span>524</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,15 +302,18 @@
 
       
         <blockquote>
-<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
+<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
 </blockquote>
 <a id="more"></a>
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明: 你可以认为每种硬币的数量是无限的。</li>
+</ul>
 <blockquote>
-<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
+<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -326,7 +329,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/" title="leetcode357计算各个位数不同的数字个数">https://www.six1110.top/2019/11/26/leetcode357%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/</a>
+    <a href="https://www.six1110.top/posts/89f24625.html" title="leetcode322零钱兑换">https://www.six1110.top/posts/89f24625.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -338,9 +341,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
               <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
-              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           </div>
 
         
@@ -348,13 +350,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/11/26/leetcode486%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6%20-%20%E5%89%AF%E6%9C%AC/" rel="prev" title="leetcode486预测赢家">
-      <i class="fa fa-chevron-left"></i> leetcode486预测赢家
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/11/26/01%E8%83%8C%E5%8C%85%E6%80%BB%E7%BB%93/" rel="next" title="01背包总结">
-      01背包总结 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/4651617e.html" rel="next" title="leetcode486预测赢家">
+      leetcode486预测赢家 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

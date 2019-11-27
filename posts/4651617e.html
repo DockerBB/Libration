@@ -48,18 +48,18 @@
   };
 </script>
 
-  <meta name="description" content="给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。">
-<meta name="keywords" content="leetcode,动态规划">
+  <meta name="description" content="给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。">
+<meta name="keywords" content="动态规划,leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode322零钱兑换">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;2019&#x2F;11&#x2F;26&#x2F;leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2&#x2F;index.html">
+<meta property="og:title" content="leetcode486预测赢家">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;4651617e.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
-<meta property="og:description" content="给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。">
+<meta property="og:description" content="给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-26T14:24:51.750Z">
+<meta property="og:updated_time" content="2019-11-27T02:00:03.337Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.six1110.top/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/">
+<link rel="canonical" href="https://www.six1110.top/posts/4651617e.html">
 
 
 <script id="page-configurations">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>leetcode322零钱兑换 | 中南头号黑子的学习记录</title>
+  <title>leetcode486预测赢家 | 中南头号黑子的学习记录</title>
   
 
 
@@ -212,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/4651617e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ff.jpg">
@@ -225,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode322零钱兑换
+          leetcode486预测赢家
         </h1>
 
         <div class="post-meta">
@@ -234,10 +234,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-26 17:44:14 / 修改时间：22:24:51" itemprop="dateCreated datePublished" datetime="2019-11-26T17:44:14+08:00">2019-11-26</time>
+              <time title="创建时间：2019-11-26 17:44:14" itemprop="dateCreated datePublished" datetime="2019-11-26T17:44:14+08:00">2019-11-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-27 10:00:03" itemprop="dateModified" datetime="2019-11-27T10:00:03+08:00">2019-11-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -265,8 +271,8 @@
       </span>
       <span class="post-meta-item-text">评论次数:：</span>
     
-    <a title="valine" href="/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/4651617e.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/4651617e.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,7 +282,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>524</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -296,18 +302,28 @@
 
       
         <blockquote>
-<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+<p>给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。<br>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
 </blockquote>
 <a id="more"></a>
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">输出: False</span><br><span class="line">解释: 一开始，玩家<span class="number">1</span>可以从<span class="number">1</span>和<span class="number">2</span>中进行选择。</span><br><span class="line">如果他选择<span class="number">2</span>（或者<span class="number">1</span>），那么玩家<span class="number">2</span>可以从<span class="number">1</span>（或者<span class="number">2</span>）和<span class="number">5</span>中进行选择。如果玩家<span class="number">2</span>选择了<span class="number">5</span>，那么玩家<span class="number">1</span>则只剩下<span class="number">1</span>（或者<span class="number">2</span>）可选。</span><br><span class="line">所以，玩家<span class="number">1</span>的最终分数为 <span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span>，而玩家<span class="number">2</span>为 <span class="number">5</span>。</span><br><span class="line">因此，玩家<span class="number">1</span>永远不会成为赢家，返回 False。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">233</span>, <span class="number">7</span>]</span><br><span class="line">输出: True</span><br><span class="line">解释: 玩家<span class="number">1</span>一开始选择<span class="number">1</span>。然后玩家<span class="number">2</span>必须从<span class="number">5</span>和<span class="number">7</span>中进行选择。无论玩家<span class="number">2</span>选择了哪个，玩家<span class="number">1</span>都可以选择<span class="number">233</span>。</span><br><span class="line">最终，玩家<span class="number">1</span>（<span class="number">234</span>分）比玩家<span class="number">2</span>（<span class="number">12</span>分）获得更多的分数，所以返回 True，表示玩家<span class="number">1</span>可以成为赢家。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意:</p>
+</blockquote>
+<ol>
+<li>1 &lt;= 给定的数组长度 &lt;= 20.</li>
+<li>数组里所有分数都为非负数且不会大于10000000。</li>
+<li>如果最终两个玩家的分数相等，那么玩家1仍为赢家。</li>
+</ol>
 <ul>
-<li>说明: 你可以认为每种硬币的数量是无限的。</li>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/predict-the-winner" target="_blank" rel="noopener">https://leetcode-cn.com/problems/predict-the-winner</a></li>
 </ul>
 <blockquote>
-<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
+<p>思路：（区间dp问题，一般都要先枚举区间长度）。状态定义：f[i][j表示取完了除i-j区间外所有数，先手玩家可得最高分数。初始化时如果数组的数为奇数个则最后一次是先手玩家取数，若为偶数则啥也不干。枚举区间长度2-n，l表示区间左端点，r表示区间右端点。若当前取的数是第奇数个则是先手玩家取，故要采取对自己最有利的方式,从左右端点中取最大的那个数，状态转移方程为:<br>$f[l][r] = max(f[l+1][r] + nums[l],f[l][r-1]+nums[r])$<br>否则是对方取数，则会让先手玩家得分为最小，状态转移方程为：<br>$f[l][r] = min(f[l+1][r],f[l][r-1])$<br>（因为f[i][j]是先手玩家能得最大分）<br>由于若两个玩家最后的分数相等也是先手玩家赢，所以最后要比较一下先手玩家和后手玩家的分数。<br>代码如下：</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i][i] = nums[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i&lt;=n; i++)&#123;<span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j+i<span class="number">-1</span>&lt;n;j++)&#123;<span class="comment">//f[i][j]表示取完了除i-j区间之后 玩家可得最高分数</span></span><br><span class="line">                <span class="keyword">int</span> l = j, r = i+j<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((n-(r-l+<span class="number">1</span>))%<span class="number">2</span>==<span class="number">0</span>)f[l][r] = <span class="built_in">max</span>(f[l+<span class="number">1</span>][r] + nums[l],f[l][r<span class="number">-1</span>]+nums[r]);</span><br><span class="line">                <span class="keyword">else</span> f[l][r] = <span class="built_in">min</span>(f[l+<span class="number">1</span>][r],f[l][r<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i=<span class="number">0</span>;i&lt;n;i++)sum+=nums[i];</span><br><span class="line">        <span class="keyword">if</span>(f[<span class="number">0</span>][n<span class="number">-1</span>]&gt;=sum-f[<span class="number">0</span>][n<span class="number">-1</span>])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -323,7 +339,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.six1110.top/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" title="leetcode322零钱兑换">https://www.six1110.top/2019/11/26/leetcode322%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/</a>
+    <a href="https://www.six1110.top/posts/4651617e.html" title="leetcode486预测赢家">https://www.six1110.top/posts/4651617e.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -335,8 +351,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
               <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           </div>
 
         
@@ -345,11 +361,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/26/leetcode486%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/" rel="prev" title="leetcode486预测赢家">
-      <i class="fa fa-chevron-left"></i> leetcode486预测赢家
+    <a href="/posts/89f24625.html" rel="prev" title="leetcode322零钱兑换">
+      <i class="fa fa-chevron-left"></i> leetcode322零钱兑换
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/26/leetcode486%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6%20-%20%E5%89%AF%E6%9C%AC/" rel="next" title="leetcode486预测赢家">
+    <a href="/posts/4651617e.html" rel="next" title="leetcode486预测赢家">
       leetcode486预测赢家 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -540,6 +556,56 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
