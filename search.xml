@@ -28,7 +28,7 @@
       </tags>
   </entry>
   <entry>
-    <title>LLeetcode动态规划专题</title>
+    <title>leetcode动态规划专题</title>
     <url>/posts/59a5b963.html</url>
     <content><![CDATA[<blockquote>
 <p>感觉dp真的很困难，刷不动。打算后面几天刷一下dp的题。</p>
@@ -88,12 +88,12 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
-    <title>Leetcode 377 组合总和Ⅳ</title>
+    <title>leetcode 377 组合总和Ⅳ</title>
     <url>/posts/758b2bfb.html</url>
     <content><![CDATA[<blockquote>
 <p>给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。</p>
@@ -117,12 +117,12 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
-    <title>Leetcode 72 编辑距离</title>
+    <title>leetcode 72 编辑距离</title>
     <url>/posts/5a2e5835.html</url>
     <content><![CDATA[<blockquote>
 <p>给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。<br>你可以对一个单词进行如下三种操作：</p>
@@ -148,12 +148,12 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
-    <title>Leetcode 52 N皇后题解</title>
+    <title>leetcode 52 N皇后题解</title>
     <url>/posts/d11b2892.html</url>
     <content><![CDATA[<p>n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
 <a id="more"></a>
@@ -258,8 +258,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -297,7 +297,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Leetcode-50-Pow-x-n</title>
+    <title>leetcode-50-Pow-x-n</title>
     <url>/posts/89f24699.html</url>
     <content><![CDATA[<blockquote>
 <p>实现 pow(x, n) ，即计算 x 的 n 次幂函数。</p>
@@ -329,7 +329,138 @@
       </tags>
   </entry>
   <entry>
-    <title>Leetcode题解167,88,155,32,84,42</title>
+    <title>leetcode322零钱兑换</title>
+    <url>/posts/89f24625.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明: 你可以认为每种硬币的数量是无限的。</li>
+</ul>
+<blockquote>
+<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode357计算各个位数不同的数字个数</title>
+    <url>/posts/52d85e26.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode486预测赢家</title>
+    <url>/posts/4651617d.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。<br>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">输出: False</span><br><span class="line">解释: 一开始，玩家<span class="number">1</span>可以从<span class="number">1</span>和<span class="number">2</span>中进行选择。</span><br><span class="line">如果他选择<span class="number">2</span>（或者<span class="number">1</span>），那么玩家<span class="number">2</span>可以从<span class="number">1</span>（或者<span class="number">2</span>）和<span class="number">5</span>中进行选择。如果玩家<span class="number">2</span>选择了<span class="number">5</span>，那么玩家<span class="number">1</span>则只剩下<span class="number">1</span>（或者<span class="number">2</span>）可选。</span><br><span class="line">所以，玩家<span class="number">1</span>的最终分数为 <span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span>，而玩家<span class="number">2</span>为 <span class="number">5</span>。</span><br><span class="line">因此，玩家<span class="number">1</span>永远不会成为赢家，返回 False。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">233</span>, <span class="number">7</span>]</span><br><span class="line">输出: True</span><br><span class="line">解释: 玩家<span class="number">1</span>一开始选择<span class="number">1</span>。然后玩家<span class="number">2</span>必须从<span class="number">5</span>和<span class="number">7</span>中进行选择。无论玩家<span class="number">2</span>选择了哪个，玩家<span class="number">1</span>都可以选择<span class="number">233</span>。</span><br><span class="line">最终，玩家<span class="number">1</span>（<span class="number">234</span>分）比玩家<span class="number">2</span>（<span class="number">12</span>分）获得更多的分数，所以返回 True，表示玩家<span class="number">1</span>可以成为赢家。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意:</p>
+</blockquote>
+<ol>
+<li>1 &lt;= 给定的数组长度 &lt;= 20.</li>
+<li>数组里所有分数都为非负数且不会大于10000000。</li>
+<li>如果最终两个玩家的分数相等，那么玩家1仍为赢家。</li>
+</ol>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/predict-the-winner" target="_blank" rel="noopener">https://leetcode-cn.com/problems/predict-the-winner</a></li>
+</ul>
+<blockquote>
+<p>思路：（区间dp问题，一般都要先枚举区间长度）。状态定义：f[i][j表示取完了除i-j区间外所有数，先手玩家可得最高分数。初始化时如果数组的数为奇数个则最后一次是先手玩家取数，若为偶数则啥也不干。枚举区间长度2-n，l表示区间左端点，r表示区间右端点。若当前取的数是第奇数个则是先手玩家取，故要采取对自己最有利的方式,从左右端点中取最大的那个数，状态转移方程为:<br>$f[l][r] = max(f[l+1][r] + nums[l],f[l][r-1]+nums[r])$<br>否则是对方取数，则会让先手玩家得分为最小，状态转移方程为：<br>$f[l][r] = min(f[l+1][r],f[l][r-1])$<br>（因为f[i][j]是先手玩家能得最大分）<br>由于若两个玩家最后的分数相等也是先手玩家赢，所以最后要比较一下先手玩家和后手玩家的分数。<br>代码如下：</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i][i] = nums[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i&lt;=n; i++)&#123;<span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j+i<span class="number">-1</span>&lt;n;j++)&#123;<span class="comment">//f[i][j]表示取完了除i-j区间之后 玩家可得最高分数</span></span><br><span class="line">                <span class="keyword">int</span> l = j, r = i+j<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((n-(r-l+<span class="number">1</span>))%<span class="number">2</span>==<span class="number">0</span>)f[l][r] = <span class="built_in">max</span>(f[l+<span class="number">1</span>][r] + nums[l],f[l][r<span class="number">-1</span>]+nums[r]);</span><br><span class="line">                <span class="keyword">else</span> f[l][r] = <span class="built_in">min</span>(f[l+<span class="number">1</span>][r],f[l][r<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i=<span class="number">0</span>;i&lt;n;i++)sum+=nums[i];</span><br><span class="line">        <span class="keyword">if</span>(f[<span class="number">0</span>][n<span class="number">-1</span>]&gt;=sum-f[<span class="number">0</span>][n<span class="number">-1</span>])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多重背包</title>
+    <url>/posts/4651617g.html</url>
+    <content><![CDATA[<blockquote>
+<p>多重背包模型如下：<br>有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</p>
+</blockquote>
+<a id="more"></a>
+<p>思路:<br>直接拆分法，求解多重背包问题最直接的方法是把第i种物品当作独立的\(C_i\)个物品，转化为共\(\sum_{i=1}^{N}C_i\)个物品的0/1背包问题进行计算，时间复杂度为复杂度\(O(M*\sum_{i=1}^{N}C_i)\)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[MAX_M+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">memset</span>(f,oxcf,<span class="keyword">sizeof</span>(f));</span><br><span class="line">f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c[i];j++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> k=m;k&gt;=v[i];k--)&#123;</span><br><span class="line">            f[k]=<span class="built_in">max</span>(f[k],f[k-v[i]]+w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=m;i++)ans = <span class="built_in">max</span> (ans,f[i]);</span><br></pre></td></tr></table></figure>
+<p>使用二进制优化<br>其实不用把c[i]个物品分成单独的01背包，可以使用二进制表示<br>如：s = 10 = 1 + 2 + 4 + 3<br>所以可以拆分成V=1<em>v,W=1</em>w, V=2<em>v,W=2</em>w, V=4<em>v,W=4</em>w, V=3<em>v,W=3</em>w的01背包<br>代码如下</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,f[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Goods&gt;goods;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v,w,s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v&gt;&gt;w&gt;&gt;s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=s;k*=<span class="number">2</span>)&#123;</span><br><span class="line">            goods.push_back(&#123;k*v,k*w&#125;);</span><br><span class="line">            s-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)goods.push_back(&#123;s*v,s*w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> g:goods)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=g.v;j--)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-g.v]+g.w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用单调队列优化：这个坑还没补上，还没看懂</p>
+]]></content>
+      <categories>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>完全背包</title>
+    <url>/posts/4651617h.html</url>
+    <content><![CDATA[<blockquote>
+<p>完全背包问题的模型如下：<br>有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。第 i 种物品的体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。</p>
+</blockquote>
+<a id="more"></a>
+
+
+<blockquote>
+<p>输入格式<br>第一行两个整数，N，V，用空格隔开，分别表示物品种数和背包容积。接下来有 N 行，每行两个整数 \(V_i\),\(W_i\)，用空格隔开，分别表示第 i 种物品的体积和价值。<br><br>输出格式<br>输出一个整数，表示最大价值。<br>数据范围<br>0&lt;N,V≤1000<br>0&lt;$V_i$,$W_i$≤1000</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入样例</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>思路：先考虑使用传统的二维线性DP的做法。设F[i,j]表示从前i种物品中选出了总体积为j的物品放入背包，物品的最大价值和。<br>$F[i,j] = max(F[i-1,j],F[i-1,j-V_i]+W_i)$<br>初值:$F[0,0]=0$,其余均为负无穷。目标：$max(F[N][j])$。<br>与0/1背包一样，我们也可以省略F数组的i这一维。根据我们在0/1背包中对循环顺序的分析，当采用正序循环时，就对应着每种物品可以使用无限次，也对应着$F[i,j] = F[i,j-V_i]+W_i$这个在两个均处于i阶段的状态之间进行转移的方程。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N,V,v=<span class="number">0</span>,w=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;V);</span><br><span class="line">    <span class="keyword">int</span> f[V+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0xcf</span>,<span class="keyword">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;v,&amp;w);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=v;j&lt;=V;j++)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-v]+w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=V;j++)ans = <span class="built_in">max</span>(ans,f[j]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode题解167,88,155,32,84,42</title>
     <url>/posts/81be5994.html</url>
     <content><![CDATA[<blockquote>
 <p>练习了一下双指针，单调栈。三道简单，三道困难。分别是两数之和 II - 输入有序数组，合并两个有序数组，最小栈，最长有效括号，柱状图中最大的矩形，接雨水。难度着实有点大。</p>
@@ -443,137 +574,6 @@
         <tag>双指针</tag>
         <tag>栈</tag>
         <tag>单调栈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode322零钱兑换</title>
-    <url>/posts/89f24625.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>说明: 你可以认为每种硬币的数量是无限的。</li>
-</ul>
-<blockquote>
-<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode357计算各个位数不同的数字个数</title>
-    <url>/posts/52d85e26.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>动态规划</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode486预测赢家</title>
-    <url>/posts/4651617d.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。<br>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">输出: False</span><br><span class="line">解释: 一开始，玩家<span class="number">1</span>可以从<span class="number">1</span>和<span class="number">2</span>中进行选择。</span><br><span class="line">如果他选择<span class="number">2</span>（或者<span class="number">1</span>），那么玩家<span class="number">2</span>可以从<span class="number">1</span>（或者<span class="number">2</span>）和<span class="number">5</span>中进行选择。如果玩家<span class="number">2</span>选择了<span class="number">5</span>，那么玩家<span class="number">1</span>则只剩下<span class="number">1</span>（或者<span class="number">2</span>）可选。</span><br><span class="line">所以，玩家<span class="number">1</span>的最终分数为 <span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span>，而玩家<span class="number">2</span>为 <span class="number">5</span>。</span><br><span class="line">因此，玩家<span class="number">1</span>永远不会成为赢家，返回 False。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">233</span>, <span class="number">7</span>]</span><br><span class="line">输出: True</span><br><span class="line">解释: 玩家<span class="number">1</span>一开始选择<span class="number">1</span>。然后玩家<span class="number">2</span>必须从<span class="number">5</span>和<span class="number">7</span>中进行选择。无论玩家<span class="number">2</span>选择了哪个，玩家<span class="number">1</span>都可以选择<span class="number">233</span>。</span><br><span class="line">最终，玩家<span class="number">1</span>（<span class="number">234</span>分）比玩家<span class="number">2</span>（<span class="number">12</span>分）获得更多的分数，所以返回 True，表示玩家<span class="number">1</span>可以成为赢家。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意:</p>
-</blockquote>
-<ol>
-<li>1 &lt;= 给定的数组长度 &lt;= 20.</li>
-<li>数组里所有分数都为非负数且不会大于10000000。</li>
-<li>如果最终两个玩家的分数相等，那么玩家1仍为赢家。</li>
-</ol>
-<ul>
-<li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/predict-the-winner" target="_blank" rel="noopener">https://leetcode-cn.com/problems/predict-the-winner</a></li>
-</ul>
-<blockquote>
-<p>思路：（区间dp问题，一般都要先枚举区间长度）。状态定义：f[i][j表示取完了除i-j区间外所有数，先手玩家可得最高分数。初始化时如果数组的数为奇数个则最后一次是先手玩家取数，若为偶数则啥也不干。枚举区间长度2-n，l表示区间左端点，r表示区间右端点。若当前取的数是第奇数个则是先手玩家取，故要采取对自己最有利的方式,从左右端点中取最大的那个数，状态转移方程为:<br>$f[l][r] = max(f[l+1][r] + nums[l],f[l][r-1]+nums[r])$<br>否则是对方取数，则会让先手玩家得分为最小，状态转移方程为：<br>$f[l][r] = min(f[l+1][r],f[l][r-1])$<br>（因为f[i][j]是先手玩家能得最大分）<br>由于若两个玩家最后的分数相等也是先手玩家赢，所以最后要比较一下先手玩家和后手玩家的分数。<br>代码如下：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i][i] = nums[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i&lt;=n; i++)&#123;<span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j+i<span class="number">-1</span>&lt;n;j++)&#123;<span class="comment">//f[i][j]表示取完了除i-j区间之后 玩家可得最高分数</span></span><br><span class="line">                <span class="keyword">int</span> l = j, r = i+j<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((n-(r-l+<span class="number">1</span>))%<span class="number">2</span>==<span class="number">0</span>)f[l][r] = <span class="built_in">max</span>(f[l+<span class="number">1</span>][r] + nums[l],f[l][r<span class="number">-1</span>]+nums[r]);</span><br><span class="line">                <span class="keyword">else</span> f[l][r] = <span class="built_in">min</span>(f[l+<span class="number">1</span>][r],f[l][r<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i=<span class="number">0</span>;i&lt;n;i++)sum+=nums[i];</span><br><span class="line">        <span class="keyword">if</span>(f[<span class="number">0</span>][n<span class="number">-1</span>]&gt;=sum-f[<span class="number">0</span>][n<span class="number">-1</span>])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>完全背包</title>
-    <url>/posts/4651617h.html</url>
-    <content><![CDATA[<blockquote>
-<p>完全背包问题的模型如下：<br>有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。第 i 种物品的体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。</p>
-</blockquote>
-<a id="more"></a>
-
-
-<blockquote>
-<p>输入格式<br>第一行两个整数，N，V，用空格隔开，分别表示物品种数和背包容积。接下来有 N 行，每行两个整数 \(V_i\),\(W_i\)，用空格隔开，分别表示第 i 种物品的体积和价值。<br><br>输出格式<br>输出一个整数，表示最大价值。<br>数据范围<br>0&lt;N,V≤1000<br>0&lt;$V_i$,$W_i$≤1000</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入样例</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>思路：先考虑使用传统的二维线性DP的做法。设F[i,j]表示从前i种物品中选出了总体积为j的物品放入背包，物品的最大价值和。<br>$F[i,j] = max(F[i-1,j],F[i-1,j-V_i]+W_i)$<br>初值:$F[0,0]=0$,其余均为负无穷。目标：$max(F[N][j])$。<br>与0/1背包一样，我们也可以省略F数组的i这一维。根据我们在0/1背包中对循环顺序的分析，当采用正序循环时，就对应着每种物品可以使用无限次，也对应着$F[i,j] = F[i,j-V_i]+W_i$这个在两个均处于i阶段的状态之间进行转移的方程。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N,V,v=<span class="number">0</span>,w=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;V);</span><br><span class="line">    <span class="keyword">int</span> f[V+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0xcf</span>,<span class="keyword">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;v,&amp;w);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=v;j&lt;=V;j++)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-v]+w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=V;j++)ans = <span class="built_in">max</span>(ans,f[j]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多重背包</title>
-    <url>/posts/4651617g.html</url>
-    <content><![CDATA[<blockquote>
-<p>多重背包模型如下：<br>有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</p>
-</blockquote>
-<a id="more"></a>
-<p>思路:<br>直接拆分法，求解多重背包问题最直接的方法是把第i种物品当作独立的\(C_i\)个物品，转化为共\(\sum_{i=1}^{N}C_i\)个物品的0/1背包问题进行计算，时间复杂度为复杂度\(O(M*\sum_{i=1}^{N}C_i)\)</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[MAX_M+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">memset</span>(f,oxcf,<span class="keyword">sizeof</span>(f));</span><br><span class="line">f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c[i];j++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> k=m;k&gt;=v[i];k--)&#123;</span><br><span class="line">            f[k]=<span class="built_in">max</span>(f[k],f[k-v[i]]+w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=m;i++)ans = <span class="built_in">max</span> (ans,f[i]);</span><br></pre></td></tr></table></figure>
-<p>使用二进制优化<br>其实不用把c[i]个物品分成单独的01背包，可以使用二进制表示<br>如：s = 10 = 1 + 2 + 4 + 3<br>所以可以拆分成V=1<em>v,W=1</em>w, V=2<em>v,W=2</em>w, V=4<em>v,W=4</em>w, V=3<em>v,W=3</em>w的01背包<br>代码如下</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,f[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Goods&gt;goods;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v,w,s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v&gt;&gt;w&gt;&gt;s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=s;k*=<span class="number">2</span>)&#123;</span><br><span class="line">            goods.push_back(&#123;k*v,k*w&#125;);</span><br><span class="line">            s-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)goods.push_back(&#123;s*v,s*w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> g:goods)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=g.v;j--)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-g.v]+g.w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用单调队列优化：这个坑还没补上，还没看懂</p>
-]]></content>
-      <categories>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
