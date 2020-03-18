@@ -10,15 +10,16 @@
 <a id="more"></a>
 <blockquote>
 <p>输入格式<br>第一行两个整数，N,V,M，用空格隔开，分别表示物品件数、背包容积和背包可承受的最大重量。<br>接下来有 N 行，每行三个整数 vi,mi,wi，用空格隔开，分别表示第 i 件物品的体积、重量和价值。<br>输出格式<br>输出一个整数，表示最大价值。<br>数据范围</p>
-</blockquote>
 <ol>
 <li>$0&lt;N≤1000$</li>
 <li>$0&lt;V,M≤100$</li>
 <li>$0&lt;v_i,m_i≤100$</li>
-<li>$0&lt;w_i≤1000$<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入样例</span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
-思路：多了一维重量限制，其实和01背包是一样的多枚举一下重量即可<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,w;</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;w;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,c;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=a;j--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=w;k&gt;=b;k--)&#123;</span><br><span class="line">                f[j][k] = <span class="built_in">max</span>(f[j][k],f[j-a][k-b]+c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m][w]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>$0&lt;w_i≤1000$</li>
 </ol>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入样例</span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<p>思路：多了一维重量限制，其实和01背包是一样的多枚举一下重量即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,w;</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;w;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,c;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=a;j--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=w;k&gt;=b;k--)&#123;</span><br><span class="line">                f[j][k] = <span class="built_in">max</span>(f[j][k],f[j-a][k-b]+c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m][w]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>动态规划</category>
@@ -382,31 +383,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode357计算各个位数不同的数字个数</title>
-    <url>/posts/52d85e26.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode486预测赢家</title>
     <url>/posts/4651617d.html</url>
     <content><![CDATA[<blockquote>
@@ -440,6 +416,31 @@
       <tags>
         <tag>动态规划</tag>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode357计算各个位数不同的数字个数</title>
+    <url>/posts/52d85e26.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
