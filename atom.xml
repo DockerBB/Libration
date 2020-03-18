@@ -251,16 +251,16 @@
   </entry>
   
   <entry>
-    <title>leetcode322零钱兑换</title>
-    <link href="https://www.six1110.top/posts/89f24625.html"/>
-    <id>https://www.six1110.top/posts/89f24625.html</id>
+    <title>Leetcode-50-Pow-x-n</title>
+    <link href="https://www.six1110.top/posts/89f24699.html"/>
+    <id>https://www.six1110.top/posts/89f24699.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:00:03.335Z</updated>
+    <updated>2019-11-27T02:55:36.768Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。&lt;/p&gt;
+&lt;p&gt;实现 pow(x, n) ，即计算 x 的 n 次幂函数。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -268,12 +268,12 @@
     
       <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
     
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="位运算" scheme="https://www.six1110.top/categories/leetcode/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   
@@ -313,47 +313,16 @@
   </entry>
   
   <entry>
-    <title>leetcode357计算各个位数不同的数字个数</title>
-    <link href="https://www.six1110.top/posts/52d85e26.html"/>
-    <id>https://www.six1110.top/posts/52d85e26.html</id>
+    <title>leetcode322零钱兑换</title>
+    <link href="https://www.six1110.top/posts/89f24625.html"/>
+    <id>https://www.six1110.top/posts/89f24625.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:00:03.336Z</updated>
+    <updated>2019-11-27T02:00:03.335Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="数学" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
-    
-      <category term="数学" scheme="https://www.six1110.top/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode486预测赢家</title>
-    <link href="https://www.six1110.top/posts/4651617d.html"/>
-    <id>https://www.six1110.top/posts/4651617d.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:32:12.989Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
+&lt;p&gt;给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -394,25 +363,52 @@
   </entry>
   
   <entry>
-    <title>随笔</title>
-    <link href="https://www.six1110.top/posts/4651617e.html"/>
-    <id>https://www.six1110.top/posts/4651617e.html</id>
+    <title>完全背包</title>
+    <link href="https://www.six1110.top/posts/4651617h.html"/>
+    <id>https://www.six1110.top/posts/4651617h.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:30:28.608Z</updated>
+    <updated>2019-11-27T02:51:52.431Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;27号放假在家咸鱼了将近20天所以鸽了近20天。。15号回学校了，可以继续跟新博客了hhh。今天主要学习了一点机器学习的东西。&lt;br&gt;(今天有个老同学来了，虽然啥也没干，也还是很开心的hhh)&lt;/p&gt;
+&lt;p&gt;完全背包问题的模型如下：&lt;br&gt;有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。第 i 种物品的体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
     
-      <category term="随笔" scheme="https://www.six1110.top/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="随笔" scheme="https://www.six1110.top/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode486预测赢家</title>
+    <link href="https://www.six1110.top/posts/4651617d.html"/>
+    <id>https://www.six1110.top/posts/4651617d.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:32:12.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
   </entry>
   
@@ -440,39 +436,16 @@
   </entry>
   
   <entry>
-    <title>完全背包</title>
-    <link href="https://www.six1110.top/posts/4651617h.html"/>
-    <id>https://www.six1110.top/posts/4651617h.html</id>
+    <title>leetcode357计算各个位数不同的数字个数</title>
+    <link href="https://www.six1110.top/posts/52d85e26.html"/>
+    <id>https://www.six1110.top/posts/52d85e26.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:51:52.431Z</updated>
+    <updated>2019-11-27T02:00:03.336Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;完全背包问题的模型如下：&lt;br&gt;有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。第 i 种物品的体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-50-Pow-x-n</title>
-    <link href="https://www.six1110.top/posts/89f24699.html"/>
-    <id>https://www.six1110.top/posts/89f24699.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:55:36.768Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;实现 pow(x, n) ，即计算 x 的 n 次幂函数。&lt;/p&gt;
+&lt;p&gt;给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -480,12 +453,39 @@
     
       <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
     
-      <category term="位运算" scheme="https://www.six1110.top/categories/leetcode/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
+      <category term="数学" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
-      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+      <category term="数学" scheme="https://www.six1110.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随笔</title>
+    <link href="https://www.six1110.top/posts/4651617e.html"/>
+    <id>https://www.six1110.top/posts/4651617e.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:30:28.608Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;27号放假在家咸鱼了将近20天所以鸽了近20天。。15号回学校了，可以继续跟新博客了hhh。今天主要学习了一点机器学习的东西。&lt;br&gt;(今天有个老同学来了，虽然啥也没干，也还是很开心的hhh)&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.six1110.top/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://www.six1110.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
