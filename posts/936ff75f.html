@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="中南头号黑子的学习记录">
 <meta property="og:description" content="给定两条线段（表示为起点$start = {X1, Y1}$和终点 $end = {X2, Y2}$ ），如果它们有交点，请计算其交点，没有交点则返回空值。 要求浮点型误差不超过$10^{-6}$。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-13T14:10:47.234Z">
+<meta property="og:updated_time" content="2020-04-13T14:12:33.421Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.six1110.top/posts/936ff75f.html">
@@ -236,7 +236,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-13 21:44:38 / 修改时间：22:10:47" itemprop="dateCreated datePublished" datetime="2020-04-13T21:44:38+08:00">2020-04-13</time>
+              <time title="创建时间：2020-04-13 21:44:38 / 修改时间：22:12:33" itemprop="dateCreated datePublished" datetime="2020-04-13T21:44:38+08:00">2020-04-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,7 +305,8 @@
 <li>(2)$line1$不存在$line2$存在<br>求出交点判断交点是否在线段范围内</li>
 <li>(3)$line1$存在$line2$不存在<br>同(2)</li>
 </ul>
-<p>由$y=kx+b$，斜率存在时有$k=(y_1-y_2)/(x_1-x_2)$,$b=y_1-k<em>x_1$<br>所以每两个点确定一个方程，当两条线段斜率都存在时:<br>两直线方程为：<br>$y=k_1</em>x+b_1$</p>
+<p>由$y=kx+b$，斜率存在时有$k=(y_1-y_2)/(x_1-x_2)$,$b=y_1-k*x_1$<br>所以每两个点确定一个方程，当两条线段斜率都存在时:<br>两直线方程为：</p>
+<p>$y=k_1*x+b_1$</p>
 <p>$y=k_2*x+b_2$</p>
 <p>若两线的平行</p>
 <ul>

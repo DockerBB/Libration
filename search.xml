@@ -19,7 +19,8 @@
 <li>(2)$line1$不存在$line2$存在<br>求出交点判断交点是否在线段范围内</li>
 <li>(3)$line1$存在$line2$不存在<br>同(2)</li>
 </ul>
-<p>由$y=kx+b$，斜率存在时有$k=(y_1-y_2)/(x_1-x_2)$,$b=y_1-k<em>x_1$<br>所以每两个点确定一个方程，当两条线段斜率都存在时:<br>两直线方程为：<br>$y=k_1</em>x+b_1$</p>
+<p>由$y=kx+b$，斜率存在时有$k=(y_1-y_2)/(x_1-x_2)$,$b=y_1-k*x_1$<br>所以每两个点确定一个方程，当两条线段斜率都存在时:<br>两直线方程为：</p>
+<p>$y=k_1*x+b_1$</p>
 <p>$y=k_2*x+b_2$</p>
 <p>若两线的平行</p>
 <ul>
@@ -514,27 +515,6 @@
       </tags>
   </entry>
   <entry>
-    <title>多重背包</title>
-    <url>/posts/4651617g.html</url>
-    <content><![CDATA[<blockquote>
-<p>多重背包模型如下：<br>有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</p>
-</blockquote>
-<a id="more"></a>
-<p>思路:<br>直接拆分法，求解多重背包问题最直接的方法是把第i种物品当作独立的\(C_i\)个物品，转化为共\(\sum_{i=1}^{N}C_i\)个物品的0/1背包问题进行计算，时间复杂度为复杂度\(O(M*\sum_{i=1}^{N}C_i)\)</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[MAX_M+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">memset</span>(f,oxcf,<span class="keyword">sizeof</span>(f));</span><br><span class="line">f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c[i];j++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> k=m;k&gt;=v[i];k--)&#123;</span><br><span class="line">            f[k]=<span class="built_in">max</span>(f[k],f[k-v[i]]+w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=m;i++)ans = <span class="built_in">max</span> (ans,f[i]);</span><br></pre></td></tr></table></figure>
-<p>使用二进制优化<br>其实不用把c[i]个物品分成单独的01背包，可以使用二进制表示<br>如：s = 10 = 1 + 2 + 4 + 3<br>所以可以拆分成V=1<em>v,W=1</em>w, V=2<em>v,W=2</em>w, V=4<em>v,W=4</em>w, V=3<em>v,W=3</em>w的01背包<br>代码如下</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,f[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Goods&gt;goods;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v,w,s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v&gt;&gt;w&gt;&gt;s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=s;k*=<span class="number">2</span>)&#123;</span><br><span class="line">            goods.push_back(&#123;k*v,k*w&#125;);</span><br><span class="line">            s-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)goods.push_back(&#123;s*v,s*w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> g:goods)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=g.v;j--)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-g.v]+g.w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用单调队列优化：这个坑还没补上，还没看懂</p>
-]]></content>
-      <categories>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode题解167,88,155,32,84,42</title>
     <url>/posts/81be5994.html</url>
     <content><![CDATA[<blockquote>
@@ -649,6 +629,27 @@
         <tag>双指针</tag>
         <tag>栈</tag>
         <tag>单调栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多重背包</title>
+    <url>/posts/4651617g.html</url>
+    <content><![CDATA[<blockquote>
+<p>多重背包模型如下：<br>有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</p>
+</blockquote>
+<a id="more"></a>
+<p>思路:<br>直接拆分法，求解多重背包问题最直接的方法是把第i种物品当作独立的\(C_i\)个物品，转化为共\(\sum_{i=1}^{N}C_i\)个物品的0/1背包问题进行计算，时间复杂度为复杂度\(O(M*\sum_{i=1}^{N}C_i)\)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[MAX_M+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">memset</span>(f,oxcf,<span class="keyword">sizeof</span>(f));</span><br><span class="line">f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c[i];j++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> k=m;k&gt;=v[i];k--)&#123;</span><br><span class="line">            f[k]=<span class="built_in">max</span>(f[k],f[k-v[i]]+w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=m;i++)ans = <span class="built_in">max</span> (ans,f[i]);</span><br></pre></td></tr></table></figure>
+<p>使用二进制优化<br>其实不用把c[i]个物品分成单独的01背包，可以使用二进制表示<br>如：s = 10 = 1 + 2 + 4 + 3<br>所以可以拆分成V=1<em>v,W=1</em>w, V=2<em>v,W=2</em>w, V=4<em>v,W=4</em>w, V=3<em>v,W=3</em>w的01背包<br>代码如下</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,f[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Goods&gt;goods;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v,w,s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v&gt;&gt;w&gt;&gt;s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=s;k*=<span class="number">2</span>)&#123;</span><br><span class="line">            goods.push_back(&#123;k*v,k*w&#125;);</span><br><span class="line">            s-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)goods.push_back(&#123;s*v,s*w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> g:goods)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=g.v;j--)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-g.v]+g.w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用单调队列优化：这个坑还没补上，还没看懂</p>
+]]></content>
+      <categories>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
