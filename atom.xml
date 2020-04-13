@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2020-04-13T13:39:27.921Z</updated>
+  <updated>2020-04-13T14:02:45.040Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>leetcode 面试题16.03 交点</title>
+    <link href="https://www.six1110.top/posts/936ff75f.html"/>
+    <id>https://www.six1110.top/posts/936ff75f.html</id>
+    <published>2020-04-13T13:44:38.000Z</published>
+    <updated>2020-04-13T14:02:45.040Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），如果它们有交点，请计算其交点，没有交点则返回空值。&lt;/p&gt;
+&lt;p&gt;要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="https://www.six1110.top/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="https://www.six1110.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode 355 设计推特</title>
     <link href="https://www.six1110.top/posts/61e85a35.html"/>
     <id>https://www.six1110.top/posts/61e85a35.html</id>
     <published>2020-04-13T13:32:08.000Z</published>
-    <updated>2020-04-13T13:39:27.921Z</updated>
+    <updated>2020-04-13T13:39:36.223Z</updated>
     
     <summary type="html">
     
@@ -212,29 +234,6 @@
   </entry>
   
   <entry>
-    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
-    <link href="https://www.six1110.top/posts/279f5654.html"/>
-    <id>https://www.six1110.top/posts/279f5654.html</id>
-    <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.332Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Js面向对象编程&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JavaScript迭代器和函数深入</title>
     <link href="https://www.six1110.top/posts/ba033a64.html"/>
     <id>https://www.six1110.top/posts/ba033a64.html</id>
@@ -268,6 +267,29 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
+    <link href="https://www.six1110.top/posts/279f5654.html"/>
+    <id>https://www.six1110.top/posts/279f5654.html</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-27T02:00:03.332Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Js面向对象编程&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -331,6 +353,33 @@
   </entry>
   
   <entry>
+    <title>leetcode-50-Pow-x-n</title>
+    <link href="https://www.six1110.top/posts/89f24699.html"/>
+    <id>https://www.six1110.top/posts/89f24699.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2020-03-18T16:53:35.265Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;实现 pow(x, n) ，即计算 x 的 n 次幂函数。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="位运算" scheme="https://www.six1110.top/categories/leetcode/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode322零钱兑换</title>
     <link href="https://www.six1110.top/posts/89f24625.html"/>
     <id>https://www.six1110.top/posts/89f24625.html</id>
@@ -341,6 +390,33 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode486预测赢家</title>
+    <link href="https://www.six1110.top/posts/4651617d.html"/>
+    <id>https://www.six1110.top/posts/4651617d.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:32:12.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -385,33 +461,6 @@
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
       <category term="数学" scheme="https://www.six1110.top/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode486预测赢家</title>
-    <link href="https://www.six1110.top/posts/4651617d.html"/>
-    <id>https://www.six1110.top/posts/4651617d.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:32:12.989Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
   </entry>
   
@@ -493,52 +542,6 @@
     
     
       <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随笔</title>
-    <link href="https://www.six1110.top/posts/4651617e.html"/>
-    <id>https://www.six1110.top/posts/4651617e.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:30:28.608Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;27号放假在家咸鱼了将近20天所以鸽了近20天。。15号回学校了，可以继续跟新博客了hhh。今天主要学习了一点机器学习的东西。&lt;br&gt;(今天有个老同学来了，虽然啥也没干，也还是很开心的hhh)&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="https://www.six1110.top/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="随笔" scheme="https://www.six1110.top/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随笔2</title>
-    <link href="https://www.six1110.top/posts/4651617f.html"/>
-    <id>https://www.six1110.top/posts/4651617f.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:42:02.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="https://www.six1110.top/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="随笔" scheme="https://www.six1110.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
