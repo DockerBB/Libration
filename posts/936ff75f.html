@@ -48,15 +48,15 @@
   };
 </script>
 
-  <meta name="description" content="给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），如果它们有交点，请计算其交点，没有交点则返回空值。 要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。">
+  <meta name="description" content="给定两条线段（表示为起点$start = {X1, Y1}$和终点$end = {X2, Y2}$），如果它们有交点，请计算其交点，没有交点则返回空值。 要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。">
 <meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 面试题16.03 交点">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;936ff75f.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
-<meta property="og:description" content="给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），如果它们有交点，请计算其交点，没有交点则返回空值。 要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。">
+<meta property="og:description" content="给定两条线段（表示为起点$start = {X1, Y1}$和终点$end = {X2, Y2}$），如果它们有交点，请计算其交点，没有交点则返回空值。 要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-13T14:02:45.040Z">
+<meta property="og:updated_time" content="2020-04-13T14:05:48.240Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.six1110.top/posts/936ff75f.html">
@@ -236,7 +236,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-13 21:44:38 / 修改时间：22:02:45" itemprop="dateCreated datePublished" datetime="2020-04-13T21:44:38+08:00">2020-04-13</time>
+              <time title="创建时间：2020-04-13 21:44:38 / 修改时间：22:05:48" itemprop="dateCreated datePublished" datetime="2020-04-13T21:44:38+08:00">2020-04-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,7 +289,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），如果它们有交点，请计算其交点，没有交点则返回空值。</p>
+        <p>给定两条线段（表示为起点$start = {X1, Y1}$和终点$end = {X2, Y2}$），如果它们有交点，请计算其交点，没有交点则返回空值。</p>
 <p>要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。</p>
 <a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">line1 = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;</span><br><span class="line">line2 = &#123;<span class="number">1</span>, <span class="number">1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;</span><br><span class="line">输出： &#123;<span class="number">0.5</span>, <span class="number">0</span>&#125;</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">line1 = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;, &#123;<span class="number">3</span>, <span class="number">3</span>&#125;</span><br><span class="line">line2 = &#123;<span class="number">1</span>, <span class="number">1</span>&#125;, &#123;<span class="number">2</span>, <span class="number">2</span>&#125;</span><br><span class="line">输出： &#123;<span class="number">1</span>, <span class="number">1</span>&#125;</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">line1 = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">1</span>&#125;</span><br><span class="line">line2 = &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">2</span>, <span class="number">1</span>&#125;</span><br><span class="line">输出： &#123;&#125;，两条线段没有交点</span><br></pre></td></tr></table></figure>
@@ -310,7 +310,7 @@
 <li>(1)不重叠,则无交点</li>
 <li>(2)重叠，返回重叠的线段中x坐标的最小的点，x相同时返回y坐标最小的点。</li>
 </ul>
-<p>否则联立方程得一交点，解之得$x=(b_2-b_1)/(k_1-k_2),$y=k1*x+b1$</p>
+<p>否则联立方程得一交点，解之得$x=(b_2-b_1)/(k_1-k_2),$y=k1*x+b1$<br>判断此交点是否在线段范围内即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; intersection(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; start1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; end1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; start2, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; end2) &#123;</span><br><span class="line">        <span class="keyword">if</span>(start1[<span class="number">0</span>] &gt; end1[<span class="number">0</span>])swap(start1,end1);<span class="comment">//将点按照x的大小放</span></span><br><span class="line">        <span class="keyword">if</span>(start2[<span class="number">0</span>] &gt; end2[<span class="number">0</span>])swap(start2,end2);</span><br><span class="line">        <span class="keyword">bool</span> flag1=<span class="number">0</span>,flag2=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(start1[<span class="number">0</span>] - end1[<span class="number">0</span>] == <span class="number">0</span>)flag1=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(start2[<span class="number">0</span>] - end2[<span class="number">0</span>] == <span class="number">0</span>)flag2=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag1 &amp;&amp; flag2)&#123; <span class="comment">//都垂直x</span></span><br><span class="line">            <span class="keyword">if</span>(start1[<span class="number">0</span>] != start2[<span class="number">0</span>])<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//返回最小y的点</span></span><br><span class="line">                <span class="keyword">int</span> x1[<span class="number">2</span>]=&#123;<span class="built_in">min</span>(start1[<span class="number">1</span>],end1[<span class="number">1</span>]),<span class="built_in">max</span>(start1[<span class="number">1</span>],end1[<span class="number">1</span>])&#125;;</span><br><span class="line">                <span class="keyword">int</span> x2[<span class="number">2</span>]=&#123;<span class="built_in">min</span>(start2[<span class="number">1</span>],end2[<span class="number">1</span>]),<span class="built_in">max</span>(start2[<span class="number">1</span>],end2[<span class="number">1</span>])&#125;;</span><br><span class="line">                <span class="keyword">int</span> ly = <span class="built_in">max</span>(x1[<span class="number">0</span>],x2[<span class="number">0</span>]),ry=<span class="built_in">min</span>(x1[<span class="number">1</span>],x2[<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">if</span>(ly&gt;ry)<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">                <span class="keyword">return</span> &#123;(<span class="keyword">double</span>)start1[<span class="number">0</span>],(<span class="keyword">double</span>)ly&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(flag1 &amp;&amp; !flag2)&#123;<span class="comment">//第一条垂直x第二条不垂直x</span></span><br><span class="line">            <span class="keyword">return</span> check(start1,end1,start2,end2);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!flag1 &amp;&amp; flag2)&#123;<span class="comment">//第一条不垂直x第二条垂直x</span></span><br><span class="line">            <span class="keyword">return</span> check(start2,end2,start1,end1);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;  <span class="comment">//都不垂直x</span></span><br><span class="line">            <span class="keyword">double</span> k1 = (<span class="keyword">double</span>)(end1[<span class="number">1</span>] - start1[<span class="number">1</span>]) / (end1[<span class="number">0</span>] - start1[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">double</span> b1 = start1[<span class="number">1</span>] - k1 * start1[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">double</span> k2 = (<span class="keyword">double</span>)(end2[<span class="number">1</span>] - start2[<span class="number">1</span>])/(end2[<span class="number">0</span>] - start2[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">double</span> b2 = start2[<span class="number">1</span>] - k2 * start2[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span>(k1 == k2)&#123; <span class="comment">//平行</span></span><br><span class="line">                <span class="keyword">if</span>(b1==b2)&#123; <span class="comment">//重叠 返回x最小 x相同返回y最小</span></span><br><span class="line">                    <span class="keyword">int</span> lx = <span class="built_in">max</span>(start1[<span class="number">0</span>],start2[<span class="number">0</span>]),rx=<span class="built_in">min</span>(end1[<span class="number">0</span>],end2[<span class="number">0</span>]);</span><br><span class="line">                    <span class="keyword">if</span>(lx&gt;rx)<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">                    <span class="keyword">if</span>(lx&gt;start1[<span class="number">0</span>])<span class="keyword">return</span> &#123;(<span class="keyword">double</span>)start2[<span class="number">0</span>],(<span class="keyword">double</span>)start2[<span class="number">1</span>]&#125;;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">return</span> &#123;(<span class="keyword">double</span>)start1[<span class="number">0</span>],(<span class="keyword">double</span>)start1[<span class="number">1</span>]&#125;;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">double</span> interx = (b2-b1)/(k1-k2),intery=k1*interx + b1;</span><br><span class="line">                <span class="keyword">int</span> x1=<span class="built_in">min</span>(start1[<span class="number">0</span>],end1[<span class="number">0</span>]),x2=<span class="built_in">max</span>(start1[<span class="number">0</span>],end1[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">int</span> x3=<span class="built_in">min</span>(start2[<span class="number">0</span>],end2[<span class="number">0</span>]),x4=<span class="built_in">max</span>(start2[<span class="number">0</span>],end2[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">if</span>(interx&gt;=x1 &amp;&amp; interx&lt;=x2 &amp;&amp; interx&gt;=x3 &amp;&amp; interx&lt;=x4)&#123;</span><br><span class="line">                    <span class="keyword">return</span> &#123;interx,intery&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; check(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; start1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; end1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; start2, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; end2)&#123;</span><br><span class="line">        <span class="keyword">double</span> k2 = (<span class="keyword">double</span>)(end2[<span class="number">1</span>] - start2[<span class="number">1</span>])/(end2[<span class="number">0</span>] - start2[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">double</span> b2 = start2[<span class="number">1</span>] - k2 * start2[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">double</span> interx = start1[<span class="number">0</span>],intery = k2*interx + b2;</span><br><span class="line">        <span class="keyword">if</span>(intery&gt;=<span class="built_in">min</span>(start1[<span class="number">1</span>],end1[<span class="number">1</span>]) &amp;&amp; intery &lt;= <span class="built_in">max</span>(start1[<span class="number">1</span>],end1[<span class="number">1</span>]))<span class="keyword">return</span> &#123;interx,intery&#125;;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -540,6 +540,56 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 

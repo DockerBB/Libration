@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2020-04-13T14:02:45.040Z</updated>
+  <updated>2020-04-13T14:05:48.240Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://www.six1110.top/posts/936ff75f.html"/>
     <id>https://www.six1110.top/posts/936ff75f.html</id>
     <published>2020-04-13T13:44:38.000Z</published>
-    <updated>2020-04-13T14:02:45.040Z</updated>
+    <updated>2020-04-13T14:05:48.240Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），如果它们有交点，请计算其交点，没有交点则返回空值。&lt;/p&gt;
+      &lt;p&gt;给定两条线段（表示为起点$start = {X1, Y1}$和终点$end = {X2, Y2}$），如果它们有交点，请计算其交点，没有交点则返回空值。&lt;/p&gt;
 &lt;p&gt;要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。&lt;/p&gt;
     
     </summary>
@@ -234,16 +234,16 @@
   </entry>
   
   <entry>
-    <title>JavaScript迭代器和函数深入</title>
-    <link href="https://www.six1110.top/posts/ba033a64.html"/>
-    <id>https://www.six1110.top/posts/ba033a64.html</id>
+    <title>Script学习记录 异步深入</title>
+    <link href="https://www.six1110.top/posts/5be64662.html"/>
+    <id>https://www.six1110.top/posts/5be64662.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.333Z</updated>
+    <updated>2019-11-27T02:00:03.334Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Js迭代器和函数深入&lt;/p&gt;
+&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -257,16 +257,16 @@
   </entry>
   
   <entry>
-    <title>Script学习记录 异步深入</title>
-    <link href="https://www.six1110.top/posts/5be64662.html"/>
-    <id>https://www.six1110.top/posts/5be64662.html</id>
+    <title>JavaScript迭代器和函数深入</title>
+    <link href="https://www.six1110.top/posts/ba033a64.html"/>
+    <id>https://www.six1110.top/posts/ba033a64.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.334Z</updated>
+    <updated>2019-11-27T02:00:03.333Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
+&lt;p&gt;Js迭代器和函数深入&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -407,33 +407,6 @@
   </entry>
   
   <entry>
-    <title>leetcode486预测赢家</title>
-    <link href="https://www.six1110.top/posts/4651617d.html"/>
-    <id>https://www.six1110.top/posts/4651617d.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:32:12.989Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode357计算各个位数不同的数字个数</title>
     <link href="https://www.six1110.top/posts/52d85e26.html"/>
     <id>https://www.six1110.top/posts/52d85e26.html</id>
@@ -461,6 +434,33 @@
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
       <category term="数学" scheme="https://www.six1110.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode486预测赢家</title>
+    <link href="https://www.six1110.top/posts/4651617d.html"/>
+    <id>https://www.six1110.top/posts/4651617d.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2019-11-27T02:32:12.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
   </entry>
   
