@@ -48,18 +48,18 @@
   };
 </script>
 
-  <meta name="description" content="给定一个整数矩阵，找出最长递增路径的长度。对于每个单元格，你可以往上，下，左，右四个方向移动。 你不能在对角线方向上移动或移动到边界外（即不允许环绕）。（就是非常经典的滑雪题）">
-<meta name="keywords" content="动态规划,leetcode">
+  <meta name="description" content="给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则： 任何左括号 ( 必须有相应的右括号 )。任何右括号 ) 必须有相应的左括号 ( 。左括号 ( 必须在对应的右括号之前 )。  可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。一个空字符串也被视为有效字符串。字符串大小将在 [1，100] 范围内。">
+<meta name="keywords" content="dfs,模拟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode329矩阵中的最长递增路径">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;410e261c.html">
+<meta property="og:title" content="leetcode 678 有效的括号字符串">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;e35fce41.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
-<meta property="og:description" content="给定一个整数矩阵，找出最长递增路径的长度。对于每个单元格，你可以往上，下，左，右四个方向移动。 你不能在对角线方向上移动或移动到边界外（即不允许环绕）。（就是非常经典的滑雪题）">
+<meta property="og:description" content="给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则： 任何左括号 ( 必须有相应的右括号 )。任何右括号 ) 必须有相应的左括号 ( 。左括号 ( 必须在对应的右括号之前 )。  可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。一个空字符串也被视为有效字符串。字符串大小将在 [1，100] 范围内。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-27T02:00:03.336Z">
+<meta property="og:updated_time" content="2020-04-14T12:05:59.965Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.six1110.top/posts/410e261c.html">
+<link rel="canonical" href="https://www.six1110.top/posts/e35fce41.html">
 
 
 <script id="page-configurations">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>leetcode329矩阵中的最长递增路径 | 中南头号黑子的学习记录</title>
+  <title>leetcode 678 有效的括号字符串 | 中南头号黑子的学习记录</title>
   
 
 
@@ -212,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/410e261c.html">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/e35fce41.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ff.jpg">
@@ -225,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode329矩阵中的最长递增路径
+          leetcode 678 有效的括号字符串
         </h1>
 
         <div class="post-meta">
@@ -234,30 +234,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-11-26 17:54:55" itemprop="dateCreated datePublished" datetime="2019-11-26T17:54:55+08:00">2019-11-26</time>
+              <time title="创建时间：2020-04-14 19:57:00 / 修改时间：20:05:59" itemprop="dateCreated datePublished" datetime="2020-04-14T19:57:00+08:00">2020-04-14</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-27 10:00:03" itemprop="dateModified" datetime="2019-11-27T10:00:03+08:00">2019-11-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
+                  <a href="/categories/dfs/" itemprop="url" rel="index">
+                    <span itemprop="name">dfs</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url" rel="index">
-                    <span itemprop="name">动态规划</span>
+                  <a href="/categories/dfs/%E6%A8%A1%E6%8B%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">模拟</span>
                   </a>
                 </span>
             </span>
@@ -271,8 +265,8 @@
       </span>
       <span class="post-meta-item-text">评论次数:：</span>
     
-    <a title="valine" href="/posts/410e261c.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/410e261c.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/e35fce41.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/e35fce41.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -282,7 +276,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -301,20 +295,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>给定一个整数矩阵，找出最长递增路径的长度。<br>对于每个单元格，你可以往上，下，左，右四个方向移动。 你不能在对角线方向上移动或移动到边界外（即不允许环绕）。（就是非常经典的滑雪题）</p>
-</blockquote>
-<a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: nums =</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">  [<span class="number">9</span>,<span class="number">9</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">6</span>,<span class="number">6</span>,<span class="number">8</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line">输出: <span class="number">4</span></span><br><span class="line">解释: 最长递增路径为 [<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">9</span>]。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: nums =</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">  [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line">输出: <span class="number">4</span></span><br><span class="line">解释: 最长递增路径是 [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]。注意不允许在对角线方向上移动。</span><br></pre></td></tr></table></figure>
-
+        <p>给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
+<p>任何左括号 ( 必须有相应的右括号 )。<br>任何右括号 ) 必须有相应的左括号 ( 。<br>左括号 ( 必须在对应的右括号之前 )。</p>
+<ul>
+<li>可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。<br>一个空字符串也被视为有效字符串。<br>字符串大小将在 [1，100] 范围内。<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="string">"()"</span></span><br><span class="line">输出: True</span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="string">"(*)"</span></span><br><span class="line">输出: True</span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="string">"(*))"</span></span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure></li>
+</ul>
 <ul>
 <li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix</a></li>
+<li>链接：<a href="https://leetcode-cn.com/problems/valid-parenthesis-string" target="_blank" rel="noopener">https://leetcode-cn.com/problems/valid-parenthesis-string</a></li>
 </ul>
-<blockquote>
-<p>思路比较简单就是深搜+记忆化搜索</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f;</span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">4</span>]=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,dy[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][y]!=<span class="number">-1</span>)<span class="keyword">return</span> f[x][y];<span class="comment">//记忆化</span></span><br><span class="line">        f[x][y]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> a = x+dx[i],b=y+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(a&gt;=<span class="number">0</span>&amp;&amp;a&lt;n&amp;&amp;b&gt;=<span class="number">0</span>&amp;&amp;b&lt;m&amp;&amp;matrix[x][y]&gt;matrix[a][b])</span><br><span class="line">                f[x][y] = <span class="built_in">max</span>(f[x][y],dp(a,b,matrix)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[x][y];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingPath</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.empty())<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        n = matrix.<span class="built_in">size</span>(),m=matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        f = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(m,<span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">                res = <span class="built_in">max</span>(res,dp(i,j,matrix));</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>思路：<br>做法1：<br>数据范围不大可以考虑暴力做法：<br>利用前缀和判断当前序列是否合法(前缀和左括号+1，右括号-1，合法有如下性质：过程中如果出现负数则肯定不合法，过程中前缀和全&gt;=0且整个前缀和==0说明合法)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkValidString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> dfs(s,<span class="number">0</span>,n,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="built_in">string</span> &amp;s,<span class="keyword">int</span> start,<span class="keyword">int</span> &amp;n,<span class="keyword">int</span> sum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(start==n &amp;&amp; sum==<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=start;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[start]==<span class="string">'('</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum+<span class="number">1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[start]==<span class="string">')'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum<span class="number">-1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum+<span class="number">1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum<span class="number">-1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>做法2：<br>正反向遍历字符串各一次，正向遍历时左括号+<em>的出现次数要一直小于等于右括号出现次数。<br>反向遍历时右括号+</em>的次数要一直小于等于左括号，否则不能合法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkValidString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> l1=<span class="number">0</span>,r1=<span class="number">0</span>,s1=<span class="number">0</span>,l2=<span class="number">0</span>,r2=<span class="number">0</span>,s2=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=n<span class="number">-1</span>;i&lt;n;j--,i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'('</span>)l1++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">')'</span>)r1++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'*'</span>)s1++;</span><br><span class="line">            <span class="keyword">if</span>(s[j]==<span class="string">'('</span>)l2++;</span><br><span class="line">            <span class="keyword">if</span>(s[j]==<span class="string">')'</span>)r2++;</span><br><span class="line">            <span class="keyword">if</span>(s[j]==<span class="string">'*'</span>)s2++;</span><br><span class="line">            <span class="keyword">if</span>(r1&gt;l1+s1 || l2&gt;r2+s2)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -330,7 +324,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.six1110.top/posts/410e261c.html" title="leetcode329矩阵中的最长递增路径">https://www.six1110.top/posts/410e261c.html</a>
+    <a href="https://www.six1110.top/posts/e35fce41.html" title="leetcode 678 有效的括号字符串">https://www.six1110.top/posts/e35fce41.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -342,8 +336,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
-              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <a href="/tags/dfs/" rel="tag"><i class="fa fa-tag"></i> dfs</a>
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
           </div>
 
         
@@ -352,13 +346,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2b28a584.html" rel="prev" title="01背包总结">
-      <i class="fa fa-chevron-left"></i> 01背包总结
+    <a href="/posts/43feac7d.html" rel="prev" title="leetcode 649 Dota2 参议员">
+      <i class="fa fa-chevron-left"></i> leetcode 649 Dota2 参议员
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/ba033a64.html" rel="next" title="JavaScript迭代器和函数深入">
-      JavaScript迭代器和函数深入 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
