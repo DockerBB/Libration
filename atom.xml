@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2020-04-13T14:12:33.421Z</updated>
+  <updated>2020-04-14T11:46:06.853Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 649 Dota2 参议员</title>
+    <link href="https://www.six1110.top/posts/43feac7d.html"/>
+    <id>https://www.six1110.top/posts/43feac7d.html</id>
+    <published>2020-04-14T11:27:00.000Z</published>
+    <updated>2020-04-14T11:46:06.853Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Dota2 的世界里有两个阵营：Radiant(天辉)和 Dire(夜魇)&lt;/p&gt;
+&lt;p&gt;Dota2 参议院由来自两派的参议员组成。现在参议院希望对一个 Dota2 游戏里的改变作出决定。他们以一个基于轮为过程的投票进行。在每一轮中，每一位参议员都可以行使两项权利中的一项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;禁止一名参议员的权利：&lt;br&gt;  参议员可以让另一位参议员在这一轮和随后的几轮中丧失所有的权利。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;宣布胜利：&lt;br&gt;  如果参议员发现有权利投票的参议员都是同一个阵营的，他可以宣布胜利并决定在游戏中的有关变化。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
+    
+      <category term="贪心" scheme="https://www.six1110.top/categories/leetcode/%E8%B4%AA%E5%BF%83/"/>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="贪心" scheme="https://www.six1110.top/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 面试题16.03 交点</title>
@@ -234,6 +264,29 @@
   </entry>
   
   <entry>
+    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
+    <link href="https://www.six1110.top/posts/279f5654.html"/>
+    <id>https://www.six1110.top/posts/279f5654.html</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-27T02:00:03.332Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Js面向对象编程&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript迭代器和函数深入</title>
     <link href="https://www.six1110.top/posts/ba033a64.html"/>
     <id>https://www.six1110.top/posts/ba033a64.html</id>
@@ -267,29 +320,6 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
-    <link href="https://www.six1110.top/posts/279f5654.html"/>
-    <id>https://www.six1110.top/posts/279f5654.html</id>
-    <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.332Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Js面向对象编程&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -465,6 +495,29 @@
   </entry>
   
   <entry>
+    <title>多重背包</title>
+    <link href="https://www.six1110.top/posts/4651617g.html"/>
+    <id>https://www.six1110.top/posts/4651617g.html</id>
+    <published>2019-11-26T09:44:14.000Z</published>
+    <updated>2020-03-18T16:32:44.797Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;多重背包模型如下：&lt;br&gt;有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode题解167,88,155,32,84,42</title>
     <link href="https://www.six1110.top/posts/81be5994.html"/>
     <id>https://www.six1110.top/posts/81be5994.html</id>
@@ -496,52 +549,6 @@
       <category term="栈" scheme="https://www.six1110.top/tags/%E6%A0%88/"/>
     
       <category term="单调栈" scheme="https://www.six1110.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多重背包</title>
-    <link href="https://www.six1110.top/posts/4651617g.html"/>
-    <id>https://www.six1110.top/posts/4651617g.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2020-03-18T16:32:44.797Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;多重背包模型如下：&lt;br&gt;有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>完全背包</title>
-    <link href="https://www.six1110.top/posts/4651617h.html"/>
-    <id>https://www.six1110.top/posts/4651617h.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:51:52.431Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;完全背包问题的模型如下：&lt;br&gt;有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。第 i 种物品的体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
