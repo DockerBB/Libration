@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leetcode 55  跳跃游戏, 45 跳跃游戏II</title>
+    <url>/posts/25a913d8.html</url>
+    <content><![CDATA[<h1 id="leetcode-55-跳跃游戏"><a href="#leetcode-55-跳跃游戏" class="headerlink" title="leetcode 55 跳跃游戏"></a>leetcode 55 跳跃游戏</h1><p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>
+<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>判断你是否能够到达最后一个位置。</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="literal">true</span></span><br><span class="line">解释: 我们可以先跳 <span class="number">1</span> 步，从位置 <span class="number">0</span> 到达 位置 <span class="number">1</span>, 然后再从位置 <span class="number">1</span> 跳 <span class="number">3</span> 步到达最后一个位置。</span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 无论怎样，你总会到达索引为 <span class="number">3</span> 的位置。但该位置的最大跳跃长度是 <span class="number">0</span> ， 所以你永远不可能到达最后一个位置。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/jump-game" target="_blank" rel="noopener">https://leetcode-cn.com/problems/jump-game</a></li>
+</ul>
+<p>思路：贪心，记录每个位置最多能跳到哪个位置，不断更新能到的最大位置，如果在点i处能到的最大位置k&lt;i，说明到不了终点。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canJump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),k=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;k)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            k = <span class="built_in">max</span>(k,i+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="leetcode-45-跳跃游戏II"><a href="#leetcode-45-跳跃游戏II" class="headerlink" title="leetcode 45 跳跃游戏II"></a>leetcode 45 跳跃游戏II</h1><p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>
+<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>你的目标是使用最少的跳跃次数到达数组的最后一个位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="number">2</span></span><br><span class="line">解释: 跳到最后一个位置的最小跳跃数是 <span class="number">2</span>。</span><br><span class="line">     从下标为 <span class="number">0</span> 跳到下标为 <span class="number">1</span> 的位置，跳 <span class="number">1</span> 步，然后跳 <span class="number">3</span> 步到达数组的最后一个位置。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>说明:假设你总是可以到达数组的最后一个位置。</p>
+</li>
+<li><p>来源：力扣（LeetCode）</p>
+</li>
+<li><p>链接：<a href="https://leetcode-cn.com/problems/jump-game-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/jump-game-ii</a></p>
+</li>
+</ul>
+<p>思路：延续上题的思路贪心，在贪心的时候记录每个点是由前面哪个最小的能到达该点转移来的(即第一次能到达该点的点)，这样就能找到从起点到终点的一条路径</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),k=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;path(n,<span class="number">0x3f3f3f3f</span>);<span class="comment">//记录路径</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(k&gt;=n<span class="number">-1</span>)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(k&lt;i+nums[i])&#123;</span><br><span class="line">                k = i + nums[i];<span class="comment">//更新能到达的最大距离</span></span><br><span class="line">                <span class="keyword">if</span>(k&gt;=n<span class="number">-1</span>)&#123;</span><br><span class="line">                    path[n<span class="number">-1</span>]=i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=<span class="built_in">min</span>(k,n<span class="number">-1</span>);j++)path[j]=<span class="built_in">min</span>(path[j],i);<span class="comment">//记录第一个到达j这个位置的下标</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=path[n<span class="number">-1</span>];i!=<span class="number">0x3f3f3f3f</span>;i=path[i])&#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>贪心</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode 678 有效的括号字符串</title>
     <url>/posts/e35fce41.html</url>
     <content><![CDATA[<p>给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>

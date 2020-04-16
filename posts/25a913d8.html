@@ -48,18 +48,18 @@
   };
 </script>
 
-  <meta name="description" content="给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则： 任何左括号 ( 必须有相应的右括号 )。任何右括号 ) 必须有相应的左括号 ( 。左括号 ( 必须在对应的右括号之前 )。  可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。一个空字符串也被视为有效字符串。字符串大小将在 [1，100] 范围内。">
-<meta name="keywords" content="dfs,模拟">
+  <meta name="description" content="leetcode 55 跳跃游戏给定一个非负整数数组，你最初位于数组的第一个位置。 数组中的每个元素代表你在该位置可以跳跃的最大长度。 判断你是否能够到达最后一个位置。">
+<meta name="keywords" content="leetcode,贪心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 678 有效的括号字符串">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;e35fce41.html">
+<meta property="og:title" content="leetcode 55  跳跃游戏, 45 跳跃游戏II">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;25a913d8.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
-<meta property="og:description" content="给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则： 任何左括号 ( 必须有相应的右括号 )。任何右括号 ) 必须有相应的左括号 ( 。左括号 ( 必须在对应的右括号之前 )。  可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。一个空字符串也被视为有效字符串。字符串大小将在 [1，100] 范围内。">
+<meta property="og:description" content="leetcode 55 跳跃游戏给定一个非负整数数组，你最初位于数组的第一个位置。 数组中的每个元素代表你在该位置可以跳跃的最大长度。 判断你是否能够到达最后一个位置。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-14T12:14:31.289Z">
+<meta property="og:updated_time" content="2020-04-16T18:16:36.447Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.six1110.top/posts/e35fce41.html">
+<link rel="canonical" href="https://www.six1110.top/posts/25a913d8.html">
 
 
 <script id="page-configurations">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>leetcode 678 有效的括号字符串 | 中南头号黑子的学习记录</title>
+  <title>leetcode 55  跳跃游戏, 45 跳跃游戏II | 中南头号黑子的学习记录</title>
   
 
 
@@ -212,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/e35fce41.html">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/25a913d8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ff.jpg">
@@ -225,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode 678 有效的括号字符串
+          leetcode 55  跳跃游戏, 45 跳跃游戏II
         </h1>
 
         <div class="post-meta">
@@ -236,7 +236,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-14 19:57:00 / 修改时间：20:14:31" itemprop="dateCreated datePublished" datetime="2020-04-14T19:57:00+08:00">2020-04-14</time>
+              <time title="创建时间：2020-04-17 02:03:00 / 修改时间：02:16:36" itemprop="dateCreated datePublished" datetime="2020-04-17T02:03:00+08:00">2020-04-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,14 +244,14 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dfs/" itemprop="url" rel="index">
-                    <span itemprop="name">dfs</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dfs/%E6%A8%A1%E6%8B%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">模拟</span>
+                  <a href="/categories/leetcode/%E8%B4%AA%E5%BF%83/" itemprop="url" rel="index">
+                    <span itemprop="name">贪心</span>
                   </a>
                 </span>
             </span>
@@ -265,8 +265,8 @@
       </span>
       <span class="post-meta-item-text">评论次数:：</span>
     
-    <a title="valine" href="/posts/e35fce41.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/e35fce41.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/25a913d8.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/25a913d8.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,7 +276,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -295,21 +295,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>给定一个只包含三种字符的字符串：（ ，） 和 *，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
-<p>任何左括号 ( 必须有相应的右括号 )。<br>任何右括号 ) 必须有相应的左括号 ( 。<br>左括号 ( 必须在对应的右括号之前 )。</p>
-<ul>
-<li>可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。<br>一个空字符串也被视为有效字符串。<br>字符串大小将在 [1，100] 范围内。<a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="string">"()"</span></span><br><span class="line">输出: True</span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="string">"(*)"</span></span><br><span class="line">输出: True</span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="string">"(*))"</span></span><br><span class="line">输出: True</span><br></pre></td></tr></table></figure></li>
-</ul>
+        <h1 id="leetcode-55-跳跃游戏"><a href="#leetcode-55-跳跃游戏" class="headerlink" title="leetcode 55 跳跃游戏"></a>leetcode 55 跳跃游戏</h1><p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>
+<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>判断你是否能够到达最后一个位置。</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="literal">true</span></span><br><span class="line">解释: 我们可以先跳 <span class="number">1</span> 步，从位置 <span class="number">0</span> 到达 位置 <span class="number">1</span>, 然后再从位置 <span class="number">1</span> 跳 <span class="number">3</span> 步到达最后一个位置。</span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">解释: 无论怎样，你总会到达索引为 <span class="number">3</span> 的位置。但该位置的最大跳跃长度是 <span class="number">0</span> ， 所以你永远不可能到达最后一个位置。</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/valid-parenthesis-string" target="_blank" rel="noopener">https://leetcode-cn.com/problems/valid-parenthesis-string</a></li>
+<li>链接：<a href="https://leetcode-cn.com/problems/jump-game" target="_blank" rel="noopener">https://leetcode-cn.com/problems/jump-game</a></li>
 </ul>
-<p>思路：<br>做法1：<br>数据范围不大可以考虑暴力做法：<br>利用前缀和判断当前序列是否合法(前缀和左括号+1，右括号-1，合法有如下性质：过程中如果出现负数则肯定不合法，过程中前缀和全&gt;=0且整个前缀和==0说明合法)。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkValidString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> dfs(s,<span class="number">0</span>,n,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="built_in">string</span> &amp;s,<span class="keyword">int</span> start,<span class="keyword">int</span> &amp;n,<span class="keyword">int</span> sum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(start==n &amp;&amp; sum==<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=start;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[start]==<span class="string">'('</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum+<span class="number">1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[start]==<span class="string">')'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum<span class="number">-1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum+<span class="number">1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum<span class="number">-1</span>))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(dfs(s,i+<span class="number">1</span>,n,sum))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>做法2：<br>正反向遍历字符串各一次，正向遍历时左括号+星号的出现次数要一直小于等于右括号出现次数。<br>反向遍历时右括号+星号的次数要一直小于等于左括号，否则不能合法。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkValidString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> l1=<span class="number">0</span>,r1=<span class="number">0</span>,s1=<span class="number">0</span>,l2=<span class="number">0</span>,r2=<span class="number">0</span>,s2=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=n<span class="number">-1</span>;i&lt;n;j--,i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'('</span>)l1++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">')'</span>)r1++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'*'</span>)s1++;</span><br><span class="line">            <span class="keyword">if</span>(s[j]==<span class="string">'('</span>)l2++;</span><br><span class="line">            <span class="keyword">if</span>(s[j]==<span class="string">')'</span>)r2++;</span><br><span class="line">            <span class="keyword">if</span>(s[j]==<span class="string">'*'</span>)s2++;</span><br><span class="line">            <span class="keyword">if</span>(r1&gt;l1+s1 || l2&gt;r2+s2)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>思路：贪心，记录每个位置最多能跳到哪个位置，不断更新能到的最大位置，如果在点i处能到的最大位置k&lt;i，说明到不了终点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canJump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),k=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;k)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            k = <span class="built_in">max</span>(k,i+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<h1 id="leetcode-45-跳跃游戏II"><a href="#leetcode-45-跳跃游戏II" class="headerlink" title="leetcode 45 跳跃游戏II"></a>leetcode 45 跳跃游戏II</h1><p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>
+<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>你的目标是使用最少的跳跃次数到达数组的最后一个位置。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="number">2</span></span><br><span class="line">解释: 跳到最后一个位置的最小跳跃数是 <span class="number">2</span>。</span><br><span class="line">     从下标为 <span class="number">0</span> 跳到下标为 <span class="number">1</span> 的位置，跳 <span class="number">1</span> 步，然后跳 <span class="number">3</span> 步到达数组的最后一个位置。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>说明:假设你总是可以到达数组的最后一个位置。</p>
+</li>
+<li><p>来源：力扣（LeetCode）</p>
+</li>
+<li><p>链接：<a href="https://leetcode-cn.com/problems/jump-game-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/jump-game-ii</a></p>
+</li>
+</ul>
+<p>思路：延续上题的思路贪心，在贪心的时候记录每个点是由前面哪个最小的能到达该点转移来的(即第一次能到达该点的点)，这样就能找到从起点到终点的一条路径</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),k=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;path(n,<span class="number">0x3f3f3f3f</span>);<span class="comment">//记录路径</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(k&gt;=n<span class="number">-1</span>)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(k&lt;i+nums[i])&#123;</span><br><span class="line">                k = i + nums[i];<span class="comment">//更新能到达的最大距离</span></span><br><span class="line">                <span class="keyword">if</span>(k&gt;=n<span class="number">-1</span>)&#123;</span><br><span class="line">                    path[n<span class="number">-1</span>]=i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=<span class="built_in">min</span>(k,n<span class="number">-1</span>);j++)path[j]=<span class="built_in">min</span>(path[j],i);<span class="comment">//记录第一个到达j这个位置的下标</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=path[n<span class="number">-1</span>];i!=<span class="number">0x3f3f3f3f</span>;i=path[i])&#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -324,7 +338,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.six1110.top/posts/e35fce41.html" title="leetcode 678 有效的括号字符串">https://www.six1110.top/posts/e35fce41.html</a>
+    <a href="https://www.six1110.top/posts/25a913d8.html" title="leetcode 55  跳跃游戏, 45 跳跃游戏II">https://www.six1110.top/posts/25a913d8.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -336,8 +350,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/dfs/" rel="tag"><i class="fa fa-tag"></i> dfs</a>
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"><i class="fa fa-tag"></i> 贪心</a>
           </div>
 
         
@@ -346,13 +360,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/43feac7d.html" rel="prev" title="leetcode 649 Dota2 参议员">
-      <i class="fa fa-chevron-left"></i> leetcode 649 Dota2 参议员
+    <a href="/posts/e35fce41.html" rel="prev" title="leetcode 678 有效的括号字符串">
+      <i class="fa fa-chevron-left"></i> leetcode 678 有效的括号字符串
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/25a913d8.html" rel="next" title="leetcode 55  跳跃游戏, 45 跳跃游戏II">
-      leetcode 55  跳跃游戏, 45 跳跃游戏II <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -391,6 +402,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-55-跳跃游戏"><span class="nav-text">leetcode 55 跳跃游戏</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-45-跳跃游戏II"><span class="nav-text">leetcode 45 跳跃游戏II</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
