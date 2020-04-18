@@ -344,16 +344,16 @@
   </entry>
   
   <entry>
-    <title>Script学习记录 异步深入</title>
-    <link href="https://www.six1110.top/posts/5be64662.html"/>
-    <id>https://www.six1110.top/posts/5be64662.html</id>
+    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
+    <link href="https://www.six1110.top/posts/279f5654.html"/>
+    <id>https://www.six1110.top/posts/279f5654.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.334Z</updated>
+    <updated>2019-11-27T02:00:03.332Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
+&lt;p&gt;Js面向对象编程&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -367,16 +367,16 @@
   </entry>
   
   <entry>
-    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
-    <link href="https://www.six1110.top/posts/279f5654.html"/>
-    <id>https://www.six1110.top/posts/279f5654.html</id>
+    <title>Script学习记录 异步深入</title>
+    <link href="https://www.six1110.top/posts/5be64662.html"/>
+    <id>https://www.six1110.top/posts/5be64662.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.332Z</updated>
+    <updated>2019-11-27T02:00:03.334Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Js面向对象编程&lt;/p&gt;
+&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -517,16 +517,16 @@
   </entry>
   
   <entry>
-    <title>leetcode486预测赢家</title>
-    <link href="https://www.six1110.top/posts/4651617d.html"/>
-    <id>https://www.six1110.top/posts/4651617d.html</id>
+    <title>leetcode题解167,88,155,32,84,42</title>
+    <link href="https://www.six1110.top/posts/81be5994.html"/>
+    <id>https://www.six1110.top/posts/81be5994.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2019-11-27T02:32:12.989Z</updated>
+    <updated>2020-03-18T16:54:42.105Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。&lt;br&gt;给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。&lt;/p&gt;
+&lt;p&gt;练习了一下双指针，单调栈。三道简单，三道困难。分别是两数之和 II - 输入有序数组，合并两个有序数组，最小栈，最长有效括号，柱状图中最大的矩形，接雨水。难度着实有点大。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -534,12 +534,20 @@
     
       <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
     
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="双指针" scheme="https://www.six1110.top/categories/leetcode/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
+      <category term="栈" scheme="https://www.six1110.top/categories/leetcode/%E5%8F%8C%E6%8C%87%E9%92%88/%E6%A0%88/"/>
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="单调栈" scheme="https://www.six1110.top/categories/leetcode/%E5%8F%8C%E6%8C%87%E9%92%88/%E6%A0%88/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
     
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="双指针" scheme="https://www.six1110.top/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+      <category term="栈" scheme="https://www.six1110.top/tags/%E6%A0%88/"/>
+    
+      <category term="单调栈" scheme="https://www.six1110.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
   </entry>
   
