@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2020-04-18T17:08:49.202Z</updated>
+  <updated>2020-04-26T06:06:37.847Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-trie树专题</title>
+    <link href="https://www.six1110.top/posts/e8b1e390.html"/>
+    <id>https://www.six1110.top/posts/e8b1e390.html</id>
+    <published>2020-04-26T05:44:00.000Z</published>
+    <updated>2020-04-26T06:06:37.847Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;trie树，又称单词查找树，前缀树，字典树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计，自动补全等。它的优点是：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://www.six1110.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="trie树" scheme="https://www.six1110.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/trie%E6%A0%91/"/>
+    
+    
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="数据结构" scheme="https://www.six1110.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="trie树" scheme="https://www.six1110.top/tags/trie%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 第24场双周赛</title>
@@ -249,9 +276,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -276,9 +303,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -308,9 +335,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -344,16 +371,16 @@
   </entry>
   
   <entry>
-    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
-    <link href="https://www.six1110.top/posts/279f5654.html"/>
-    <id>https://www.six1110.top/posts/279f5654.html</id>
+    <title>Script学习记录 异步深入</title>
+    <link href="https://www.six1110.top/posts/5be64662.html"/>
+    <id>https://www.six1110.top/posts/5be64662.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.332Z</updated>
+    <updated>2019-11-27T02:00:03.334Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Js面向对象编程&lt;/p&gt;
+&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -367,16 +394,16 @@
   </entry>
   
   <entry>
-    <title>Script学习记录 异步深入</title>
-    <link href="https://www.six1110.top/posts/5be64662.html"/>
-    <id>https://www.six1110.top/posts/5be64662.html</id>
+    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
+    <link href="https://www.six1110.top/posts/279f5654.html"/>
+    <id>https://www.six1110.top/posts/279f5654.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.334Z</updated>
+    <updated>2019-11-27T02:00:03.332Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
+&lt;p&gt;Js面向对象编程&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -433,9 +460,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -463,16 +490,16 @@
   </entry>
   
   <entry>
-    <title>leetcode-50-Pow-x-n</title>
-    <link href="https://www.six1110.top/posts/89f24699.html"/>
-    <id>https://www.six1110.top/posts/89f24699.html</id>
+    <title>leetcode357计算各个位数不同的数字个数</title>
+    <link href="https://www.six1110.top/posts/52d85e26.html"/>
+    <id>https://www.six1110.top/posts/52d85e26.html</id>
     <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2020-03-18T16:53:35.265Z</updated>
+    <updated>2019-11-27T02:00:03.336Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;实现 pow(x, n) ，即计算 x 的 n 次幂函数。&lt;/p&gt;
+&lt;p&gt;给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &amp;lt; 10^n 。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -480,12 +507,16 @@
     
       <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
     
-      <category term="位运算" scheme="https://www.six1110.top/categories/leetcode/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="数学" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B0%E5%AD%A6/"/>
     
     
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
     
-      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="数学" scheme="https://www.six1110.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -510,44 +541,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
+      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
       <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode题解167,88,155,32,84,42</title>
-    <link href="https://www.six1110.top/posts/81be5994.html"/>
-    <id>https://www.six1110.top/posts/81be5994.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2020-03-18T16:54:42.105Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;练习了一下双指针，单调栈。三道简单，三道困难。分别是两数之和 II - 输入有序数组，合并两个有序数组，最小栈，最长有效括号，柱状图中最大的矩形，接雨水。难度着实有点大。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="双指针" scheme="https://www.six1110.top/categories/leetcode/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-      <category term="栈" scheme="https://www.six1110.top/categories/leetcode/%E5%8F%8C%E6%8C%87%E9%92%88/%E6%A0%88/"/>
-    
-      <category term="单调栈" scheme="https://www.six1110.top/categories/leetcode/%E5%8F%8C%E6%8C%87%E9%92%88/%E6%A0%88/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
-    
-      <category term="双指针" scheme="https://www.six1110.top/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-      <category term="栈" scheme="https://www.six1110.top/tags/%E6%A0%88/"/>
-    
-      <category term="单调栈" scheme="https://www.six1110.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
   </entry>
   
