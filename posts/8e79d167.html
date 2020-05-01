@@ -57,7 +57,7 @@
 <meta property="og:description" content="最近周赛的压轴题都是dp，总结一下">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;assets.leetcode-cn.com&#x2F;aliyun-lc-upload&#x2F;uploads&#x2F;2020&#x2F;04&#x2F;19&#x2F;e.png">
-<meta property="og:updated_time" content="2020-05-01T15:46:34.637Z">
+<meta property="og:updated_time" content="2020-05-01T15:47:02.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;assets.leetcode-cn.com&#x2F;aliyun-lc-upload&#x2F;uploads&#x2F;2020&#x2F;04&#x2F;19&#x2F;e.png">
 
@@ -238,7 +238,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-01 22:49:00 / 修改时间：23:46:34" itemprop="dateCreated datePublished" datetime="2020-05-01T22:49:00+08:00">2020-05-01</time>
+              <time title="创建时间：2020-05-01 22:49:00 / 修改时间：23:47:02" itemprop="dateCreated datePublished" datetime="2020-05-01T22:49:00+08:00">2020-05-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -311,7 +311,7 @@
 <p>思路：朴素dp做法就是dp[i]=nums[i]+max(0,dp[i-k],dp[i-k+1],…dp[i-1),复杂度是$n^2$的，可以使用滑动窗口最大值优化，维护一个大小为k的滑动窗口，有状态转移方程：<br>$dp[i]=max(nums[i],dp[q.front()] + nums[i])$其中dp[q.front()]是滑动窗口中的最大值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">constrainedSubsetSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),res;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp(n);</span><br><span class="line">        <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line">        q.push_back(<span class="number">0</span>);</span><br><span class="line">        res=dp[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[i]=<span class="built_in">max</span>(nums[i],dp[q.front()] + nums[i]);</span><br><span class="line">            res = <span class="built_in">max</span>(res,dp[i]);</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; q.front() &lt;= i-k)q.pop_front();</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; dp[q.back()] &lt;= dp[i])q.pop_back();</span><br><span class="line">            q.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="leetcode-1420-生成数组"><a href="#leetcode-1420-生成数组" class="headerlink" title="leetcode 1420 生成数组"></a>leetcode 1420 生成数组</h2><p>给你三个整数 n、m 和 k 。下图描述的算法用于找出正整数数组中最大的元素。<br><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" alt=""><br>请你生成一个具有下述属性的数组 arr ：</p>
+<h2 id="leetcode-1420-生成数组"><a href="#leetcode-1420-生成数组" class="headerlink" title="leetcode 1420 生成数组"></a>leetcode 1420 生成数组</h2><p>给你三个整数 n、m 和 k 。下图描述的算法用于找出正整数数组中最大的元素。<br><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" alt="生成数组"><br>请你生成一个具有下述属性的数组 arr ：</p>
 <p>arr 中有 n 个整数。</p>
 <ul>
 <li>1 &lt;= arr[i] &lt;= m 其中 (0 &lt;= i &lt; n) 。</li>
