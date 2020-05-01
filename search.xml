@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leetcode周赛压轴专题</title>
+    <url>/posts/8e79d167.html</url>
+    <content><![CDATA[<p>最近周赛的压轴题都是dp，总结一下</p>
+<a id="more"></a>
+<h2 id="leetcode-1425-带限制的子序列和"><a href="#leetcode-1425-带限制的子序列和" class="headerlink" title="leetcode 1425 带限制的子序列和"></a>leetcode 1425 带限制的子序列和</h2><p>给你一个整数数组 nums 和一个整数 k ，请你返回 非空 子序列元素和的最大值，子序列需要满足：子序列中每两个 相邻 的整数 nums[i] 和 nums[j] ，它们在原数组中的下标 i 和 j 满足 i &lt; j 且 j - i &lt;= k 。</p>
+<p>数组的子序列定义为：将数组中的若干个数字删除（可以删除 0 个数字），剩下的数字按照原本的顺序排布。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">10</span>,<span class="number">2</span>,<span class="number">-10</span>,<span class="number">5</span>,<span class="number">20</span>], k = <span class="number">2</span></span><br><span class="line">输出：<span class="number">37</span></span><br><span class="line">解释：子序列为 [<span class="number">10</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">20</span>] 。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">-3</span>], k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">-1</span></span><br><span class="line">解释：子序列必须是非空的，所以我们选择最大的数字。</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">10</span>,<span class="number">-2</span>,<span class="number">-10</span>,<span class="number">-5</span>,<span class="number">20</span>], k = <span class="number">2</span></span><br><span class="line">输出：<span class="number">23</span></span><br><span class="line">解释：子序列为 [<span class="number">10</span>, <span class="number">-2</span>, <span class="number">-5</span>, <span class="number">20</span>] 。</span><br></pre></td></tr></table></figure>
+
+<p>$1 &lt;= k &lt;= nums.length &lt;= 10^5$<br>$-10^4 &lt;= nums[i] &lt;= 10^4$</p>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/constrained-subsequence-sum" target="_blank" rel="noopener">https://leetcode-cn.com/problems/constrained-subsequence-sum</a></li>
+</ul>
+<p>思路：朴素dp做法就是dp[i]=nums[i]+max(0,dp[i-k],dp[i-k+1],…dp[i-1),复杂度是$n^2$的，可以使用滑动窗口最大值优化，维护一个大小为k的滑动窗口，有状态转移方程：<br>$dp[i]=max(nums[i],dp[q.front()] + nums[i])$其中dp[q.front()]是滑动窗口中的最大值</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">constrainedSubsetSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),res;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp(n);</span><br><span class="line">        <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line">        q.push_back(<span class="number">0</span>);</span><br><span class="line">        res=dp[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[i]=<span class="built_in">max</span>(nums[i],dp[q.front()] + nums[i]);</span><br><span class="line">            res = <span class="built_in">max</span>(res,dp[i]);</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; q.front() &lt;= i-k)q.pop_front();</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; dp[q.back()] &lt;= dp[i])q.pop_back();</span><br><span class="line">            q.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="leetcode-1420-生成数组"><a href="#leetcode-1420-生成数组" class="headerlink" title="leetcode 1420 生成数组"></a>leetcode 1420 生成数组</h2><p>给你三个整数 n、m 和 k 。下图描述的算法用于找出正整数数组中最大的元素。<br><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" alt=""><br>请你生成一个具有下述属性的数组 arr ：</p>
+<p>arr 中有 n 个整数。</p>
+<ul>
+<li>1 &lt;= arr[i] &lt;= m 其中 (0 &lt;= i &lt; n) 。</li>
+<li>将上面提到的算法应用于 arr ，search_cost 的值等于 k 。</li>
+<li>返回上述条件下生成数组 arr 的 方法数 ，由于答案可能会很大，所以 必须 对 10^9 + 7 取余。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">2</span>, m = <span class="number">3</span>, k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：可能的数组分别为 [<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">2</span>] [<span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">5</span>, m = <span class="number">2</span>, k = <span class="number">3</span></span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line">解释：没有数组可以满足上述条件</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">9</span>, m = <span class="number">1</span>, k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：可能的数组只有 [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">50</span>, m = <span class="number">100</span>, k = <span class="number">25</span></span><br><span class="line">输出：<span class="number">34549172</span></span><br><span class="line">解释：不要忘了对 <span class="number">1000000007</span> 取余</span><br><span class="line">示例 <span class="number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">37</span>, m = <span class="number">17</span>, k = <span class="number">7</span></span><br><span class="line">输出：<span class="number">418930126</span></span><br></pre></td></tr></table></figure>
+
+<p>1 &lt;= n &lt;= 50<br>1 &lt;= m &lt;= 100<br>0 &lt;= k &lt;= n</p>
+<p>思路：<br>方法一：朴素dp,dp[i][j][k]表示构建i位数用到的最大数为j的消耗为k的方案数。按照用到的数来进行状态划分。如果上一轮已经用了最大数j，消耗为k，那么这一轮不会生成更大的数，此时是从上一轮中消耗k转移来的,本轮可选共j种可能(1<del>j)，如果上一轮没用最大数j(即用到j-1)，消耗为k,那么当前轮使用最大数j会让消耗加1,所以是从上一轮中消耗k-1转移来的。所以有转移方程：<br>$dp[i][j][k] = dp[i-1][j][k]*j + sum(dp[i-1][1</del>j-1][k-1])$<br>时间复杂度:$O(km^2n)$</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000000</span> + <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">51</span>][<span class="number">101</span>][<span class="number">51</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numOfArrays</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> M, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)dp[<span class="number">1</span>][i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=M;j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=K;k++)&#123;</span><br><span class="line">                    dp[i][j][k] = (dp[i][j][k] + (<span class="keyword">long</span>)dp[i<span class="number">-1</span>][j][k]*j)%mod;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">1</span>;u&lt;j;u++)&#123;</span><br><span class="line">                        dp[i][j][k]=(dp[i][j][k] + dp[i<span class="number">-1</span>][u][k<span class="number">-1</span>])%mod;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)res=(res+dp[N][i][K])%mod;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法二：使用前缀和优化，可以发现其实对于如果从k-1转移过来，加上的方案数是连续的和，所以可以用前缀和来优化。时间复杂度:$O(kmn)$</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000000</span> + <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">51</span>][<span class="number">101</span>][<span class="number">51</span>];</span><br><span class="line">    <span class="keyword">int</span> pre[<span class="number">51</span>][<span class="number">101</span>][<span class="number">51</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numOfArrays</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> M, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">            dp[<span class="number">1</span>][i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">            pre[<span class="number">1</span>][i][<span class="number">1</span>] = pre[<span class="number">1</span>][i<span class="number">-1</span>][<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=M;j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=K;k++)&#123;</span><br><span class="line">                    dp[i][j][k] = (dp[i][j][k] + (<span class="keyword">long</span>)dp[i<span class="number">-1</span>][j][k]*j + pre[i<span class="number">-1</span>][j<span class="number">-1</span>][k<span class="number">-1</span>])%mod;</span><br><span class="line">                    pre[i][j][k] = (dp[i][j][k] + pre[i][j<span class="number">-1</span>][k])%mod;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i==N)res=(dp[N][j][K]+res)%mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="leetcode-1416-恢复数组"><a href="#leetcode-1416-恢复数组" class="headerlink" title="leetcode 1416 恢复数组"></a>leetcode 1416 恢复数组</h2><p>某个程序本来应该输出一个整数数组。但是这个程序忘记输出空格了以致输出了一个数字字符串，我们所知道的信息只有：数组中所有整数都在 [1, k] 之间，且数组中的数字都没有前导 0 。</p>
+<p>给你字符串 s 和整数 k 。可能会有多种不同的数组恢复结果。</p>
+<p>按照上述程序，请你返回所有可能输出字符串 s 的数组方案数。</p>
+<p>由于数组方案数可能会很大，请你返回它对 10^9 + 7 取余 后的结果。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1000"</span>, k = <span class="number">10000</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：唯一一种可能的数组方案是 [<span class="number">1000</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1000"</span>, k = <span class="number">10</span></span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line">解释：不存在任何数组方案满足所有整数都 &gt;= <span class="number">1</span> 且 &lt;= <span class="number">10</span> 同时输出结果为 s 。</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1317"</span>, k = <span class="number">2000</span></span><br><span class="line">输出：<span class="number">8</span></span><br><span class="line">解释：可行的数组方案为 [<span class="number">1317</span>]，[<span class="number">131</span>,<span class="number">7</span>]，[<span class="number">13</span>,<span class="number">17</span>]，[<span class="number">1</span>,<span class="number">317</span>]，[<span class="number">13</span>,<span class="number">1</span>,<span class="number">7</span>]，[<span class="number">1</span>,<span class="number">31</span>,<span class="number">7</span>]，[<span class="number">1</span>,<span class="number">3</span>,<span class="number">17</span>]，[<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">7</span>]</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"2020"</span>, k = <span class="number">30</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：唯一可能的数组方案是 [<span class="number">20</span>,<span class="number">20</span>] 。 [<span class="number">2020</span>] 不是可行的数组方案，原因是 <span class="number">2020</span> &gt; <span class="number">30</span> 。 [<span class="number">2</span>,<span class="number">020</span>] 也不是可行的数组方案，因为 <span class="number">020</span> 含有前导 <span class="number">0</span> 。</span><br><span class="line">示例 <span class="number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1234567890"</span>, k = <span class="number">90</span></span><br><span class="line">输出：<span class="number">34</span></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>$1 &lt;= s.length &lt;= 10^5.$</li>
+<li>s 只包含数字且不包含前导 0 。</li>
+<li>$1 &lt;= k &lt;= 10^9.$<br>思路：(动态规划) $O(nlog10k)$<br>设状态 f(i) 表示前 i 个数字的合法划分方案，这里的下标从 1 开始。<br>初始值 f(0)=1，其余为 0。<br>转移时，如果子串 [j + 1, i] 转换为数字后在范围 [1, k] 中，则转移 f(i)=f(i)+f(j)。<br>最终答案为 f(n)。<br>时间复杂度<br>状态数为 O(n)，转移时，j 不会小于 i−log10k−1，所以总时间复杂度为 O(nlog10k)。<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000000</span>+<span class="number">7</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numberOfArrays</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> n=s.<span class="built_in">size</span>();</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp(n+<span class="number">1</span>);</span><br><span class="line">       dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">           <span class="keyword">long</span> cur=<span class="number">0</span>,p=<span class="number">1</span>;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>&amp;&amp;p&lt;=<span class="number">1e9</span>;j--,p*=<span class="number">10</span>)&#123;</span><br><span class="line">               cur += (s[j]-<span class="string">'0'</span>)*p;</span><br><span class="line">               <span class="keyword">if</span>(cur&lt;=k &amp;&amp; s[j]!=<span class="string">'0'</span>)dp[i]=(dp[i] + dp[j])%mod;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode-trie树专题</title>
     <url>/posts/e8b1e390.html</url>
     <content><![CDATA[<p>trie树，又称单词查找树，前缀树，字典树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计，自动补全等。它的优点是：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。</p>
@@ -552,6 +607,38 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode-50-Pow-x-n</title>
+    <url>/posts/89f24699.html</url>
+    <content><![CDATA[<blockquote>
+<p>实现 pow(x, n) ，即计算 x 的 n 次幂函数。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">10</span></span><br><span class="line">输出: <span class="number">1024.00000</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.10000</span>, <span class="number">3</span></span><br><span class="line">输出: <span class="number">9.26100</span></span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">-2</span></span><br><span class="line">输出: <span class="number">0.25000</span></span><br><span class="line">解释: <span class="number">2</span><span class="number">-2</span> = <span class="number">1</span>/<span class="number">22</span> = <span class="number">1</span>/<span class="number">4</span> = <span class="number">0.25</span></span><br></pre></td></tr></table></figure>
+<p>说明:</p>
+<ol>
+<li>-100.0 &lt; x &lt; 100.0</li>
+<li>n 是 32 位有符号整数，其数值范围是([-2^{31},2^{31}-1]) 。</li>
+</ol>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/powx-n" target="_blank" rel="noopener">https://leetcode-cn.com/problems/powx-n</a></li>
+</ul>
+<blockquote>
+<p>思路：思路：快速幂模板题</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">long</span> <span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> b=<span class="built_in">abs</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b&amp;<span class="number">1</span>)ans = ans * x;</span><br><span class="line">            x = x * x ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>/ans;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>位运算</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode357计算各个位数不同的数字个数</title>
     <url>/posts/52d85e26.html</url>
     <content><![CDATA[<blockquote>
@@ -574,68 +661,6 @@
         <tag>leetcode</tag>
         <tag>动态规划</tag>
         <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode322零钱兑换</title>
-    <url>/posts/89f24625.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>说明: 你可以认为每种硬币的数量是无限的。</li>
-</ul>
-<blockquote>
-<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode486预测赢家</title>
-    <url>/posts/4651617d.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。<br>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">输出: False</span><br><span class="line">解释: 一开始，玩家<span class="number">1</span>可以从<span class="number">1</span>和<span class="number">2</span>中进行选择。</span><br><span class="line">如果他选择<span class="number">2</span>（或者<span class="number">1</span>），那么玩家<span class="number">2</span>可以从<span class="number">1</span>（或者<span class="number">2</span>）和<span class="number">5</span>中进行选择。如果玩家<span class="number">2</span>选择了<span class="number">5</span>，那么玩家<span class="number">1</span>则只剩下<span class="number">1</span>（或者<span class="number">2</span>）可选。</span><br><span class="line">所以，玩家<span class="number">1</span>的最终分数为 <span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span>，而玩家<span class="number">2</span>为 <span class="number">5</span>。</span><br><span class="line">因此，玩家<span class="number">1</span>永远不会成为赢家，返回 False。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">233</span>, <span class="number">7</span>]</span><br><span class="line">输出: True</span><br><span class="line">解释: 玩家<span class="number">1</span>一开始选择<span class="number">1</span>。然后玩家<span class="number">2</span>必须从<span class="number">5</span>和<span class="number">7</span>中进行选择。无论玩家<span class="number">2</span>选择了哪个，玩家<span class="number">1</span>都可以选择<span class="number">233</span>。</span><br><span class="line">最终，玩家<span class="number">1</span>（<span class="number">234</span>分）比玩家<span class="number">2</span>（<span class="number">12</span>分）获得更多的分数，所以返回 True，表示玩家<span class="number">1</span>可以成为赢家。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意:</p>
-</blockquote>
-<ol>
-<li>1 &lt;= 给定的数组长度 &lt;= 20.</li>
-<li>数组里所有分数都为非负数且不会大于10000000。</li>
-<li>如果最终两个玩家的分数相等，那么玩家1仍为赢家。</li>
-</ol>
-<ul>
-<li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/predict-the-winner" target="_blank" rel="noopener">https://leetcode-cn.com/problems/predict-the-winner</a></li>
-</ul>
-<blockquote>
-<p>思路：（区间dp问题，一般都要先枚举区间长度）。状态定义：f[i][j表示取完了除i-j区间外所有数，先手玩家可得最高分数。初始化时如果数组的数为奇数个则最后一次是先手玩家取数，若为偶数则啥也不干。枚举区间长度2-n，l表示区间左端点，r表示区间右端点。若当前取的数是第奇数个则是先手玩家取，故要采取对自己最有利的方式,从左右端点中取最大的那个数，状态转移方程为:<br>$f[l][r] = max(f[l+1][r] + nums[l],f[l][r-1]+nums[r])$<br>否则是对方取数，则会让先手玩家得分为最小，状态转移方程为：<br>$f[l][r] = min(f[l+1][r],f[l][r-1])$<br>（因为f[i][j]是先手玩家能得最大分）<br>由于若两个玩家最后的分数相等也是先手玩家赢，所以最后要比较一下先手玩家和后手玩家的分数。<br>代码如下：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i][i] = nums[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i&lt;=n; i++)&#123;<span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j+i<span class="number">-1</span>&lt;n;j++)&#123;<span class="comment">//f[i][j]表示取完了除i-j区间之后 玩家可得最高分数</span></span><br><span class="line">                <span class="keyword">int</span> l = j, r = i+j<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((n-(r-l+<span class="number">1</span>))%<span class="number">2</span>==<span class="number">0</span>)f[l][r] = <span class="built_in">max</span>(f[l+<span class="number">1</span>][r] + nums[l],f[l][r<span class="number">-1</span>]+nums[r]);</span><br><span class="line">                <span class="keyword">else</span> f[l][r] = <span class="built_in">min</span>(f[l+<span class="number">1</span>][r],f[l][r<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i=<span class="number">0</span>;i&lt;n;i++)sum+=nums[i];</span><br><span class="line">        <span class="keyword">if</span>(f[<span class="number">0</span>][n<span class="number">-1</span>]&gt;=sum-f[<span class="number">0</span>][n<span class="number">-1</span>])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -756,6 +781,68 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode322零钱兑换</title>
+    <url>/posts/89f24625.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明: 你可以认为每种硬币的数量是无限的。</li>
+</ul>
+<blockquote>
+<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode486预测赢家</title>
+    <url>/posts/4651617d.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定一个表示分数的非负整数数组。 玩家1从数组任意一端拿取一个分数，随后玩家2继续从剩余数组任意一端拿取分数，然后玩家1拿，……。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。<br>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">输出: False</span><br><span class="line">解释: 一开始，玩家<span class="number">1</span>可以从<span class="number">1</span>和<span class="number">2</span>中进行选择。</span><br><span class="line">如果他选择<span class="number">2</span>（或者<span class="number">1</span>），那么玩家<span class="number">2</span>可以从<span class="number">1</span>（或者<span class="number">2</span>）和<span class="number">5</span>中进行选择。如果玩家<span class="number">2</span>选择了<span class="number">5</span>，那么玩家<span class="number">1</span>则只剩下<span class="number">1</span>（或者<span class="number">2</span>）可选。</span><br><span class="line">所以，玩家<span class="number">1</span>的最终分数为 <span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span>，而玩家<span class="number">2</span>为 <span class="number">5</span>。</span><br><span class="line">因此，玩家<span class="number">1</span>永远不会成为赢家，返回 False。</span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: [<span class="number">1</span>, <span class="number">5</span>, <span class="number">233</span>, <span class="number">7</span>]</span><br><span class="line">输出: True</span><br><span class="line">解释: 玩家<span class="number">1</span>一开始选择<span class="number">1</span>。然后玩家<span class="number">2</span>必须从<span class="number">5</span>和<span class="number">7</span>中进行选择。无论玩家<span class="number">2</span>选择了哪个，玩家<span class="number">1</span>都可以选择<span class="number">233</span>。</span><br><span class="line">最终，玩家<span class="number">1</span>（<span class="number">234</span>分）比玩家<span class="number">2</span>（<span class="number">12</span>分）获得更多的分数，所以返回 True，表示玩家<span class="number">1</span>可以成为赢家。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意:</p>
+</blockquote>
+<ol>
+<li>1 &lt;= 给定的数组长度 &lt;= 20.</li>
+<li>数组里所有分数都为非负数且不会大于10000000。</li>
+<li>如果最终两个玩家的分数相等，那么玩家1仍为赢家。</li>
+</ol>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/predict-the-winner" target="_blank" rel="noopener">https://leetcode-cn.com/problems/predict-the-winner</a></li>
+</ul>
+<blockquote>
+<p>思路：（区间dp问题，一般都要先枚举区间长度）。状态定义：f[i][j表示取完了除i-j区间外所有数，先手玩家可得最高分数。初始化时如果数组的数为奇数个则最后一次是先手玩家取数，若为偶数则啥也不干。枚举区间长度2-n，l表示区间左端点，r表示区间右端点。若当前取的数是第奇数个则是先手玩家取，故要采取对自己最有利的方式,从左右端点中取最大的那个数，状态转移方程为:<br>$f[l][r] = max(f[l+1][r] + nums[l],f[l][r-1]+nums[r])$<br>否则是对方取数，则会让先手玩家得分为最小，状态转移方程为：<br>$f[l][r] = min(f[l+1][r],f[l][r-1])$<br>（因为f[i][j]是先手玩家能得最大分）<br>由于若两个玩家最后的分数相等也是先手玩家赢，所以最后要比较一下先手玩家和后手玩家的分数。<br>代码如下：</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i][i] = nums[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i&lt;=n; i++)&#123;<span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j+i<span class="number">-1</span>&lt;n;j++)&#123;<span class="comment">//f[i][j]表示取完了除i-j区间之后 玩家可得最高分数</span></span><br><span class="line">                <span class="keyword">int</span> l = j, r = i+j<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((n-(r-l+<span class="number">1</span>))%<span class="number">2</span>==<span class="number">0</span>)f[l][r] = <span class="built_in">max</span>(f[l+<span class="number">1</span>][r] + nums[l],f[l][r<span class="number">-1</span>]+nums[r]);</span><br><span class="line">                <span class="keyword">else</span> f[l][r] = <span class="built_in">min</span>(f[l+<span class="number">1</span>][r],f[l][r<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i=<span class="number">0</span>;i&lt;n;i++)sum+=nums[i];</span><br><span class="line">        <span class="keyword">if</span>(f[<span class="number">0</span>][n<span class="number">-1</span>]&gt;=sum-f[<span class="number">0</span>][n<span class="number">-1</span>])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多重背包</title>
     <url>/posts/4651617g.html</url>
     <content><![CDATA[<blockquote>
@@ -800,35 +887,43 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode-50-Pow-x-n</title>
-    <url>/posts/89f24699.html</url>
+    <title>随笔2</title>
+    <url>/posts/4651617f.html</url>
     <content><![CDATA[<blockquote>
-<p>实现 pow(x, n) ，即计算 x 的 n 次幂函数。</p>
+<p>今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。</p>
 </blockquote>
 <a id="more"></a>
 
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">10</span></span><br><span class="line">输出: <span class="number">1024.00000</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.10000</span>, <span class="number">3</span></span><br><span class="line">输出: <span class="number">9.26100</span></span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">-2</span></span><br><span class="line">输出: <span class="number">0.25000</span></span><br><span class="line">解释: <span class="number">2</span><span class="number">-2</span> = <span class="number">1</span>/<span class="number">22</span> = <span class="number">1</span>/<span class="number">4</span> = <span class="number">0.25</span></span><br></pre></td></tr></table></figure>
-<p>说明:</p>
-<ol>
-<li>-100.0 &lt; x &lt; 100.0</li>
-<li>n 是 32 位有符号整数，其数值范围是([-2^{31},2^{31}-1]) 。</li>
-</ol>
-<ul>
-<li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/powx-n" target="_blank" rel="noopener">https://leetcode-cn.com/problems/powx-n</a></li>
-</ul>
 <blockquote>
-<p>思路：思路：快速幂模板题</p>
+<p>先下载安装vscode，按ctrl+shift+x,搜索c++,安装<br><img src="https://ae01.alicdn.com/kf/H5897989a61d947088d3a814c4d56c7282.png" alt=""><br>再搜索code run,安装<br><img src="https://ae01.alicdn.com/kf/Hebff0b70113f4aadb056b2e15a78d011k.png" alt=""><br>（还需要下载MinGW点击下载）打开MinGW安装器界面，勾选一下几个选项（右键Make for Installation进行标记）：</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">long</span> <span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> b=<span class="built_in">abs</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b&amp;<span class="number">1</span>)ans = ans * x;</span><br><span class="line">            x = x * x ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>/ans;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>minGW32-gcc(bin)</li>
+<li>minGW32-gcc-g++(bin)</li>
+<li>minGW32-gdb(bin)</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>点击左上角的Installation菜单下的Apply Changes以应用修改，过程需要联网，安装完成后需要为环境变量配置Path，添加E:\MinGW\bin。<br>此时重新启动VSCode，编译完代码后按快捷键F5或者在菜单栏中找到调试按钮以进行调试操作。<br>注意vscode调试需要在打开的文件夹中进行，可以在资源管理器中创建一个文件夹来保存临时代码文件。<br>打开文件夹，创建一个.cpp文件，编写一段helloworld代码，创建一个.vscode文件夹。结构如下图：<br><img src="https://ae01.alicdn.com/kf/H7e95cc578c074334aa6f283bf1d7d58fw.png" alt=""><br>在.vscode中创建四个.json文件：</p>
+</blockquote>
+<p>c_cpp_properties.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Win32"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [</span><br><span class="line">                <span class="string">"_DEBUG"</span>,</span><br><span class="line">                <span class="string">"UNICODE"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"E:\\MinGW\\bin\\g++.exe"</span>,		</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"msvc-x64"</span>,</span><br><span class="line">            <span class="string">"browse"</span>: &#123;</span><br><span class="line">                <span class="string">"path"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="string">"limitSymbolsToIncludedHeaders"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="string">"databaseFilename"</span>: <span class="string">""</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"c11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//compilerPath的路径与安装的WinGW的c++环境对应，其他不用改。</span></span><br></pre></td></tr></table></figure>
+<p>launch.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,	<span class="comment">//要运行的文件</span></span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="string">"environment"</span>: [],</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"miDebuggerPath"</span>: <span class="string">"E:\\MinGW\\bin\\gdb.exe"</span>,</span><br><span class="line">            <span class="string">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="string">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="string">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"complie"</span> <span class="comment">// 调试会话开始前执行的任务，类似于Ant，这里为我们的编译任务</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//miDebuggerPath这个也要改。</span></span><br></pre></td></tr></table></figure>
+<p>settings.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"iostream"</span>: <span class="string">"cpp"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>tasks.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"complie"</span>,			<span class="comment">//任务名</span></span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [</span><br><span class="line">                <span class="comment">// Ask msbuild to generate full paths for file names.</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasename&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasenameNoExtension&#125;.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"presentation"</span>: &#123;</span><br><span class="line">                <span class="comment">// Reveal the output only if unrecognized errors occur.</span></span><br><span class="line">                <span class="string">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Use the standard MS compiler pattern to detect errors, warnings and infos</span></span><br><span class="line">            <span class="string">"problemMatcher"</span>: <span class="string">"$msCompile"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样就完成了配置，可以尽情的玩耍了。<br>去中南的oj逛了逛感觉那些同学的做题热情不够哇。。除了排名最靠前的几个同学，后面的同学刷的比较少。顺手注册A了几个题hhh<br><img src="https://ae01.alicdn.com/kf/H4c053fe50fc949168066a53a5139f5f85.png" alt=""></p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>leetcode</category>
-        <category>位运算</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
-        <tag>位运算</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -875,46 +970,6 @@
 <p><img src="https://ae01.alicdn.com/kf/H7f1732d69995409ca8e108894c8d29e1o.png" alt=""></p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">mglearn.plots.plot_2d_classification(linear_svm,X,<span class="built_in">fill</span>=True,alpha=<span class="number">.7</span>)</span><br><span class="line">mglearn.discrete_scatter(X[:,<span class="number">0</span>],X[:,<span class="number">1</span>],y)</span><br><span class="line"><span class="built_in">line</span> = np.linspace(<span class="number">-15</span>,<span class="number">15</span>)</span><br><span class="line"><span class="keyword">for</span> coef,intercept,color in zip(linear_svm.coef_,linear_svm.intercept_,[<span class="string">'b'</span>,<span class="string">'r'</span>,<span class="string">'g'</span>]):</span><br><span class="line">    plt.plot(<span class="built_in">line</span>,-(<span class="built_in">line</span> * coef[<span class="number">0</span>]+intercept)/coef[<span class="number">1</span>],c=color)</span><br><span class="line">plt.ylim(<span class="number">-10</span>,<span class="number">15</span>)</span><br><span class="line">plt.xlim(<span class="number">-10</span>,<span class="number">8</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Feature 0"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Feature 1"</span>)</span><br><span class="line">plt.legend(["Class 0","Class 1","Class 2",'Line class 0','Line class 1','Line class 2'],loc=(1.01,0.3))</span><br></pre></td></tr></table></figure>
 <p><img src="https://ae01.alicdn.com/kf/Hf19136ef29e948c18e9c87109699b418V.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随笔2</title>
-    <url>/posts/4651617f.html</url>
-    <content><![CDATA[<blockquote>
-<p>今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。</p>
-</blockquote>
-<a id="more"></a>
-
-<blockquote>
-<p>先下载安装vscode，按ctrl+shift+x,搜索c++,安装<br><img src="https://ae01.alicdn.com/kf/H5897989a61d947088d3a814c4d56c7282.png" alt=""><br>再搜索code run,安装<br><img src="https://ae01.alicdn.com/kf/Hebff0b70113f4aadb056b2e15a78d011k.png" alt=""><br>（还需要下载MinGW点击下载）打开MinGW安装器界面，勾选一下几个选项（右键Make for Installation进行标记）：</p>
-</blockquote>
-<blockquote>
-<ol>
-<li>minGW32-gcc(bin)</li>
-<li>minGW32-gcc-g++(bin)</li>
-<li>minGW32-gdb(bin)</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>点击左上角的Installation菜单下的Apply Changes以应用修改，过程需要联网，安装完成后需要为环境变量配置Path，添加E:\MinGW\bin。<br>此时重新启动VSCode，编译完代码后按快捷键F5或者在菜单栏中找到调试按钮以进行调试操作。<br>注意vscode调试需要在打开的文件夹中进行，可以在资源管理器中创建一个文件夹来保存临时代码文件。<br>打开文件夹，创建一个.cpp文件，编写一段helloworld代码，创建一个.vscode文件夹。结构如下图：<br><img src="https://ae01.alicdn.com/kf/H7e95cc578c074334aa6f283bf1d7d58fw.png" alt=""><br>在.vscode中创建四个.json文件：</p>
-</blockquote>
-<p>c_cpp_properties.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Win32"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [</span><br><span class="line">                <span class="string">"_DEBUG"</span>,</span><br><span class="line">                <span class="string">"UNICODE"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"E:\\MinGW\\bin\\g++.exe"</span>,		</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"msvc-x64"</span>,</span><br><span class="line">            <span class="string">"browse"</span>: &#123;</span><br><span class="line">                <span class="string">"path"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="string">"limitSymbolsToIncludedHeaders"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="string">"databaseFilename"</span>: <span class="string">""</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"c11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//compilerPath的路径与安装的WinGW的c++环境对应，其他不用改。</span></span><br></pre></td></tr></table></figure>
-<p>launch.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,	<span class="comment">//要运行的文件</span></span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="string">"environment"</span>: [],</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"miDebuggerPath"</span>: <span class="string">"E:\\MinGW\\bin\\gdb.exe"</span>,</span><br><span class="line">            <span class="string">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="string">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="string">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"complie"</span> <span class="comment">// 调试会话开始前执行的任务，类似于Ant，这里为我们的编译任务</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//miDebuggerPath这个也要改。</span></span><br></pre></td></tr></table></figure>
-<p>settings.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"iostream"</span>: <span class="string">"cpp"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>tasks.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"complie"</span>,			<span class="comment">//任务名</span></span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [</span><br><span class="line">                <span class="comment">// Ask msbuild to generate full paths for file names.</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasename&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasenameNoExtension&#125;.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"presentation"</span>: &#123;</span><br><span class="line">                <span class="comment">// Reveal the output only if unrecognized errors occur.</span></span><br><span class="line">                <span class="string">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Use the standard MS compiler pattern to detect errors, warnings and infos</span></span><br><span class="line">            <span class="string">"problemMatcher"</span>: <span class="string">"$msCompile"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这样就完成了配置，可以尽情的玩耍了。<br>去中南的oj逛了逛感觉那些同学的做题热情不够哇。。除了排名最靠前的几个同学，后面的同学刷的比较少。顺手注册A了几个题hhh<br><img src="https://ae01.alicdn.com/kf/H4c053fe50fc949168066a53a5139f5f85.png" alt=""></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>随笔</category>

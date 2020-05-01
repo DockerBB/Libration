@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="中南头号黑子的学习记录" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://www.six1110.top').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":6,"onmobile":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="最近周赛的压轴题都是dp，总结一下">
+<meta name="keywords" content="leetcode,动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode周赛压轴专题">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;8e79d167.html">
+<meta property="og:site_name" content="中南头号黑子的学习记录">
+<meta property="og:description" content="最近周赛的压轴题都是dp，总结一下">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;assets.leetcode-cn.com&#x2F;aliyun-lc-upload&#x2F;uploads&#x2F;2020&#x2F;04&#x2F;19&#x2F;e.png">
+<meta property="og:updated_time" content="2020-05-01T15:28:41.880Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;assets.leetcode-cn.com&#x2F;aliyun-lc-upload&#x2F;uploads&#x2F;2020&#x2F;04&#x2F;19&#x2F;e.png">
+
+<link rel="canonical" href="https://www.six1110.top/posts/8e79d167.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>leetcode周赛压轴专题 | 中南头号黑子的学习记录</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中南头号黑子的学习记录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/8e79d167.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ff.jpg">
+      <meta itemprop="name" content="中南头号黑子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中南头号黑子的学习记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode周赛压轴专题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-01 22:49:00 / 修改时间：23:28:41" itemprop="dateCreated datePublished" datetime="2020-05-01T22:49:00+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url" rel="index">
+                    <span itemprop="name">动态规划</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">评论次数:：</span>
+    
+    <a title="valine" href="/posts/8e79d167.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/8e79d167.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近周赛的压轴题都是dp，总结一下</p>
+<a id="more"></a>
+<h2 id="leetcode-1425-带限制的子序列和"><a href="#leetcode-1425-带限制的子序列和" class="headerlink" title="leetcode 1425 带限制的子序列和"></a>leetcode 1425 带限制的子序列和</h2><p>给你一个整数数组 nums 和一个整数 k ，请你返回 非空 子序列元素和的最大值，子序列需要满足：子序列中每两个 相邻 的整数 nums[i] 和 nums[j] ，它们在原数组中的下标 i 和 j 满足 i &lt; j 且 j - i &lt;= k 。</p>
+<p>数组的子序列定义为：将数组中的若干个数字删除（可以删除 0 个数字），剩下的数字按照原本的顺序排布。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">10</span>,<span class="number">2</span>,<span class="number">-10</span>,<span class="number">5</span>,<span class="number">20</span>], k = <span class="number">2</span></span><br><span class="line">输出：<span class="number">37</span></span><br><span class="line">解释：子序列为 [<span class="number">10</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">20</span>] 。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">-3</span>], k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">-1</span></span><br><span class="line">解释：子序列必须是非空的，所以我们选择最大的数字。</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">10</span>,<span class="number">-2</span>,<span class="number">-10</span>,<span class="number">-5</span>,<span class="number">20</span>], k = <span class="number">2</span></span><br><span class="line">输出：<span class="number">23</span></span><br><span class="line">解释：子序列为 [<span class="number">10</span>, <span class="number">-2</span>, <span class="number">-5</span>, <span class="number">20</span>] 。</span><br></pre></td></tr></table></figure>
+
+<p>$1 &lt;= k &lt;= nums.length &lt;= 10^5$<br>$-10^4 &lt;= nums[i] &lt;= 10^4$</p>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/constrained-subsequence-sum" target="_blank" rel="noopener">https://leetcode-cn.com/problems/constrained-subsequence-sum</a></li>
+</ul>
+<p>思路：朴素dp做法就是dp[i]=nums[i]+max(0,dp[i-k],dp[i-k+1],…dp[i-1),复杂度是$n^2$的，可以使用滑动窗口最大值优化，维护一个大小为k的滑动窗口，有状态转移方程：<br>$dp[i]=max(nums[i],dp[q.front()] + nums[i])$其中dp[q.front()]是滑动窗口中的最大值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">constrainedSubsetSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>(),res;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp(n);</span><br><span class="line">        <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line">        q.push_back(<span class="number">0</span>);</span><br><span class="line">        res=dp[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[i]=<span class="built_in">max</span>(nums[i],dp[q.front()] + nums[i]);</span><br><span class="line">            res = <span class="built_in">max</span>(res,dp[i]);</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; q.front() &lt;= i-k)q.pop_front();</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; dp[q.back()] &lt;= dp[i])q.pop_back();</span><br><span class="line">            q.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="leetcode-1420-生成数组"><a href="#leetcode-1420-生成数组" class="headerlink" title="leetcode 1420 生成数组"></a>leetcode 1420 生成数组</h2><p>给你三个整数 n、m 和 k 。下图描述的算法用于找出正整数数组中最大的元素。<br><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" alt=""><br>请你生成一个具有下述属性的数组 arr ：</p>
+<p>arr 中有 n 个整数。</p>
+<ul>
+<li>1 &lt;= arr[i] &lt;= m 其中 (0 &lt;= i &lt; n) 。</li>
+<li>将上面提到的算法应用于 arr ，search_cost 的值等于 k 。</li>
+<li>返回上述条件下生成数组 arr 的 方法数 ，由于答案可能会很大，所以 必须 对 10^9 + 7 取余。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">2</span>, m = <span class="number">3</span>, k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：可能的数组分别为 [<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">2</span>] [<span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">5</span>, m = <span class="number">2</span>, k = <span class="number">3</span></span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line">解释：没有数组可以满足上述条件</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">9</span>, m = <span class="number">1</span>, k = <span class="number">1</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：可能的数组只有 [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">50</span>, m = <span class="number">100</span>, k = <span class="number">25</span></span><br><span class="line">输出：<span class="number">34549172</span></span><br><span class="line">解释：不要忘了对 <span class="number">1000000007</span> 取余</span><br><span class="line">示例 <span class="number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">37</span>, m = <span class="number">17</span>, k = <span class="number">7</span></span><br><span class="line">输出：<span class="number">418930126</span></span><br></pre></td></tr></table></figure>
+
+<p>1 &lt;= n &lt;= 50<br>1 &lt;= m &lt;= 100<br>0 &lt;= k &lt;= n</p>
+<p>思路：<br>方法一：朴素dp,dp[i][j][k]表示构建i位数用到的最大数为j的消耗为k的方案数。按照用到的数来进行状态划分。如果上一轮已经用了最大数j，消耗为k，那么这一轮不会生成更大的数，此时是从上一轮中消耗k转移来的,本轮可选共j种可能(1<del>j)，如果上一轮没用最大数j(即用到j-1)，消耗为k,那么当前轮使用最大数j会让消耗加1,所以是从上一轮中消耗k-1转移来的。所以有转移方程：<br>$dp[i][j][k] = dp[i-1][j][k]*j + sum(dp[i-1][1</del>j-1][k-1])$<br>时间复杂度:$O(km^2n)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000000</span> + <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">51</span>][<span class="number">101</span>][<span class="number">51</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numOfArrays</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> M, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)dp[<span class="number">1</span>][i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=M;j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=K;k++)&#123;</span><br><span class="line">                    dp[i][j][k] = (dp[i][j][k] + (<span class="keyword">long</span>)dp[i<span class="number">-1</span>][j][k]*j)%mod;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">1</span>;u&lt;j;u++)&#123;</span><br><span class="line">                        dp[i][j][k]=(dp[i][j][k] + dp[i<span class="number">-1</span>][u][k<span class="number">-1</span>])%mod;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)res=(res+dp[N][i][K])%mod;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法二：使用前缀和优化，可以发现其实对于如果从k-1转移过来，加上的方案数是连续的和，所以可以用前缀和来优化。时间复杂度:$O(kmn)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000000</span> + <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">51</span>][<span class="number">101</span>][<span class="number">51</span>];</span><br><span class="line">    <span class="keyword">int</span> pre[<span class="number">51</span>][<span class="number">101</span>][<span class="number">51</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numOfArrays</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> M, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">            dp[<span class="number">1</span>][i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">            pre[<span class="number">1</span>][i][<span class="number">1</span>] = pre[<span class="number">1</span>][i<span class="number">-1</span>][<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=M;j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=K;k++)&#123;</span><br><span class="line">                    dp[i][j][k] = (dp[i][j][k] + (<span class="keyword">long</span>)dp[i<span class="number">-1</span>][j][k]*j + pre[i<span class="number">-1</span>][j<span class="number">-1</span>][k<span class="number">-1</span>])%mod;</span><br><span class="line">                    pre[i][j][k] = (dp[i][j][k] + pre[i][j<span class="number">-1</span>][k])%mod;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i==N)res=(dp[N][j][K]+res)%mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="leetcode-1416-恢复数组"><a href="#leetcode-1416-恢复数组" class="headerlink" title="leetcode 1416 恢复数组"></a>leetcode 1416 恢复数组</h2><p>某个程序本来应该输出一个整数数组。但是这个程序忘记输出空格了以致输出了一个数字字符串，我们所知道的信息只有：数组中所有整数都在 [1, k] 之间，且数组中的数字都没有前导 0 。</p>
+<p>给你字符串 s 和整数 k 。可能会有多种不同的数组恢复结果。</p>
+<p>按照上述程序，请你返回所有可能输出字符串 s 的数组方案数。</p>
+<p>由于数组方案数可能会很大，请你返回它对 10^9 + 7 取余 后的结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1000"</span>, k = <span class="number">10000</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：唯一一种可能的数组方案是 [<span class="number">1000</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1000"</span>, k = <span class="number">10</span></span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line">解释：不存在任何数组方案满足所有整数都 &gt;= <span class="number">1</span> 且 &lt;= <span class="number">10</span> 同时输出结果为 s 。</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1317"</span>, k = <span class="number">2000</span></span><br><span class="line">输出：<span class="number">8</span></span><br><span class="line">解释：可行的数组方案为 [<span class="number">1317</span>]，[<span class="number">131</span>,<span class="number">7</span>]，[<span class="number">13</span>,<span class="number">17</span>]，[<span class="number">1</span>,<span class="number">317</span>]，[<span class="number">13</span>,<span class="number">1</span>,<span class="number">7</span>]，[<span class="number">1</span>,<span class="number">31</span>,<span class="number">7</span>]，[<span class="number">1</span>,<span class="number">3</span>,<span class="number">17</span>]，[<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">7</span>]</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"2020"</span>, k = <span class="number">30</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：唯一可能的数组方案是 [<span class="number">20</span>,<span class="number">20</span>] 。 [<span class="number">2020</span>] 不是可行的数组方案，原因是 <span class="number">2020</span> &gt; <span class="number">30</span> 。 [<span class="number">2</span>,<span class="number">020</span>] 也不是可行的数组方案，因为 <span class="number">020</span> 含有前导 <span class="number">0</span> 。</span><br><span class="line">示例 <span class="number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"1234567890"</span>, k = <span class="number">90</span></span><br><span class="line">输出：<span class="number">34</span></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>$1 &lt;= s.length &lt;= 10^5.$</li>
+<li>s 只包含数字且不包含前导 0 。</li>
+<li>$1 &lt;= k &lt;= 10^9.$<br>思路：(动态规划) $O(nlog10k)$<br>设状态 f(i) 表示前 i 个数字的合法划分方案，这里的下标从 1 开始。<br>初始值 f(0)=1，其余为 0。<br>转移时，如果子串 [j + 1, i] 转换为数字后在范围 [1, k] 中，则转移 f(i)=f(i)+f(j)。<br>最终答案为 f(n)。<br>时间复杂度<br>状态数为 O(n)，转移时，j 不会小于 i−log10k−1，所以总时间复杂度为 O(nlog10k)。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000000</span>+<span class="number">7</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numberOfArrays</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> n=s.<span class="built_in">size</span>();</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp(n+<span class="number">1</span>);</span><br><span class="line">       dp[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">           <span class="keyword">long</span> cur=<span class="number">0</span>,p=<span class="number">1</span>;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>&amp;&amp;p&lt;=<span class="number">1e9</span>;j--,p*=<span class="number">10</span>)&#123;</span><br><span class="line">               cur += (s[j]-<span class="string">'0'</span>)*p;</span><br><span class="line">               <span class="keyword">if</span>(cur&lt;=k &amp;&amp; s[j]!=<span class="string">'0'</span>)dp[i]=(dp[i] + dp[j])%mod;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>中南头号黑子
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.six1110.top/posts/8e79d167.html" title="leetcode周赛压轴专题">https://www.six1110.top/posts/8e79d167.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/e8b1e390.html" rel="prev" title="leetcode-trie树专题">
+      <i class="fa fa-chevron-left"></i> leetcode-trie树专题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-1425-带限制的子序列和"><span class="nav-text">leetcode 1425 带限制的子序列和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-1420-生成数组"><span class="nav-text">leetcode 1420 生成数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-1416-恢复数组"><span class="nav-text">leetcode 1416 恢复数组</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="中南头号黑子"
+      src="/images/ff.jpg">
+  <p class="site-author-name" itemprop="name">中南头号黑子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DockerBB" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DockerBB" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:adfihvg.fijd@gmail.com" title="E-Mail → mailto:adfihvg.fijd@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/VirusGeek" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;VirusGeek" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wf1996wf" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wf1996wf" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.six1110.top/" title="https:&#x2F;&#x2F;www.six1110.top">中南大学头号黑子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备19011307号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-中南头号黑子"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">中南头号黑子</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">68k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:02</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'UTzIhDRhsCUnXsliXJX4fFUv-gzGzoHsz',
+    appKey: 'JLt2BY0iO0dqcWYwRkvWwGRS',
+    placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
