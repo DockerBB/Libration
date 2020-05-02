@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="中南头号黑子的学习记录" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://www.six1110.top').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":6,"onmobile":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="leetcode 877 石子游戏亚历克斯和李用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。 游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。 亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家从行的开始或结束处取走整堆石头。 这种情况一直持续到没有更多的石子堆为止，此时手中石子最多的玩家获胜。 假设亚历克斯和李都发挥出最佳水平，当亚历克斯赢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode石子游戏专题 van♂游戏">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;c6d1141d.html">
+<meta property="og:site_name" content="中南头号黑子的学习记录">
+<meta property="og:description" content="leetcode 877 石子游戏亚历克斯和李用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。 游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。 亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家从行的开始或结束处取走整堆石头。 这种情况一直持续到没有更多的石子堆为止，此时手中石子最多的玩家获胜。 假设亚历克斯和李都发挥出最佳水平，当亚历克斯赢">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-02T08:59:54.722Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.six1110.top/posts/c6d1141d.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>leetcode石子游戏专题 van♂游戏 | 中南头号黑子的学习记录</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中南头号黑子的学习记录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/c6d1141d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ff.jpg">
+      <meta itemprop="name" content="中南头号黑子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中南头号黑子的学习记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode石子游戏专题 van♂游戏
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-02 13:22:27 / 修改时间：16:59:54" itemprop="dateCreated datePublished" datetime="2020-05-02T13:22:27+08:00">2020-05-02</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">评论次数:：</span>
+    
+    <a title="valine" href="/posts/c6d1141d.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/c6d1141d.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="leetcode-877-石子游戏"><a href="#leetcode-877-石子游戏" class="headerlink" title="leetcode 877 石子游戏"></a>leetcode 877 石子游戏</h2><p>亚历克斯和李用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。</p>
+<p>游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。</p>
+<p>亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家从行的开始或结束处取走整堆石头。 这种情况一直持续到没有更多的石子堆为止，此时手中石子最多的玩家获胜。</p>
+<p>假设亚历克斯和李都发挥出最佳水平，当亚历克斯赢得比赛时返回 true ，当李赢得比赛时返回 false 。</p>
+<a id="more"></a>
+
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"></span><br><span class="line">输入：[<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line">解释：</span><br><span class="line">亚历克斯先开始，只能拿前 <span class="number">5</span> 颗或后 <span class="number">5</span> 颗石子 。</span><br><span class="line">假设他取了前 <span class="number">5</span> 颗，这一行就变成了 [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] 。</span><br><span class="line">如果李拿走前 <span class="number">3</span> 颗，那么剩下的是 [<span class="number">4</span>,<span class="number">5</span>]，亚历克斯拿走后 <span class="number">5</span> 颗赢得 <span class="number">10</span> 分。</span><br><span class="line">如果李拿走后 <span class="number">5</span> 颗，那么剩下的是 [<span class="number">3</span>,<span class="number">4</span>]，亚历克斯拿走后 <span class="number">4</span> 颗赢得 <span class="number">9</span> 分。</span><br><span class="line">这表明，取前 <span class="number">5</span> 颗石子对亚历克斯来说是一个胜利的举动，所以我们返回 <span class="literal">true</span> 。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>$2 &lt;= piles.length &lt;= 500$</p>
+</li>
+<li><p>$piles.length 是偶数。$</p>
+</li>
+<li><p>$1 &lt;= piles[i] &lt;= 500$</p>
+</li>
+<li><p>$sum(piles) 是奇数。$</p>
+</li>
+<li><p>来源：力扣（LeetCode）</p>
+</li>
+<li><p>链接：<a href="https://leetcode-cn.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons" target="_blank" rel="noopener">https://leetcode-cn.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons</a></p>
+</li>
+</ul>
+<p>思路：典型的区间dp,根据区间长度划分状态，f[i][j]表示取完了除i-j区间之后玩家可得最高分数,如果当前轮到A那么应当在取区间首尾中的最大值，否则只能得到首尾中的最小值。当前轮到谁可以这样确定，因为每轮只能取一次，所以每次剩下的石堆数量要么是奇数，要么是偶数，所以可以根据这个特性来判断是谁取数。<br>有动态转移方程：轮到自己时$dp[i][j]=max(dp[i+1][j]+nums[i],dp[i][j-1]+nums[j]);$<br>轮到对方时，$dp[i][j]=min(dp[i+1][j],dp[i][j-1];$<br>最后判断先手玩家得分是否大于另一个玩家。<br>时间复杂度: $O(n^2)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">stoneGame</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;f(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i][i] = nums[i];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i&lt;=n; i++)&#123;<span class="comment">//枚举区间长度</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j+i<span class="number">-1</span>&lt;n;j++)&#123;<span class="comment">//f[i][j]表示取完了除i-j区间之后 玩家可得最高分数</span></span><br><span class="line">                <span class="keyword">int</span> l = j, r = i+j<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((n-(r-l+<span class="number">1</span>))%<span class="number">2</span>==<span class="number">0</span>)f[l][r] = <span class="built_in">max</span>(f[l+<span class="number">1</span>][r] + nums[l],f[l][r<span class="number">-1</span>]+nums[r]);</span><br><span class="line">                <span class="keyword">else</span> f[l][r] = <span class="built_in">min</span>(f[l+<span class="number">1</span>][r],f[l][r<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i=<span class="number">0</span>;i&lt;n;i++)sum+=nums[i];</span><br><span class="line">        <span class="keyword">if</span>(f[<span class="number">0</span>][n<span class="number">-1</span>]&gt;=sum-f[<span class="number">0</span>][n<span class="number">-1</span>])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="leetcode-1140-石子游戏-II"><a href="#leetcode-1140-石子游戏-II" class="headerlink" title="leetcode 1140 石子游戏 II"></a>leetcode 1140 石子游戏 II</h2><p>亚历克斯和李继续他们的石子游戏。许多堆石子 排成一行，每堆都有正整数颗石子 piles[i]。游戏以谁手中的石子最多来决出胜负。</p>
+<p>亚历克斯和李轮流进行，亚历克斯先开始。最初，M = 1。</p>
+<p>在每个玩家的回合中，该玩家可以拿走剩下的 前 X 堆的所有石子，其中 1 &lt;= X &lt;= 2M。然后，令 M = max(M, X)。</p>
+<p>游戏一直持续到所有石子都被拿走。</p>
+<p>假设亚历克斯和李都发挥出最佳水平，返回亚历克斯可以得到的最大数量的石头。</p>
+<p>示例：</p>
+<p>输入：piles = [2,7,9,4,4]<br>输出：10<br>解释：<br>如果亚历克斯在开始时拿走一堆石子，李拿走两堆，接着亚历克斯也拿走两堆。在这种情况下，亚历克斯可以拿到 2 + 4 + 4 = 10 颗石子。<br>如果亚历克斯在开始时拿走两堆石子，那么李就可以拿走剩下全部三堆石子。在这种情况下，亚历克斯可以拿到 2 + 7 = 9 颗石子。<br>所以我们返回更大的 10。 </p>
+<ul>
+<li><p>$1 &lt;= piles.length &lt;= 100$</p>
+</li>
+<li><p>$1 &lt;= piles[i] &lt;= 10 ^ 4$</p>
+</li>
+<li><p>来源：力扣（LeetCode）</p>
+</li>
+<li><p>链接：<a href="https://leetcode-cn.com/problems/stone-game-iii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/stone-game-iii</a></p>
+</li>
+</ul>
+<p>思路：只能理解记忆化搜索的思路，没理解dp的思路。memo[i][j]表示从下标i开始取数时,取x(1&lt;=x&lt;=j)堆石子能得到的最多的石子数。所以显然可以记忆化搜索。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> presum[<span class="number">101</span>];</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt;memo;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">stoneGameII</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; piles)</span> </span>&#123;</span><br><span class="line">        n = piles.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)presum[i]=presum[i<span class="number">-1</span>]+piles[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">return</span> dfs(piles,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">( <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; piles,<span class="keyword">int</span> start,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(memo.<span class="built_in">find</span>(start)!=memo.<span class="built_in">end</span>() &amp;&amp; memo[start].<span class="built_in">find</span>(m)!=memo[start].<span class="built_in">end</span>())<span class="keyword">return</span> memo[start][m];</span><br><span class="line">        <span class="keyword">if</span>(start&gt;=n)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max_stone=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*m;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> nm = <span class="built_in">max</span>(i,m);</span><br><span class="line">            <span class="keyword">int</span> next_max=dfs(piles,start+i,nm);<span class="comment">//对方取得的最大石子数</span></span><br><span class="line">            <span class="comment">//利用前缀和更新自己能获得的最大石子数</span></span><br><span class="line">            max_stone = <span class="built_in">max</span>(max_stone,presum[n] - presum[start]-next_max);</span><br><span class="line">        &#125;</span><br><span class="line">        memo[start][m]=max_stone;</span><br><span class="line">        <span class="keyword">return</span> max_stone;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="leetcode-1406-石子游戏-III"><a href="#leetcode-1406-石子游戏-III" class="headerlink" title="leetcode 1406 石子游戏 III"></a>leetcode 1406 石子游戏 III</h2><p>Alice 和 Bob 用几堆石子在做游戏。几堆石子排成一行，每堆石子都对应一个得分，由数组 stoneValue 给出。</p>
+<p>Alice 和 Bob 轮流取石子，Alice 总是先开始。在每个玩家的回合中，该玩家可以拿走剩下石子中的的前 1、2 或 3 堆石子 。比赛一直持续到所有石头都被拿走。</p>
+<p>每个玩家的最终得分为他所拿到的每堆石子的对应得分之和。每个玩家的初始分数都是 0 。比赛的目标是决出最高分，得分最高的选手将会赢得比赛，比赛也可能会出现平局。</p>
+<p>假设 Alice 和 Bob 都采取 最优策略 。如果 Alice 赢了就返回 “Alice” ，Bob 赢了就返回 “Bob”，平局（分数相同）返回 “Tie” 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>]</span><br><span class="line">输出：<span class="string">"Bob"</span></span><br><span class="line">解释：Alice 总是会输，她的最佳选择是拿走前三堆，得分变成 <span class="number">6</span> 。但是 Bob 的得分为 <span class="number">7</span>，Bob 获胜。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">-9</span>]</span><br><span class="line">输出：<span class="string">"Alice"</span></span><br><span class="line">解释：Alice 要想获胜就必须在第一个回合拿走前三堆石子，给 Bob 留下负分。</span><br><span class="line">如果 Alice 只拿走第一堆，那么她的得分为 <span class="number">1</span>，接下来 Bob 拿走第二、三堆，得分为 <span class="number">5</span> 。之后 Alice 只能拿到分数 <span class="number">-9</span> 的石子堆，输掉比赛。</span><br><span class="line">如果 Alice 拿走前两堆，那么她的得分为 <span class="number">3</span>，接下来 Bob 拿走第三堆，得分为 <span class="number">3</span> 。之后 Alice 只能拿到分数 <span class="number">-9</span> 的石子堆，同样会输掉比赛。</span><br><span class="line">注意，他们都应该采取 最优策略 ，所以在这里 Alice 将选择能够使她获胜的方案。</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line">输出：<span class="string">"Tie"</span></span><br><span class="line">解释：Alice 无法赢得比赛。如果她决定选择前三堆，她可以以平局结束比赛，否则她就会输。</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">-3</span>,<span class="number">7</span>]</span><br><span class="line">输出：<span class="string">"Alice"</span></span><br><span class="line">示例 <span class="number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：values = [<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">-3</span>]</span><br><span class="line">输出：<span class="string">"Tie"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>$1 &lt;= values.length &lt;= 50000$</p>
+</li>
+<li><p>$-1000 &lt;= values[i] &lt;= 1000$</p>
+</li>
+<li><p>来源：力扣（LeetCode）</p>
+</li>
+<li><p>链接：<a href="https://leetcode-cn.com/problems/stone-game-iii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/stone-game-iii</a></p>
+</li>
+</ul>
+<p>思路：f[i]表示从下标i开始取数，先手比后手多的分数。</p>
+<ol>
+<li>初始值，f(n)=0，其余待定。</li>
+<li>转移时，对于 f(i) 有三种决策，取第 i 堆，取第 i 和 i+1 堆，以及取第 i，i+1 和 i+2 堆，对应的转移分别为 $max(s(i)−f(i+1),s(i)+s(i+1)−f(i+2),s(i)+s(i+1)+s(i+2)−f(i+3)$。</li>
+<li>最终，如果 f(0)=0，则平局；如果 f(0)&gt;0 则 Alice 胜，否则 Bob 胜。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">stoneGameIII</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; stoneValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = stoneValue.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; f(n + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        f[n] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            f[i] = stoneValue[i] - f[i + <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (i &lt; n - <span class="number">1</span>)</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], stoneValue[i] + stoneValue[i + <span class="number">1</span>] - f[i + <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i &lt; n - <span class="number">2</span>)</span><br><span class="line">                f[i] = <span class="built_in">max</span>(f[i], stoneValue[i] + stoneValue[i + <span class="number">1</span>] + stoneValue[i + <span class="number">2</span>] </span><br><span class="line">                                    - f[i + <span class="number">3</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (f[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Tie"</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (f[<span class="number">0</span>] &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Alice"</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="string">"Bob"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>中南头号黑子
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.six1110.top/posts/c6d1141d.html" title="leetcode石子游戏专题 van♂游戏">https://www.six1110.top/posts/c6d1141d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/8e79d167.html" rel="prev" title="leetcode周赛压轴专题">
+      <i class="fa fa-chevron-left"></i> leetcode周赛压轴专题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-877-石子游戏"><span class="nav-text">leetcode 877 石子游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-1140-石子游戏-II"><span class="nav-text">leetcode 1140 石子游戏 II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-1406-石子游戏-III"><span class="nav-text">leetcode 1406 石子游戏 III</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="中南头号黑子"
+      src="/images/ff.jpg">
+  <p class="site-author-name" itemprop="name">中南头号黑子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DockerBB" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DockerBB" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:adfihvg.fijd@gmail.com" title="E-Mail → mailto:adfihvg.fijd@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/VirusGeek" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;VirusGeek" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/wf1996wf" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wf1996wf" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.six1110.top/" title="https:&#x2F;&#x2F;www.six1110.top">中南大学头号黑子</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">赣ICP备19011307号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-中南头号黑子"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">中南头号黑子</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">72k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:05</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'UTzIhDRhsCUnXsliXJX4fFUv-gzGzoHsz',
+    appKey: 'JLt2BY0iO0dqcWYwRkvWwGRS',
+    placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

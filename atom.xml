@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2020-05-02T05:03:15.181Z</updated>
+  <updated>2020-05-02T08:59:54.722Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode石子游戏专题 van♂游戏</title>
+    <link href="https://www.six1110.top/posts/c6d1141d.html"/>
+    <id>https://www.six1110.top/posts/c6d1141d.html</id>
+    <published>2020-05-02T05:22:27.000Z</published>
+    <updated>2020-05-02T08:59:54.722Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;leetcode-877-石子游戏&quot;&gt;&lt;a href=&quot;#leetcode-877-石子游戏&quot; class=&quot;headerlink&quot; title=&quot;leetcode 877 石子游戏&quot;&gt;&lt;/a&gt;leetcode 877 石子游戏&lt;/h2&gt;&lt;p&gt;亚历克斯和李用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。&lt;/p&gt;
+&lt;p&gt;游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。&lt;/p&gt;
+&lt;p&gt;亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家从行的开始或结束处取走整堆石头。 这种情况一直持续到没有更多的石子堆为止，此时手中石子最多的玩家获胜。&lt;/p&gt;
+&lt;p&gt;假设亚历克斯和李都发挥出最佳水平，当亚历克斯赢得比赛时返回 true ，当李赢得比赛时返回 false 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>leetcode周赛压轴专题</title>
@@ -396,6 +416,29 @@
   </entry>
   
   <entry>
+    <title>Script学习记录 异步深入</title>
+    <link href="https://www.six1110.top/posts/5be64662.html"/>
+    <id>https://www.six1110.top/posts/5be64662.html</id>
+    <published>2019-11-26T09:54:55.000Z</published>
+    <updated>2019-11-27T02:00:03.334Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript迭代器和函数深入</title>
     <link href="https://www.six1110.top/posts/ba033a64.html"/>
     <id>https://www.six1110.top/posts/ba033a64.html</id>
@@ -429,29 +472,6 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;Js面向对象编程&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Script学习记录 异步深入</title>
-    <link href="https://www.six1110.top/posts/5be64662.html"/>
-    <id>https://www.six1110.top/posts/5be64662.html</id>
-    <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.334Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;想吐槽一下，这个部分有点恶心 太绕了。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -511,33 +531,6 @@
     
     
       <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode-50-Pow-x-n</title>
-    <link href="https://www.six1110.top/posts/89f24699.html"/>
-    <id>https://www.six1110.top/posts/89f24699.html</id>
-    <published>2019-11-26T09:44:14.000Z</published>
-    <updated>2020-03-18T16:53:35.265Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;实现 pow(x, n) ，即计算 x 的 n 次幂函数。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="位运算" scheme="https://www.six1110.top/categories/leetcode/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
-    
-      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   
