@@ -49,7 +49,7 @@
 </script>
 
   <meta name="description" content="给定一个二叉树，我们在树的节点上安装摄像头。节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。计算监控树的所有节点所需的最小摄像头数量。">
-<meta name="keywords" content="leetcode,动态规划,dfs">
+<meta name="keywords" content="动态规划,leetcode,dfs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日一题 leetcode 968">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;ba8b838c.html">
@@ -58,7 +58,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;cdn.u1.huluxia.com&#x2F;g4&#x2F;M01&#x2F;54&#x2F;D0&#x2F;rBAAdl9p6kKAeYMRAAAylHStyAU132.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;cdn.u1.huluxia.com&#x2F;g4&#x2F;M01&#x2F;54&#x2F;D0&#x2F;rBAAdl9p6naAM37zAABH0kPTnew561.png">
-<meta property="og:updated_time" content="2020-09-22T12:29:24.996Z">
+<meta property="og:updated_time" content="2020-09-22T12:36:23.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;cdn.u1.huluxia.com&#x2F;g4&#x2F;M01&#x2F;54&#x2F;D0&#x2F;rBAAdl9p6kKAeYMRAAAylHStyAU132.png">
 
@@ -239,7 +239,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-09-22 20:08:00 / 修改时间：20:29:24" itemprop="dateCreated datePublished" datetime="2020-09-22T20:08:00+08:00">2020-09-22</time>
+              <time title="创建时间：2020-09-22 20:08:00 / 修改时间：20:36:23" itemprop="dateCreated datePublished" datetime="2020-09-22T20:08:00+08:00">2020-09-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>970</span>
+              <span>990</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
 <li>来源：力扣（LeetCode）</li>
 <li>链接：<a href="https://leetcode-cn.com/problems/binary-tree-cameras/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-cameras/</a></li>
 </ul>
-<p>思路：将每个节点的状态表示成三个数：0，1，2。0表示该节点未被覆盖，1表示该节点放置摄像头，2表示该节点被覆盖。那么空节点应该被设置成什么转态呢？为了让放置的摄像头的数量最少，应该不让叶节点防止摄像头，也就是在叶节点的父节点放置摄像头，所以有以下几个情况：<br>使用后序遍历：<br>1.左右孩子都被覆盖：<br>l=2 &amp; r=2</br><br>说明该节点出于未覆盖状态。<br>2.左右孩子至少有一个没覆盖：<br>l=0 &amp; r=0</br><br>l=0 &amp; r=1</br><br>l=0 &amp; r=2</br><br>l=1 &amp; r=0</br><br>l=2 &amp; r=0</br><br>为了覆盖这个没被覆盖的孩子节点，该节点必须放置摄像头来覆盖子节点。<br>3.左右孩子至少有一个摄像头：</br><br>l=1 &amp; r=0</br><br>l=1 &amp; r=1</br><br>l=1 &amp; r=2</br><br>l=0 &amp; r=1</br><br>l=2 &amp; r=1</br><br>说明该节点被孩子节点的摄像头覆盖了<br>最后如果根节点如果没被覆盖要再加上一个摄像头。</p>
+<p>思路：将每个节点的状态表示成三个数：0，1，2。0表示该节点未被覆盖，1表示该节点放置摄像头，2表示该节点被覆盖。那么空节点应该被设置成什么转态呢？为了让放置的摄像头的数量最少，应该不让叶节点防止摄像头，也就是在叶节点的父节点放置摄像头，空节点不能放摄像头所以不能是1,如果设成1说明叶节点可以放置摄像头，不符合，所以空节点的状态应该被设成2。所以有以下几个情况：<br>使用后序遍历：<br>1.左右孩子都被覆盖：<br>l=2 &amp; r=2<br>说明该节点出于未覆盖状态。<br>2.左右孩子至少有一个没覆盖：<br>l=0 &amp; r=0<br>l=0 &amp; r=1<br>l=0 &amp; r=2<br>l=1 &amp; r=0<br>l=2 &amp; r=0<br>3.左右孩子至少有一个摄像头：<br>l=1 &amp; r=0<br>l=1 &amp; r=1<br>l=1 &amp; r=2<br>l=0 &amp; r=1<br>l=2 &amp; r=1<br>说明该节点被孩子节点的摄像头覆盖了<br>最后如果根节点如果没被覆盖要再加上一个摄像头。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//0表示节点未被覆盖</span></span><br><span class="line">    <span class="comment">//1表示节点放置摄像头</span></span><br><span class="line">    <span class="comment">//2表示节点被覆盖</span></span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCameraCover</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(dfs(root)==<span class="number">0</span>)res++;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> l=dfs(root-&gt;left);</span><br><span class="line">        <span class="keyword">int</span> r=dfs(root-&gt;right);</span><br><span class="line">        <span class="comment">//左右都被覆盖</span></span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">2</span> &amp;&amp; r==<span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//左右至少一个没覆盖</span></span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">0</span> || r==<span class="number">0</span>)&#123;</span><br><span class="line">            res++;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//左右至少一个摄像头</span></span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">1</span> || r==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -344,8 +344,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
               <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+              <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
               <a href="/tags/dfs/" rel="tag"><i class="fa fa-tag"></i> dfs</a>
           </div>
 
