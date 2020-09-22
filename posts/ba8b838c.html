@@ -48,18 +48,21 @@
   };
 </script>
 
-  <meta name="description" content="给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。">
-<meta name="keywords" content="leetcode,动态规划">
+  <meta name="description" content="给定一个二叉树，我们在树的节点上安装摄像头。节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。计算监控树的所有节点所需的最小摄像头数量。">
+<meta name="keywords" content="leetcode,动态规划,dfs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode322零钱兑换">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;89f24625.html">
+<meta property="og:title" content="每日一题 leetcode 968">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;posts&#x2F;ba8b838c.html">
 <meta property="og:site_name" content="中南头号黑子的学习记录">
-<meta property="og:description" content="给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。">
+<meta property="og:description" content="给定一个二叉树，我们在树的节点上安装摄像头。节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。计算监控树的所有节点所需的最小摄像头数量。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-27T02:00:03.335Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;cdn.u1.huluxia.com&#x2F;g4&#x2F;M01&#x2F;54&#x2F;D0&#x2F;rBAAdl9p6kKAeYMRAAAylHStyAU132.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;cdn.u1.huluxia.com&#x2F;g4&#x2F;M01&#x2F;54&#x2F;D0&#x2F;rBAAdl9p6naAM37zAABH0kPTnew561.png">
+<meta property="og:updated_time" content="2020-09-22T12:29:24.996Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;cdn.u1.huluxia.com&#x2F;g4&#x2F;M01&#x2F;54&#x2F;D0&#x2F;rBAAdl9p6kKAeYMRAAAylHStyAU132.png">
 
-<link rel="canonical" href="https://www.six1110.top/posts/89f24625.html">
+<link rel="canonical" href="https://www.six1110.top/posts/ba8b838c.html">
 
 
 <script id="page-configurations">
@@ -73,7 +76,7 @@
   };
 </script>
 
-  <title>leetcode322零钱兑换 | 中南头号黑子的学习记录</title>
+  <title>每日一题 leetcode 968 | 中南头号黑子的学习记录</title>
   
 
 
@@ -212,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/89f24625.html">
+    <link itemprop="mainEntityOfPage" href="https://www.six1110.top/posts/ba8b838c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ff.jpg">
@@ -225,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode322零钱兑换
+          每日一题 leetcode 968
         </h1>
 
         <div class="post-meta">
@@ -234,16 +237,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-11-26 17:44:14" itemprop="dateCreated datePublished" datetime="2019-11-26T17:44:14+08:00">2019-11-26</time>
+              <time title="创建时间：2020-09-22 20:08:00 / 修改时间：20:29:24" itemprop="dateCreated datePublished" datetime="2020-09-22T20:08:00+08:00">2020-09-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-27 10:00:03" itemprop="dateModified" datetime="2019-11-27T10:00:03+08:00">2019-11-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -260,6 +257,12 @@
                     <span itemprop="name">动态规划</span>
                   </a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/dfs/" itemprop="url" rel="index">
+                    <span itemprop="name">dfs</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -271,8 +274,8 @@
       </span>
       <span class="post-meta-item-text">评论次数:：</span>
     
-    <a title="valine" href="/posts/89f24625.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/89f24625.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/ba8b838c.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/ba8b838c.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -282,7 +285,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>524</span>
+              <span>970</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,18 +305,18 @@
 
       
         <blockquote>
-<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+<p>给定一个二叉树，我们在树的节点上安装摄像头。节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。计算监控树的所有节点所需的最小摄像头数量。</p>
 </blockquote>
 <a id="more"></a>
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://cdn.u1.huluxia.com/g4/M01/54/D0/rBAAdl9p6kKAeYMRAAAylHStyAU132.png" alt="example1"><br><img src="http://cdn.u1.huluxia.com/g4/M01/54/D0/rBAAdl9p6naAM37zAABH0kPTnew561.png" alt="example2"></p>
+<p>给定树的节点数的范围是 [1, 1000]。</p>
 <ul>
-<li>说明: 你可以认为每种硬币的数量是无限的。</li>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/binary-tree-cameras/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-cameras/</a></li>
 </ul>
-<blockquote>
-<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>思路：将每个节点的状态表示成三个数：0，1，2。0表示该节点未被覆盖，1表示该节点放置摄像头，2表示该节点被覆盖。那么空节点应该被设置成什么转态呢？为了让放置的摄像头的数量最少，应该不让叶节点防止摄像头，也就是在叶节点的父节点放置摄像头，所以有以下几个情况：<br>使用后序遍历：<br>1.左右孩子都被覆盖：<br>l=2 &amp; r=2</br><br>说明该节点出于未覆盖状态。<br>2.左右孩子至少有一个没覆盖：<br>l=0 &amp; r=0</br><br>l=0 &amp; r=1</br><br>l=0 &amp; r=2</br><br>l=1 &amp; r=0</br><br>l=2 &amp; r=0</br><br>为了覆盖这个没被覆盖的孩子节点，该节点必须放置摄像头来覆盖子节点。<br>3.左右孩子至少有一个摄像头：</br><br>l=1 &amp; r=0</br><br>l=1 &amp; r=1</br><br>l=1 &amp; r=2</br><br>l=0 &amp; r=1</br><br>l=2 &amp; r=1</br><br>说明该节点被孩子节点的摄像头覆盖了<br>最后如果根节点如果没被覆盖要再加上一个摄像头。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//0表示节点未被覆盖</span></span><br><span class="line">    <span class="comment">//1表示节点放置摄像头</span></span><br><span class="line">    <span class="comment">//2表示节点被覆盖</span></span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCameraCover</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(dfs(root)==<span class="number">0</span>)res++;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> l=dfs(root-&gt;left);</span><br><span class="line">        <span class="keyword">int</span> r=dfs(root-&gt;right);</span><br><span class="line">        <span class="comment">//左右都被覆盖</span></span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">2</span> &amp;&amp; r==<span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//左右至少一个没覆盖</span></span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">0</span> || r==<span class="number">0</span>)&#123;</span><br><span class="line">            res++;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//左右至少一个摄像头</span></span><br><span class="line">        <span class="keyword">if</span>(l==<span class="number">1</span> || r==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -329,7 +332,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.six1110.top/posts/89f24625.html" title="leetcode322零钱兑换">https://www.six1110.top/posts/89f24625.html</a>
+    <a href="https://www.six1110.top/posts/ba8b838c.html" title="每日一题 leetcode 968">https://www.six1110.top/posts/ba8b838c.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -343,6 +346,7 @@
           <div class="post-tags">
               <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
               <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+              <a href="/tags/dfs/" rel="tag"><i class="fa fa-tag"></i> dfs</a>
           </div>
 
         
@@ -351,13 +355,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/4651617d.html" rel="prev" title="leetcode486预测赢家">
-      <i class="fa fa-chevron-left"></i> leetcode486预测赢家
+    <a href="/posts/c6d1141d.html" rel="prev" title="leetcode石子游戏专题 van♂游戏">
+      <i class="fa fa-chevron-left"></i> leetcode石子游戏专题 van♂游戏
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/2b28a584.html" rel="next" title="01背包总结">
-      01背包总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
