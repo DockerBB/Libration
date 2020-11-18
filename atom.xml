@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2020-09-22T12:36:23.162Z</updated>
+  <updated>2020-11-18T03:20:01.031Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日三题 leetcode137 加油站 leetcode 739 每日温度 leetcode 1029 两地调度</title>
+    <link href="https://www.six1110.top/posts/c4d3e8b1.html"/>
+    <id>https://www.six1110.top/posts/c4d3e8b1.html</id>
+    <published>2020-11-18T01:45:00.000Z</published>
+    <updated>2020-11-18T03:20:01.031Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;leetcode-134-加油站&quot;&gt;&lt;a href=&quot;#leetcode-134-加油站&quot; class=&quot;headerlink&quot; title=&quot;leetcode 134 加油站&quot;&gt;&lt;/a&gt;leetcode 134 加油站&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在一条环路上有 $N$ 个加油站，其中第$i$个加油站有汽油 $gas[i]$ 升。你有一辆油箱容量无限的的汽车，从第 $i$ 个加油站开往第 $i+1$ 个加油站需要消耗汽油 $cost[i]$ 升。你从其中的一个加油站出发，开始时油箱为空。如果你可以绕环路行驶一周，则返回出发时加油站的编号，否则返回 $-1$。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="贪心" scheme="https://www.six1110.top/categories/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="双指针" scheme="https://www.six1110.top/categories/%E8%B4%AA%E5%BF%83/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+    
+      <category term="贪心" scheme="https://www.six1110.top/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="双指针" scheme="https://www.six1110.top/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
   
   <entry>
     <title>每日一题 leetcode 968</title>
@@ -478,29 +505,6 @@
   </entry>
   
   <entry>
-    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
-    <link href="https://www.six1110.top/posts/279f5654.html"/>
-    <id>https://www.six1110.top/posts/279f5654.html</id>
-    <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.332Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Js面向对象编程&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Script学习记录 异步深入</title>
     <link href="https://www.six1110.top/posts/5be64662.html"/>
     <id>https://www.six1110.top/posts/5be64662.html</id>
@@ -524,29 +528,25 @@
   </entry>
   
   <entry>
-    <title>leetcode329矩阵中的最长递增路径</title>
-    <link href="https://www.six1110.top/posts/410e261c.html"/>
-    <id>https://www.six1110.top/posts/410e261c.html</id>
+    <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
+    <link href="https://www.six1110.top/posts/279f5654.html"/>
+    <id>https://www.six1110.top/posts/279f5654.html</id>
     <published>2019-11-26T09:54:55.000Z</published>
-    <updated>2019-11-27T02:00:03.336Z</updated>
+    <updated>2019-11-27T02:00:03.332Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;给定一个整数矩阵，找出最长递增路径的长度。&lt;br&gt;对于每个单元格，你可以往上，下，左，右四个方向移动。 你不能在对角线方向上移动或移动到边界外（即不允许环绕）。（就是非常经典的滑雪题）&lt;/p&gt;
+&lt;p&gt;Js面向对象编程&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
     
-      <category term="leetcode" scheme="https://www.six1110.top/categories/leetcode/"/>
-    
-      <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="JavaScript" scheme="https://www.six1110.top/categories/JavaScript/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-      <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+      <category term="JavaScript" scheme="https://www.six1110.top/tags/JavaScript/"/>
     
   </entry>
   
