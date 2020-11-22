@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>每日三题 leetcode 242 leetCode 79, leetcode 842</title>
+    <title>每日三题 leetcode 242 有效的字母异位词 leetCode 79 单词搜索, leetcode 842 将数组拆分成斐波那契序列</title>
     <url>/posts/29e908e7.html</url>
     <content><![CDATA[<h1 id="leetcode-242-有效的字母异位词"><a href="#leetcode-242-有效的字母异位词" class="headerlink" title="leetcode 242. 有效的字母异位词"></a>leetcode 242. 有效的字母异位词</h1><p>给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: s = <span class="string">"anagram"</span>, t = <span class="string">"nagaram"</span></span><br><span class="line">输出: <span class="literal">true</span></span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: s = <span class="string">"rat"</span>, t = <span class="string">"car"</span></span><br><span class="line">输出: <span class="literal">false</span></span><br><span class="line">说明:</span><br><span class="line">你可以假设字符串只包含小写字母。</span><br></pre></td></tr></table></figure><a id="more"></a>
 
