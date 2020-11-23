@@ -58,8 +58,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;images&#x2F;pasted-6.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;images&#x2F;pasted-7.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;assets.leetcode-cn.com&#x2F;aliyun-lc-upload&#x2F;uploads&#x2F;2019&#x2F;07&#x2F;05&#x2F;screen-shot-2019-07-01-at-53836-pm.png">
-<meta property="og:updated_time" content="2020-11-23T03:21:05.917Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;images&#x2F;pasted-8.png">
+<meta property="og:updated_time" content="2020-11-23T03:26:47.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.six1110.top&#x2F;images&#x2F;pasted-6.png">
 
@@ -240,7 +240,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-11-23 10:25:00 / 修改时间：11:21:05" itemprop="dateCreated datePublished" datetime="2020-11-23T10:25:00+08:00">2020-11-23</time>
+              <time title="创建时间：2020-11-23 10:25:00 / 修改时间：11:26:47" itemprop="dateCreated datePublished" datetime="2020-11-23T10:25:00+08:00">2020-11-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -342,7 +342,7 @@
 <h1 id="leetcode-1110-删点成林"><a href="#leetcode-1110-删点成林" class="headerlink" title="leetcode 1110 删点成林"></a>leetcode 1110 删点成林</h1><p>给出二叉树的根节点 root，树上每个节点都有一个不同的值。</p>
 <p>如果节点值在 to_delete 中出现，我们就把该节点从树上删去，最后得到一个森林（一些不相交的树构成的集合）。</p>
 <p>返回森林中的每棵树。你可以按任意顺序组织答案。</p>
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/07/05/screen-shot-2019-07-01-at-53836-pm.png" alt="树"></p>
+<p><img src="/images/pasted-8.png" alt="树"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"></span><br><span class="line">输入：root = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>], to_delete = [<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">2</span>,null,<span class="number">4</span>],[<span class="number">6</span>],[<span class="number">7</span>]]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>来源：力扣（LeetCode）</li>
@@ -350,20 +350,6 @@
 </ul>
 <p>思路：因为先序遍历可以先访问根节点，所以可以在做先序遍历的时候添加答案，但是这样会有问题，假如当前节点不用删除，先序访问到当前节点时要加入答案中，但是如果该节点的祖先节点中如果已经加入答案中了，这个节点就重复加入了，所以在递归的时候要引入一个标记位来标记当前节点能不能被加入答案中，1表示可以加，0表示不可加，如果一个节点要被删除，那么它的子节点就有加入答案数组中的机会了，所以要重置标记为1，再删掉这个点，因为每个节点值都不同，所以可以用一个哈希表来记录节点是否删除。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">bool</span> hash[<span class="number">1001</span>];</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt;res;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TreeNode*&gt; delNodes(TreeNode* root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; to_delete) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> &amp;c:to_delete) hash[c] = <span class="number">1</span>;</span><br><span class="line">        dfs(root,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* &amp;root,<span class="keyword">bool</span> flag)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> ;</span><br><span class="line">        TreeNode* &amp;l=root-&gt;left, *&amp;r = root-&gt;right;</span><br><span class="line">        <span class="keyword">if</span>(hash[root-&gt;val]) flag = <span class="number">1</span>, root = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">if</span>(flag) res.push_back(root), flag=<span class="number">0</span>;</span><br><span class="line">        dfs(l,flag);</span><br><span class="line">        dfs(r,flag);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
     
