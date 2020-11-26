@@ -54,8 +54,8 @@
         <category>dfs</category>
       </categories>
       <tags>
-        <tag>贪心</tag>
         <tag>dfs</tag>
+        <tag>贪心</tag>
         <tag>每日三题</tag>
       </tags>
   </entry>
@@ -954,31 +954,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode357计算各个位数不同的数字个数</title>
-    <url>/posts/52d85e26.html</url>
-    <content><![CDATA[<blockquote>
-<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>动态规划</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode486预测赢家</title>
     <url>/posts/4651617d.html</url>
     <content><![CDATA[<blockquote>
@@ -1129,6 +1104,31 @@
         <tag>双指针</tag>
         <tag>栈</tag>
         <tag>单调栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode357计算各个位数不同的数字个数</title>
+    <url>/posts/52d85e26.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x &lt; 10^n 。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2</span></span><br><span class="line">输出: <span class="number">91</span></span><br><span class="line">解释: 答案应为除去 <span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">66</span>,<span class="number">77</span>,<span class="number">88</span>,<span class="number">99</span> 外，在 [<span class="number">0</span>,<span class="number">100</span>) 区间内的所有数字。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>思路：这题第一感觉就是找规律…可以结合一些组合数学的知识然后dp解决。可以这样考虑，n限制了我们需要考虑的数的位数，稍微思考一下就可以得出如下结论，对于一个n位数，第一位数有9种选择（0要排除），第二位数不能和第一位数相同故有9种选择，第三位数不能和前两位数相同故有8种选择..依此类推到最后一位数，算完后要加上n-1位各个位数不同的数字个数(第一位是0的情况)。举例：n=1时各个位数不同的数字有10个，n=2时由上述过程各个位数不同的数字有9*9+10=91个。实现代码如下：</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans[<span class="number">10</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        ans[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">9</span>,k=<span class="number">1</span>;k&lt;i;k++)&#123;</span><br><span class="line">                temp = temp * j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = temp * <span class="number">9</span> + ans[i<span class="number">-1</span>];            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
