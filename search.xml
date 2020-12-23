@@ -3,28 +3,6 @@
   <entry>
     <title>每日leetcode</title>
     <url>/posts/1ed4c5ff.html</url>
-    <content><![CDATA[<h1 id="leetcode-318-最大单词长度乘积"><a href="#leetcode-318-最大单词长度乘积" class="headerlink" title="leetcode 318. 最大单词长度乘积"></a>leetcode 318. 最大单词长度乘积</h1><p>给定一个字符串数组$words$，找到$length(word[i]) * length(word[j])$的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"abcw"</span>,<span class="string">"baz"</span>,<span class="string">"foo"</span>,<span class="string">"bar"</span>,<span class="string">"xtfn"</span>,<span class="string">"abcdef"</span>]</span><br><span class="line">输出: <span class="number">16</span></span><br><span class="line">解释: 这两个单词为 <span class="string">"abcw"</span>, <span class="string">"xtfn"</span>。</span><br></pre></td></tr></table></figure><a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"a"</span>,<span class="string">"ab"</span>,<span class="string">"abc"</span>,<span class="string">"d"</span>,<span class="string">"cd"</span>,<span class="string">"bcd"</span>,<span class="string">"abcd"</span>]</span><br><span class="line">输出: <span class="number">4</span></span><br><span class="line">解释: 这两个单词为 <span class="string">"ab"</span>, <span class="string">"cd"</span>。</span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"a"</span>,<span class="string">"aa"</span>,<span class="string">"aaa"</span>,<span class="string">"aaaa"</span>]</span><br><span class="line">输出: <span class="number">0</span></span><br><span class="line">解释: 不存在这样的两个单词。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/maximum-product-of-word-lengths" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-product-of-word-lengths</a></li>
-</ul>
-<p>思路：简单水题，用一个数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = words.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; nums;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;c:words)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=<span class="number">0</span>,t = c.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;w:c)&#123;</span><br><span class="line">                <span class="keyword">int</span> a = w-<span class="string">'a'</span>;</span><br><span class="line">                v|=<span class="number">1</span>&lt;&lt;a;</span><br><span class="line">            &#125;</span><br><span class="line">            nums.push_back(&#123;v,t&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((nums[i][<span class="number">0</span>] &amp; nums[j][<span class="number">0</span>]) == <span class="number">0</span>)&#123;</span><br><span class="line">                    res = <span class="built_in">max</span>(res,nums[i][<span class="number">1</span>] * nums[j][<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>动态规划</category>
-        <category>模拟</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>模拟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>每日leetcode</title>
-    <url>/posts/1ed4c5ff.html</url>
     <content><![CDATA[<h1 id="leetcode-318-最大单词长度乘积"><a href="#leetcode-318-最大单词长度乘积" class="headerlink" title="leetcode 318. 最大单词长度乘积"></a>leetcode 318. 最大单词长度乘积</h1><p>给定一个字符串数组$words$，找到$length(word[i]) * length(word[j])$的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"abcw"</span>,<span class="string">"baz"</span>,<span class="string">"foo"</span>,<span class="string">"bar"</span>,<span class="string">"xtfn"</span>,<span class="string">"abcdef"</span>]</span><br><span class="line">输出: <span class="number">16</span> </span><br><span class="line">解释: 这两个单词为 <span class="string">"abcw"</span>, <span class="string">"xtfn"</span>。</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"a"</span>,<span class="string">"ab"</span>,<span class="string">"abc"</span>,<span class="string">"d"</span>,<span class="string">"cd"</span>,<span class="string">"bcd"</span>,<span class="string">"abcd"</span>]</span><br><span class="line">输出: <span class="number">4</span> </span><br><span class="line">解释: 这两个单词为 <span class="string">"ab"</span>, <span class="string">"cd"</span>。</span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"a"</span>,<span class="string">"aa"</span>,<span class="string">"aaa"</span>,<span class="string">"aaaa"</span>]</span><br><span class="line">输出: <span class="number">0</span> </span><br><span class="line">解释: 不存在这样的两个单词。</span><br></pre></td></tr></table></figure>
@@ -160,6 +138,28 @@
 
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>动态规划</category>
+        <category>模拟</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日leetcode</title>
+    <url>/posts/1ed4c5ff.html</url>
+    <content><![CDATA[<h1 id="leetcode-318-最大单词长度乘积"><a href="#leetcode-318-最大单词长度乘积" class="headerlink" title="leetcode 318. 最大单词长度乘积"></a>leetcode 318. 最大单词长度乘积</h1><p>给定一个字符串数组$words$，找到$length(word[i]) * length(word[j])$的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"abcw"</span>,<span class="string">"baz"</span>,<span class="string">"foo"</span>,<span class="string">"bar"</span>,<span class="string">"xtfn"</span>,<span class="string">"abcdef"</span>]</span><br><span class="line">输出: <span class="number">16</span></span><br><span class="line">解释: 这两个单词为 <span class="string">"abcw"</span>, <span class="string">"xtfn"</span>。</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"a"</span>,<span class="string">"ab"</span>,<span class="string">"abc"</span>,<span class="string">"d"</span>,<span class="string">"cd"</span>,<span class="string">"bcd"</span>,<span class="string">"abcd"</span>]</span><br><span class="line">输出: <span class="number">4</span></span><br><span class="line">解释: 这两个单词为 <span class="string">"ab"</span>, <span class="string">"cd"</span>。</span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="string">"a"</span>,<span class="string">"aa"</span>,<span class="string">"aaa"</span>,<span class="string">"aaaa"</span>]</span><br><span class="line">输出: <span class="number">0</span></span><br><span class="line">解释: 不存在这样的两个单词。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/maximum-product-of-word-lengths" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-product-of-word-lengths</a></li>
+</ul>
+<p>思路：简单水题，用一个数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = words.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; nums;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;c:words)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=<span class="number">0</span>,t = c.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;w:c)&#123;</span><br><span class="line">                <span class="keyword">int</span> a = w-<span class="string">'a'</span>;</span><br><span class="line">                v|=<span class="number">1</span>&lt;&lt;a;</span><br><span class="line">            &#125;</span><br><span class="line">            nums.push_back(&#123;v,t&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((nums[i][<span class="number">0</span>] &amp; nums[j][<span class="number">0</span>]) == <span class="number">0</span>)&#123;</span><br><span class="line">                    res = <span class="built_in">max</span>(res,nums[i][<span class="number">1</span>] * nums[j][<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>动态规划</category>
@@ -374,8 +374,8 @@
         <category>dfs</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
         <tag>dfs</tag>
       </tags>
   </entry>
@@ -454,8 +454,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -510,8 +510,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -857,8 +857,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -886,8 +886,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -917,8 +917,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1027,8 +1027,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1098,6 +1098,32 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode322零钱兑换</title>
+    <url>/posts/89f24625.html</url>
+    <content><![CDATA[<blockquote>
+<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明: 你可以认为每种硬币的数量是无限的。</li>
+</ul>
+<blockquote>
+<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>动态规划</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode357计算各个位数不同的数字个数</title>
     <url>/posts/52d85e26.html</url>
     <content><![CDATA[<blockquote>
@@ -1117,8 +1143,8 @@
         <category>数学</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
         <tag>数学</tag>
       </tags>
   </entry>
@@ -1154,29 +1180,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
+        <tag>动态规划</tag>
         <tag>leetcode</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多重背包</title>
-    <url>/posts/4651617g.html</url>
-    <content><![CDATA[<blockquote>
-<p>多重背包模型如下：<br>有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</p>
-</blockquote>
-<a id="more"></a>
-<p>思路:<br>直接拆分法，求解多重背包问题最直接的方法是把第i种物品当作独立的\(C_i\)个物品，转化为共\(\sum_{i=1}^{N}C_i\)个物品的0/1背包问题进行计算，时间复杂度为复杂度\(O(M*\sum_{i=1}^{N}C_i)\)</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[MAX_M+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">memset</span>(f,oxcf,<span class="keyword">sizeof</span>(f));</span><br><span class="line">f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c[i];j++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> k=m;k&gt;=v[i];k--)&#123;</span><br><span class="line">            f[k]=<span class="built_in">max</span>(f[k],f[k-v[i]]+w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=m;i++)ans = <span class="built_in">max</span> (ans,f[i]);</span><br></pre></td></tr></table></figure>
-<p>使用二进制优化<br>其实不用把c[i]个物品分成单独的01背包，可以使用二进制表示<br>如：s = 10 = 1 + 2 + 4 + 3<br>所以可以拆分成V=1<em>v,W=1</em>w, V=2<em>v,W=2</em>w, V=4<em>v,W=4</em>w, V=3<em>v,W=3</em>w的01背包<br>代码如下</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,f[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Goods&gt;goods;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v,w,s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v&gt;&gt;w&gt;&gt;s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=s;k*=<span class="number">2</span>)&#123;</span><br><span class="line">            goods.push_back(&#123;k*v,k*w&#125;);</span><br><span class="line">            s-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)goods.push_back(&#123;s*v,s*w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> g:goods)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=g.v;j--)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-g.v]+g.w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用单调队列优化：这个坑还没补上，还没看懂</p>
-]]></content>
-      <categories>
-        <category>动态规划</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -1297,28 +1302,23 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode322零钱兑换</title>
-    <url>/posts/89f24625.html</url>
+    <title>多重背包</title>
+    <url>/posts/4651617g.html</url>
     <content><![CDATA[<blockquote>
-<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+<p>多重背包模型如下：<br>有 N 种物品和一个容量是 M 的背包。第 i 种物品最多有 \(C_i\) 件，每件体积是 \(V_i\)，价值是 \(W_i\)。求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。</p>
 </blockquote>
 <a id="more"></a>
+<p>思路:<br>直接拆分法，求解多重背包问题最直接的方法是把第i种物品当作独立的\(C_i\)个物品，转化为共\(\sum_{i=1}^{N}C_i\)个物品的0/1背包问题进行计算，时间复杂度为复杂度\(O(M*\sum_{i=1}^{N}C_i)\)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[MAX_M+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">memset</span>(f,oxcf,<span class="keyword">sizeof</span>(f));</span><br><span class="line">f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c[i];j++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> k=m;k&gt;=v[i];k--)&#123;</span><br><span class="line">            f[k]=<span class="built_in">max</span>(f[k],f[k-v[i]]+w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;=m;i++)ans = <span class="built_in">max</span> (ans,f[i]);</span><br></pre></td></tr></table></figure>
+<p>使用二进制优化<br>其实不用把c[i]个物品分成单独的01背包，可以使用二进制表示<br>如：s = 10 = 1 + 2 + 4 + 3<br>所以可以拆分成V=1<em>v,W=1</em>w, V=2<em>v,W=2</em>w, V=4<em>v,W=4</em>w, V=3<em>v,W=3</em>w的01背包<br>代码如下</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,f[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Goods&gt;goods;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v,w,s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;v&gt;&gt;w&gt;&gt;s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=s;k*=<span class="number">2</span>)&#123;</span><br><span class="line">            goods.push_back(&#123;k*v,k*w&#125;);</span><br><span class="line">            s-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)goods.push_back(&#123;s*v,s*w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> g:goods)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m;j&gt;=g.v;j--)&#123;</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-g.v]+g.w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;f[m]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>说明: 你可以认为每种硬币的数量是无限的。</li>
-</ul>
-<blockquote>
-<p>思路：经典的dp问题，完全背包。得找个时间把背包九讲复习整理一遍。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;f(amount+<span class="number">1</span>,INT_MAX/<span class="number">2</span>);</span><br><span class="line">        f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : coins)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = c;i&lt;=amount;i++)&#123;</span><br><span class="line">                f[i] = <span class="built_in">min</span>(f[i],f[i-c]+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f[amount]==INT_MAX/<span class="number">2</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用单调队列优化：这个坑还没补上，还没看懂</p>
 ]]></content>
       <categories>
-        <category>leetcode</category>
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
       </tags>
   </entry>
@@ -1343,46 +1343,6 @@
       </categories>
       <tags>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随笔2</title>
-    <url>/posts/4651617f.html</url>
-    <content><![CDATA[<blockquote>
-<p>今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。</p>
-</blockquote>
-<a id="more"></a>
-
-<blockquote>
-<p>先下载安装vscode，按ctrl+shift+x,搜索c++,安装<br><img src="https://ae01.alicdn.com/kf/H5897989a61d947088d3a814c4d56c7282.png" alt=""><br>再搜索code run,安装<br><img src="https://ae01.alicdn.com/kf/Hebff0b70113f4aadb056b2e15a78d011k.png" alt=""><br>（还需要下载MinGW点击下载）打开MinGW安装器界面，勾选一下几个选项（右键Make for Installation进行标记）：</p>
-</blockquote>
-<blockquote>
-<ol>
-<li>minGW32-gcc(bin)</li>
-<li>minGW32-gcc-g++(bin)</li>
-<li>minGW32-gdb(bin)</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>点击左上角的Installation菜单下的Apply Changes以应用修改，过程需要联网，安装完成后需要为环境变量配置Path，添加E:\MinGW\bin。<br>此时重新启动VSCode，编译完代码后按快捷键F5或者在菜单栏中找到调试按钮以进行调试操作。<br>注意vscode调试需要在打开的文件夹中进行，可以在资源管理器中创建一个文件夹来保存临时代码文件。<br>打开文件夹，创建一个.cpp文件，编写一段helloworld代码，创建一个.vscode文件夹。结构如下图：<br><img src="https://ae01.alicdn.com/kf/H7e95cc578c074334aa6f283bf1d7d58fw.png" alt=""><br>在.vscode中创建四个.json文件：</p>
-</blockquote>
-<p>c_cpp_properties.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Win32"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [</span><br><span class="line">                <span class="string">"_DEBUG"</span>,</span><br><span class="line">                <span class="string">"UNICODE"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"E:\\MinGW\\bin\\g++.exe"</span>,		</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"msvc-x64"</span>,</span><br><span class="line">            <span class="string">"browse"</span>: &#123;</span><br><span class="line">                <span class="string">"path"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="string">"limitSymbolsToIncludedHeaders"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="string">"databaseFilename"</span>: <span class="string">""</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"c11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//compilerPath的路径与安装的WinGW的c++环境对应，其他不用改。</span></span><br></pre></td></tr></table></figure>
-<p>launch.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,	<span class="comment">//要运行的文件</span></span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="string">"environment"</span>: [],</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"miDebuggerPath"</span>: <span class="string">"E:\\MinGW\\bin\\gdb.exe"</span>,</span><br><span class="line">            <span class="string">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="string">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="string">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"complie"</span> <span class="comment">// 调试会话开始前执行的任务，类似于Ant，这里为我们的编译任务</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//miDebuggerPath这个也要改。</span></span><br></pre></td></tr></table></figure>
-<p>settings.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"iostream"</span>: <span class="string">"cpp"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>tasks.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"complie"</span>,			<span class="comment">//任务名</span></span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [</span><br><span class="line">                <span class="comment">// Ask msbuild to generate full paths for file names.</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasename&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasenameNoExtension&#125;.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"presentation"</span>: &#123;</span><br><span class="line">                <span class="comment">// Reveal the output only if unrecognized errors occur.</span></span><br><span class="line">                <span class="string">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Use the standard MS compiler pattern to detect errors, warnings and infos</span></span><br><span class="line">            <span class="string">"problemMatcher"</span>: <span class="string">"$msCompile"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这样就完成了配置，可以尽情的玩耍了。<br>去中南的oj逛了逛感觉那些同学的做题热情不够哇。。除了排名最靠前的几个同学，后面的同学刷的比较少。顺手注册A了几个题hhh<br><img src="https://ae01.alicdn.com/kf/H4c053fe50fc949168066a53a5139f5f85.png" alt=""></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1429,6 +1389,46 @@
 <p><img src="https://ae01.alicdn.com/kf/H7f1732d69995409ca8e108894c8d29e1o.png" alt=""></p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">mglearn.plots.plot_2d_classification(linear_svm,X,<span class="built_in">fill</span>=True,alpha=<span class="number">.7</span>)</span><br><span class="line">mglearn.discrete_scatter(X[:,<span class="number">0</span>],X[:,<span class="number">1</span>],y)</span><br><span class="line"><span class="built_in">line</span> = np.linspace(<span class="number">-15</span>,<span class="number">15</span>)</span><br><span class="line"><span class="keyword">for</span> coef,intercept,color in zip(linear_svm.coef_,linear_svm.intercept_,[<span class="string">'b'</span>,<span class="string">'r'</span>,<span class="string">'g'</span>]):</span><br><span class="line">    plt.plot(<span class="built_in">line</span>,-(<span class="built_in">line</span> * coef[<span class="number">0</span>]+intercept)/coef[<span class="number">1</span>],c=color)</span><br><span class="line">plt.ylim(<span class="number">-10</span>,<span class="number">15</span>)</span><br><span class="line">plt.xlim(<span class="number">-10</span>,<span class="number">8</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Feature 0"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Feature 1"</span>)</span><br><span class="line">plt.legend(["Class 0","Class 1","Class 2",'Line class 0','Line class 1','Line class 2'],loc=(1.01,0.3))</span><br></pre></td></tr></table></figure>
 <p><img src="https://ae01.alicdn.com/kf/Hf19136ef29e948c18e9c87109699b418V.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔2</title>
+    <url>/posts/4651617f.html</url>
+    <content><![CDATA[<blockquote>
+<p>今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。</p>
+</blockquote>
+<a id="more"></a>
+
+<blockquote>
+<p>先下载安装vscode，按ctrl+shift+x,搜索c++,安装<br><img src="https://ae01.alicdn.com/kf/H5897989a61d947088d3a814c4d56c7282.png" alt=""><br>再搜索code run,安装<br><img src="https://ae01.alicdn.com/kf/Hebff0b70113f4aadb056b2e15a78d011k.png" alt=""><br>（还需要下载MinGW点击下载）打开MinGW安装器界面，勾选一下几个选项（右键Make for Installation进行标记）：</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>minGW32-gcc(bin)</li>
+<li>minGW32-gcc-g++(bin)</li>
+<li>minGW32-gdb(bin)</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>点击左上角的Installation菜单下的Apply Changes以应用修改，过程需要联网，安装完成后需要为环境变量配置Path，添加E:\MinGW\bin。<br>此时重新启动VSCode，编译完代码后按快捷键F5或者在菜单栏中找到调试按钮以进行调试操作。<br>注意vscode调试需要在打开的文件夹中进行，可以在资源管理器中创建一个文件夹来保存临时代码文件。<br>打开文件夹，创建一个.cpp文件，编写一段helloworld代码，创建一个.vscode文件夹。结构如下图：<br><img src="https://ae01.alicdn.com/kf/H7e95cc578c074334aa6f283bf1d7d58fw.png" alt=""><br>在.vscode中创建四个.json文件：</p>
+</blockquote>
+<p>c_cpp_properties.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Win32"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [</span><br><span class="line">                <span class="string">"_DEBUG"</span>,</span><br><span class="line">                <span class="string">"UNICODE"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"E:\\MinGW\\bin\\g++.exe"</span>,		</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"msvc-x64"</span>,</span><br><span class="line">            <span class="string">"browse"</span>: &#123;</span><br><span class="line">                <span class="string">"path"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="string">"limitSymbolsToIncludedHeaders"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="string">"databaseFilename"</span>: <span class="string">""</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"c11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//compilerPath的路径与安装的WinGW的c++环境对应，其他不用改。</span></span><br></pre></td></tr></table></figure>
+<p>launch.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,	<span class="comment">//要运行的文件</span></span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="string">"environment"</span>: [],</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"miDebuggerPath"</span>: <span class="string">"E:\\MinGW\\bin\\gdb.exe"</span>,</span><br><span class="line">            <span class="string">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="string">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="string">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"complie"</span> <span class="comment">// 调试会话开始前执行的任务，类似于Ant，这里为我们的编译任务</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//miDebuggerPath这个也要改。</span></span><br></pre></td></tr></table></figure>
+<p>settings.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"iostream"</span>: <span class="string">"cpp"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>tasks.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"complie"</span>,			<span class="comment">//任务名</span></span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [</span><br><span class="line">                <span class="comment">// Ask msbuild to generate full paths for file names.</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasename&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasenameNoExtension&#125;.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"presentation"</span>: &#123;</span><br><span class="line">                <span class="comment">// Reveal the output only if unrecognized errors occur.</span></span><br><span class="line">                <span class="string">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Use the standard MS compiler pattern to detect errors, warnings and infos</span></span><br><span class="line">            <span class="string">"problemMatcher"</span>: <span class="string">"$msCompile"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样就完成了配置，可以尽情的玩耍了。<br>去中南的oj逛了逛感觉那些同学的做题热情不够哇。。除了排名最靠前的几个同学，后面的同学刷的比较少。顺手注册A了几个题hhh<br><img src="https://ae01.alicdn.com/kf/H4c053fe50fc949168066a53a5139f5f85.png" alt=""></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>随笔</category>
