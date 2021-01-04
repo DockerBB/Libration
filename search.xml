@@ -282,8 +282,8 @@
         <category>dfs</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
         <tag>dfs</tag>
       </tags>
   </entry>
@@ -362,8 +362,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -418,8 +418,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -765,8 +765,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -794,8 +794,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -825,8 +825,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -865,22 +865,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Script学习记录 异步深入</title>
-    <url>/posts/5be64662.html</url>
-    <content><![CDATA[<blockquote>
-<p>想吐槽一下，这个部分有点恶心 太绕了。</p>
-</blockquote>
-<a id="more"></a>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//回调</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"Before timeout: "</span> + <span class="keyword">new</span> Date());</span><br><span class="line"><span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"After timeout: "</span> + <span class="keyword">new</span> Date());</span><br><span class="line">&#125;,<span class="number">2000</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"I happen after setTimeout"</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"Me too"</span>);</span><br><span class="line"><span class="comment">/*可以看到代码编写的顺序与实际执行的顺序之间没有必然联系。这里就是回调异步*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//setInterval函数每隔一段特定的时间运行回调函数，并且一直运行下去，直到调用</span></span><br><span class="line"><span class="comment">//clearInterval函数</span></span><br><span class="line"><span class="keyword">const</span> start = <span class="keyword">new</span> Date();</span><br><span class="line">let i_1 =<span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> intervalId = setInterval(function () &#123;</span><br><span class="line">    let now = <span class="keyword">new</span> Date();</span><br><span class="line">    ++i_1;</span><br><span class="line">    <span class="keyword">if</span>(now.getMinutes() !== start.getMinutes() || i_1&gt;<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">return</span> clearInterval(intervalId);</span><br><span class="line">    console.<span class="built_in">log</span>(`$&#123;i_1&#125;: $&#123;now&#125;`);</span><br><span class="line">&#125;,<span class="number">2000</span>);</span><br><span class="line"><span class="comment">/*setInterval返回了一个ID,在后面可以用来取消这次调用。与之对应的clearInterval</span></span><br><span class="line"><span class="comment">* 在timeout之前停止本次调用也是使用了这种方式</span></span><br><span class="line"><span class="comment">* setTimeout、setInterval、clearInterval都定义在全局对象中（浏览器中是window,</span></span><br><span class="line"><span class="comment">* Node中是global）*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//scope和异步执行</span></span><br><span class="line"><span class="comment">/*异步执行中容易让人疑惑或犯错的一点是：scope和闭包是如何影响异步执行的。每当</span></span><br><span class="line"><span class="comment">* 一个函数被执行时，都创建了一个闭包：所有在函数内部创建的变量(包括形参)只在</span></span><br><span class="line"><span class="comment">* 有被访问的是时候才存在*/</span></span><br><span class="line"><span class="function">function <span class="title">contdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"Countdown:"</span>);</span><br><span class="line">    <span class="keyword">for</span>(let i=<span class="number">5</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">            console.<span class="built_in">log</span>(i===<span class="number">0</span>?<span class="string">"Go!"</span>:i);</span><br><span class="line">        &#125;,(<span class="number">5</span>-i)*<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">contdown();</span><br><span class="line"><span class="comment">//promise</span></span><br><span class="line"><span class="comment">/*创建一个带有函数的promise实例，它应该包含一个resolve(满足)和reject的回调。*/</span></span><br><span class="line"><span class="function">function <span class="title">countdown_</span><span class="params">(seconds)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Promise(function (resolve,reject) &#123;</span><br><span class="line">        <span class="keyword">for</span>(let i=seconds;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">                <span class="keyword">if</span>(i===<span class="number">13</span>)<span class="keyword">return</span> reject(<span class="keyword">new</span> Error(<span class="string">"DEFINITELY NOT COUNTING THAT"</span>));</span><br><span class="line">                if(i&gt;0)console.log(i+'...');</span><br><span class="line">                <span class="keyword">else</span> resolve(console.<span class="built_in">log</span>(<span class="string">"Go"</span>));</span><br><span class="line">            &#125;,(seconds-i)*<span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">countdown_(<span class="number">5</span>);</span><br><span class="line">使用promise</span><br><span class="line">countdown_(<span class="number">14</span>).then(</span><br><span class="line">    function () &#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"countdown completed successfully"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    function (err) &#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"countdown experienced an error: "</span>+err.message);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"><span class="comment">/*从小于13的任何数字开始倒数都不会出错，从13或大于13的数字开始，则会在数到13的时候</span></span><br><span class="line"><span class="comment">* 会出错，但是控制台会一直打印log。调用reject并没能终止函数，他们只是修改了promise</span></span><br><span class="line"><span class="comment">* 的状态。显然countdown函数需要优化。通常，并不希望一个函数在被处理后还能继续运行</span></span><br><span class="line"><span class="comment">* (不管成功还是失败)，单数countdown却继续运行。控制台的log一点都不灵活，他们并不会</span></span><br><span class="line"><span class="comment">* 真的提供想要的控制权。</span></span><br><span class="line"><span class="comment">* promise提供了一个定义及其良好，并且可以安全地处理那些满足或者拒绝的异步任务的方式</span></span><br><span class="line"><span class="comment">* ，但是它却没有报告过程进度的能力。也就是说，promise只可能是满足或者拒绝，绝不会出</span></span><br><span class="line"><span class="comment">* 现“%50完成”。有的promise库中增加了一些很有用的功能，比如，可以报告过程,很可能</span></span><br><span class="line"><span class="comment">* JavaScript中的promise也会具备那些功能，不过现在，我们只能在没有这些功能的情况下</span></span><br><span class="line"><span class="comment">* 工作。如果想要这些功能，需要继续学习下面的内容*/</span></span><br><span class="line"><span class="comment">//事件</span></span><br><span class="line"><span class="comment">/*事件发射器可以广播事件，任意愿意监听这些事件的人都可以去做这件事。如何监听事件呢？</span></span><br><span class="line"><span class="comment">* 答案是回调。创建自己的事件系统其实很简单，即便如此，Node还是为我们提供了内建的支持</span></span><br><span class="line"><span class="comment">* 。如果使用浏览器，jQuery同样提供了一个事件机制（http://api.jquery.com/category/events）</span></span><br><span class="line"><span class="comment">* 。为了改进countdown，我们通常会Node的EvenEmitter。虽然也可以在像countdown这样的</span></span><br><span class="line"><span class="comment">* 函数中使用EventEmitter,不过实际上他的设计初衷时跟类一起使用。所以可以把countdown</span></span><br><span class="line"><span class="comment">* 函数放在Countdown类中。*/</span></span><br><span class="line">const EventEmitter = require('events').EventEmitter;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Countdown</span> <span class="title">extends</span> <span class="title">EventEmitter</span>&#123;</span></span><br><span class="line">    constructor (seconds,superstitious)&#123;</span><br><span class="line">        super();</span><br><span class="line">        <span class="keyword">this</span>.seconds = seconds;</span><br><span class="line">        <span class="keyword">this</span>.superstitious = superstitious;</span><br><span class="line">    &#125;</span><br><span class="line">    go()&#123;</span><br><span class="line">        <span class="keyword">const</span> countdown = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Promise(function (resolve,reject) &#123;</span><br><span class="line">            <span class="keyword">for</span>(let i=countdown.seconds;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">                <span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">                    <span class="keyword">if</span>(countdown.superstitious &amp;&amp; i===<span class="number">13</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> reject(<span class="keyword">new</span> Error(<span class="string">"DEFINITELY NOT COUNTING THAT"</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    countdown.emit('tick',i);</span><br><span class="line">                    <span class="keyword">if</span>(i===<span class="number">0</span>)resolve();</span><br><span class="line">                &#125;,(countdown.seconds-i)*<span class="number">1000</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Countdown类继承了EventEmitter,这样Countdown就可以发射事件。Go方法是正式开始倒计时</span></span><br><span class="line"><span class="comment">* 并返回promise的地方。注意在go函数中，我们做的第一件事就是把this赋给countdown。这</span></span><br><span class="line"><span class="comment">* 是应为在回调中，不论倒计时是否迷信数字，都需要this的值来获取倒计时的长度。要记住</span></span><br><span class="line"><span class="comment">* this是一个特殊变量，它与回调中的this不是同一个东西。所以我们需要保存当前的this值，</span></span><br><span class="line"><span class="comment">* 从而在promise中使用它。任何想要监听tick事件（可以任意命名）的人都可以监听它。接下</span></span><br><span class="line"><span class="comment">* 来看看如何使用这经过改进后的全新countdown。*/</span></span><br><span class="line"><span class="keyword">const</span> c_1 = <span class="keyword">new</span> Countdown(<span class="number">13</span>);</span><br><span class="line">c_1.on('tick',function (i) &#123;</span><br><span class="line">    if(i&gt;0)console.log(i+'...');</span><br><span class="line">&#125;);</span><br><span class="line">c_1.go().then(function () &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"Go"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">catch</span>(function (err) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(err.message);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript学习记录面向对象编程-动态属性-原型-静态方法-继承-map-WeakMap-异常</title>
     <url>/posts/279f5654.html</url>
     <content><![CDATA[<blockquote>
@@ -913,6 +897,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Script学习记录 异步深入</title>
+    <url>/posts/5be64662.html</url>
+    <content><![CDATA[<blockquote>
+<p>想吐槽一下，这个部分有点恶心 太绕了。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//回调</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"Before timeout: "</span> + <span class="keyword">new</span> Date());</span><br><span class="line"><span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"After timeout: "</span> + <span class="keyword">new</span> Date());</span><br><span class="line">&#125;,<span class="number">2000</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"I happen after setTimeout"</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"Me too"</span>);</span><br><span class="line"><span class="comment">/*可以看到代码编写的顺序与实际执行的顺序之间没有必然联系。这里就是回调异步*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//setInterval函数每隔一段特定的时间运行回调函数，并且一直运行下去，直到调用</span></span><br><span class="line"><span class="comment">//clearInterval函数</span></span><br><span class="line"><span class="keyword">const</span> start = <span class="keyword">new</span> Date();</span><br><span class="line">let i_1 =<span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> intervalId = setInterval(function () &#123;</span><br><span class="line">    let now = <span class="keyword">new</span> Date();</span><br><span class="line">    ++i_1;</span><br><span class="line">    <span class="keyword">if</span>(now.getMinutes() !== start.getMinutes() || i_1&gt;<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">return</span> clearInterval(intervalId);</span><br><span class="line">    console.<span class="built_in">log</span>(`$&#123;i_1&#125;: $&#123;now&#125;`);</span><br><span class="line">&#125;,<span class="number">2000</span>);</span><br><span class="line"><span class="comment">/*setInterval返回了一个ID,在后面可以用来取消这次调用。与之对应的clearInterval</span></span><br><span class="line"><span class="comment">* 在timeout之前停止本次调用也是使用了这种方式</span></span><br><span class="line"><span class="comment">* setTimeout、setInterval、clearInterval都定义在全局对象中（浏览器中是window,</span></span><br><span class="line"><span class="comment">* Node中是global）*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//scope和异步执行</span></span><br><span class="line"><span class="comment">/*异步执行中容易让人疑惑或犯错的一点是：scope和闭包是如何影响异步执行的。每当</span></span><br><span class="line"><span class="comment">* 一个函数被执行时，都创建了一个闭包：所有在函数内部创建的变量(包括形参)只在</span></span><br><span class="line"><span class="comment">* 有被访问的是时候才存在*/</span></span><br><span class="line"><span class="function">function <span class="title">contdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"Countdown:"</span>);</span><br><span class="line">    <span class="keyword">for</span>(let i=<span class="number">5</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">            console.<span class="built_in">log</span>(i===<span class="number">0</span>?<span class="string">"Go!"</span>:i);</span><br><span class="line">        &#125;,(<span class="number">5</span>-i)*<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">contdown();</span><br><span class="line"><span class="comment">//promise</span></span><br><span class="line"><span class="comment">/*创建一个带有函数的promise实例，它应该包含一个resolve(满足)和reject的回调。*/</span></span><br><span class="line"><span class="function">function <span class="title">countdown_</span><span class="params">(seconds)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Promise(function (resolve,reject) &#123;</span><br><span class="line">        <span class="keyword">for</span>(let i=seconds;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">                <span class="keyword">if</span>(i===<span class="number">13</span>)<span class="keyword">return</span> reject(<span class="keyword">new</span> Error(<span class="string">"DEFINITELY NOT COUNTING THAT"</span>));</span><br><span class="line">                if(i&gt;0)console.log(i+'...');</span><br><span class="line">                <span class="keyword">else</span> resolve(console.<span class="built_in">log</span>(<span class="string">"Go"</span>));</span><br><span class="line">            &#125;,(seconds-i)*<span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">countdown_(<span class="number">5</span>);</span><br><span class="line">使用promise</span><br><span class="line">countdown_(<span class="number">14</span>).then(</span><br><span class="line">    function () &#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"countdown completed successfully"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    function (err) &#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"countdown experienced an error: "</span>+err.message);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"><span class="comment">/*从小于13的任何数字开始倒数都不会出错，从13或大于13的数字开始，则会在数到13的时候</span></span><br><span class="line"><span class="comment">* 会出错，但是控制台会一直打印log。调用reject并没能终止函数，他们只是修改了promise</span></span><br><span class="line"><span class="comment">* 的状态。显然countdown函数需要优化。通常，并不希望一个函数在被处理后还能继续运行</span></span><br><span class="line"><span class="comment">* (不管成功还是失败)，单数countdown却继续运行。控制台的log一点都不灵活，他们并不会</span></span><br><span class="line"><span class="comment">* 真的提供想要的控制权。</span></span><br><span class="line"><span class="comment">* promise提供了一个定义及其良好，并且可以安全地处理那些满足或者拒绝的异步任务的方式</span></span><br><span class="line"><span class="comment">* ，但是它却没有报告过程进度的能力。也就是说，promise只可能是满足或者拒绝，绝不会出</span></span><br><span class="line"><span class="comment">* 现“%50完成”。有的promise库中增加了一些很有用的功能，比如，可以报告过程,很可能</span></span><br><span class="line"><span class="comment">* JavaScript中的promise也会具备那些功能，不过现在，我们只能在没有这些功能的情况下</span></span><br><span class="line"><span class="comment">* 工作。如果想要这些功能，需要继续学习下面的内容*/</span></span><br><span class="line"><span class="comment">//事件</span></span><br><span class="line"><span class="comment">/*事件发射器可以广播事件，任意愿意监听这些事件的人都可以去做这件事。如何监听事件呢？</span></span><br><span class="line"><span class="comment">* 答案是回调。创建自己的事件系统其实很简单，即便如此，Node还是为我们提供了内建的支持</span></span><br><span class="line"><span class="comment">* 。如果使用浏览器，jQuery同样提供了一个事件机制（http://api.jquery.com/category/events）</span></span><br><span class="line"><span class="comment">* 。为了改进countdown，我们通常会Node的EvenEmitter。虽然也可以在像countdown这样的</span></span><br><span class="line"><span class="comment">* 函数中使用EventEmitter,不过实际上他的设计初衷时跟类一起使用。所以可以把countdown</span></span><br><span class="line"><span class="comment">* 函数放在Countdown类中。*/</span></span><br><span class="line">const EventEmitter = require('events').EventEmitter;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Countdown</span> <span class="title">extends</span> <span class="title">EventEmitter</span>&#123;</span></span><br><span class="line">    constructor (seconds,superstitious)&#123;</span><br><span class="line">        super();</span><br><span class="line">        <span class="keyword">this</span>.seconds = seconds;</span><br><span class="line">        <span class="keyword">this</span>.superstitious = superstitious;</span><br><span class="line">    &#125;</span><br><span class="line">    go()&#123;</span><br><span class="line">        <span class="keyword">const</span> countdown = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Promise(function (resolve,reject) &#123;</span><br><span class="line">            <span class="keyword">for</span>(let i=countdown.seconds;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">                <span class="built_in">setTimeout</span>(function () &#123;</span><br><span class="line">                    <span class="keyword">if</span>(countdown.superstitious &amp;&amp; i===<span class="number">13</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> reject(<span class="keyword">new</span> Error(<span class="string">"DEFINITELY NOT COUNTING THAT"</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    countdown.emit('tick',i);</span><br><span class="line">                    <span class="keyword">if</span>(i===<span class="number">0</span>)resolve();</span><br><span class="line">                &#125;,(countdown.seconds-i)*<span class="number">1000</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Countdown类继承了EventEmitter,这样Countdown就可以发射事件。Go方法是正式开始倒计时</span></span><br><span class="line"><span class="comment">* 并返回promise的地方。注意在go函数中，我们做的第一件事就是把this赋给countdown。这</span></span><br><span class="line"><span class="comment">* 是应为在回调中，不论倒计时是否迷信数字，都需要this的值来获取倒计时的长度。要记住</span></span><br><span class="line"><span class="comment">* this是一个特殊变量，它与回调中的this不是同一个东西。所以我们需要保存当前的this值，</span></span><br><span class="line"><span class="comment">* 从而在promise中使用它。任何想要监听tick事件（可以任意命名）的人都可以监听它。接下</span></span><br><span class="line"><span class="comment">* 来看看如何使用这经过改进后的全新countdown。*/</span></span><br><span class="line"><span class="keyword">const</span> c_1 = <span class="keyword">new</span> Countdown(<span class="number">13</span>);</span><br><span class="line">c_1.on('tick',function (i) &#123;</span><br><span class="line">    if(i&gt;0)console.log(i+'...');</span><br><span class="line">&#125;);</span><br><span class="line">c_1.go().then(function () &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"Go"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">catch</span>(function (err) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(err.message);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode329矩阵中的最长递增路径</title>
     <url>/posts/410e261c.html</url>
     <content><![CDATA[<blockquote>
@@ -935,40 +935,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode-50-Pow-x-n</title>
-    <url>/posts/89f24699.html</url>
-    <content><![CDATA[<blockquote>
-<p>实现 pow(x, n) ，即计算 x 的 n 次幂函数。</p>
-</blockquote>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">10</span></span><br><span class="line">输出: <span class="number">1024.00000</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.10000</span>, <span class="number">3</span></span><br><span class="line">输出: <span class="number">9.26100</span></span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">-2</span></span><br><span class="line">输出: <span class="number">0.25000</span></span><br><span class="line">解释: <span class="number">2</span><span class="number">-2</span> = <span class="number">1</span>/<span class="number">22</span> = <span class="number">1</span>/<span class="number">4</span> = <span class="number">0.25</span></span><br></pre></td></tr></table></figure>
-<p>说明:</p>
-<ol>
-<li>-100.0 &lt; x &lt; 100.0</li>
-<li>n 是 32 位有符号整数，其数值范围是([-2^{31},2^{31}-1]) 。</li>
-</ol>
-<ul>
-<li>来源：力扣（LeetCode）</li>
-<li>链接：<a href="https://leetcode-cn.com/problems/powx-n" target="_blank" rel="noopener">https://leetcode-cn.com/problems/powx-n</a></li>
-</ul>
-<blockquote>
-<p>思路：思路：快速幂模板题</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">long</span> <span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> b=<span class="built_in">abs</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b&amp;<span class="number">1</span>)ans = ans * x;</span><br><span class="line">            x = x * x ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>/ans;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-        <category>位运算</category>
-      </categories>
-      <tags>
         <tag>leetcode</tag>
-        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -1010,6 +978,38 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode-50-Pow-x-n</title>
+    <url>/posts/89f24699.html</url>
+    <content><![CDATA[<blockquote>
+<p>实现 pow(x, n) ，即计算 x 的 n 次幂函数。</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">10</span></span><br><span class="line">输出: <span class="number">1024.00000</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.10000</span>, <span class="number">3</span></span><br><span class="line">输出: <span class="number">9.26100</span></span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="number">2.00000</span>, <span class="number">-2</span></span><br><span class="line">输出: <span class="number">0.25000</span></span><br><span class="line">解释: <span class="number">2</span><span class="number">-2</span> = <span class="number">1</span>/<span class="number">22</span> = <span class="number">1</span>/<span class="number">4</span> = <span class="number">0.25</span></span><br></pre></td></tr></table></figure>
+<p>说明:</p>
+<ol>
+<li>-100.0 &lt; x &lt; 100.0</li>
+<li>n 是 32 位有符号整数，其数值范围是([-2^{31},2^{31}-1]) 。</li>
+</ol>
+<ul>
+<li>来源：力扣（LeetCode）</li>
+<li>链接：<a href="https://leetcode-cn.com/problems/powx-n" target="_blank" rel="noopener">https://leetcode-cn.com/problems/powx-n</a></li>
+</ul>
+<blockquote>
+<p>思路：思路：快速幂模板题</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">long</span> <span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> b=<span class="built_in">abs</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b&amp;<span class="number">1</span>)ans = ans * x;</span><br><span class="line">            x = x * x ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>/ans;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>位运算</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode322零钱兑换</title>
     <url>/posts/89f24625.html</url>
     <content><![CDATA[<blockquote>
@@ -1031,8 +1031,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1067,8 +1067,8 @@
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1091,8 +1091,8 @@
         <category>数学</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
         <tag>动态规划</tag>
+        <tag>leetcode</tag>
         <tag>数学</tag>
       </tags>
   </entry>
@@ -1258,46 +1258,6 @@
       </tags>
   </entry>
   <entry>
-    <title>随笔2</title>
-    <url>/posts/4651617f.html</url>
-    <content><![CDATA[<blockquote>
-<p>今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。</p>
-</blockquote>
-<a id="more"></a>
-
-<blockquote>
-<p>先下载安装vscode，按ctrl+shift+x,搜索c++,安装<br><img src="https://ae01.alicdn.com/kf/H5897989a61d947088d3a814c4d56c7282.png" alt=""><br>再搜索code run,安装<br><img src="https://ae01.alicdn.com/kf/Hebff0b70113f4aadb056b2e15a78d011k.png" alt=""><br>（还需要下载MinGW点击下载）打开MinGW安装器界面，勾选一下几个选项（右键Make for Installation进行标记）：</p>
-</blockquote>
-<blockquote>
-<ol>
-<li>minGW32-gcc(bin)</li>
-<li>minGW32-gcc-g++(bin)</li>
-<li>minGW32-gdb(bin)</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>点击左上角的Installation菜单下的Apply Changes以应用修改，过程需要联网，安装完成后需要为环境变量配置Path，添加E:\MinGW\bin。<br>此时重新启动VSCode，编译完代码后按快捷键F5或者在菜单栏中找到调试按钮以进行调试操作。<br>注意vscode调试需要在打开的文件夹中进行，可以在资源管理器中创建一个文件夹来保存临时代码文件。<br>打开文件夹，创建一个.cpp文件，编写一段helloworld代码，创建一个.vscode文件夹。结构如下图：<br><img src="https://ae01.alicdn.com/kf/H7e95cc578c074334aa6f283bf1d7d58fw.png" alt=""><br>在.vscode中创建四个.json文件：</p>
-</blockquote>
-<p>c_cpp_properties.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Win32"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [</span><br><span class="line">                <span class="string">"_DEBUG"</span>,</span><br><span class="line">                <span class="string">"UNICODE"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"E:\\MinGW\\bin\\g++.exe"</span>,		</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"msvc-x64"</span>,</span><br><span class="line">            <span class="string">"browse"</span>: &#123;</span><br><span class="line">                <span class="string">"path"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="string">"limitSymbolsToIncludedHeaders"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="string">"databaseFilename"</span>: <span class="string">""</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"c11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//compilerPath的路径与安装的WinGW的c++环境对应，其他不用改。</span></span><br></pre></td></tr></table></figure>
-<p>launch.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,	<span class="comment">//要运行的文件</span></span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="string">"environment"</span>: [],</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"miDebuggerPath"</span>: <span class="string">"E:\\MinGW\\bin\\gdb.exe"</span>,</span><br><span class="line">            <span class="string">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="string">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="string">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"complie"</span> <span class="comment">// 调试会话开始前执行的任务，类似于Ant，这里为我们的编译任务</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//miDebuggerPath这个也要改。</span></span><br></pre></td></tr></table></figure>
-<p>settings.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"iostream"</span>: <span class="string">"cpp"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>tasks.json</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"complie"</span>,			<span class="comment">//任务名</span></span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [</span><br><span class="line">                <span class="comment">// Ask msbuild to generate full paths for file names.</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasename&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasenameNoExtension&#125;.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"presentation"</span>: &#123;</span><br><span class="line">                <span class="comment">// Reveal the output only if unrecognized errors occur.</span></span><br><span class="line">                <span class="string">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Use the standard MS compiler pattern to detect errors, warnings and infos</span></span><br><span class="line">            <span class="string">"problemMatcher"</span>: <span class="string">"$msCompile"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这样就完成了配置，可以尽情的玩耍了。<br>去中南的oj逛了逛感觉那些同学的做题热情不够哇。。除了排名最靠前的几个同学，后面的同学刷的比较少。顺手注册A了几个题hhh<br><img src="https://ae01.alicdn.com/kf/H4c053fe50fc949168066a53a5139f5f85.png" alt=""></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>随笔</title>
     <url>/posts/4651617e.html</url>
     <content><![CDATA[<blockquote>
@@ -1341,6 +1301,46 @@
 <p><img src="https://ae01.alicdn.com/kf/H7f1732d69995409ca8e108894c8d29e1o.png" alt=""></p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">mglearn.plots.plot_2d_classification(linear_svm,X,<span class="built_in">fill</span>=True,alpha=<span class="number">.7</span>)</span><br><span class="line">mglearn.discrete_scatter(X[:,<span class="number">0</span>],X[:,<span class="number">1</span>],y)</span><br><span class="line"><span class="built_in">line</span> = np.linspace(<span class="number">-15</span>,<span class="number">15</span>)</span><br><span class="line"><span class="keyword">for</span> coef,intercept,color in zip(linear_svm.coef_,linear_svm.intercept_,[<span class="string">'b'</span>,<span class="string">'r'</span>,<span class="string">'g'</span>]):</span><br><span class="line">    plt.plot(<span class="built_in">line</span>,-(<span class="built_in">line</span> * coef[<span class="number">0</span>]+intercept)/coef[<span class="number">1</span>],c=color)</span><br><span class="line">plt.ylim(<span class="number">-10</span>,<span class="number">15</span>)</span><br><span class="line">plt.xlim(<span class="number">-10</span>,<span class="number">8</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Feature 0"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Feature 1"</span>)</span><br><span class="line">plt.legend(["Class 0","Class 1","Class 2",'Line class 0','Line class 1','Line class 2'],loc=(1.01,0.3))</span><br></pre></td></tr></table></figure>
 <p><img src="https://ae01.alicdn.com/kf/Hf19136ef29e948c18e9c87109699b418V.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔2</title>
+    <url>/posts/4651617f.html</url>
+    <content><![CDATA[<blockquote>
+<p>今天突然心血来潮想换个ide写算法题，试了vscode和visual studio,笔记本性能比较一般，运行VS会卡顿。。所以还是选择了visual studio code，不过这玩意儿只是个编辑器，还需要自己配置编译器，下插件，麻烦死了，花了老半天功夫才弄好，一直无法调试，一调试程序就崩溃了，后来改了很多配置文件才弄好，把配置文件贴在这里好了（我的服务器之前欠费宕机了，今天花了点时间又整了一下，顺便买了个域名，弄了一下域名备案，不知道啥时候可以备下来hhh）。</p>
+</blockquote>
+<a id="more"></a>
+
+<blockquote>
+<p>先下载安装vscode，按ctrl+shift+x,搜索c++,安装<br><img src="https://ae01.alicdn.com/kf/H5897989a61d947088d3a814c4d56c7282.png" alt=""><br>再搜索code run,安装<br><img src="https://ae01.alicdn.com/kf/Hebff0b70113f4aadb056b2e15a78d011k.png" alt=""><br>（还需要下载MinGW点击下载）打开MinGW安装器界面，勾选一下几个选项（右键Make for Installation进行标记）：</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>minGW32-gcc(bin)</li>
+<li>minGW32-gcc-g++(bin)</li>
+<li>minGW32-gdb(bin)</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>点击左上角的Installation菜单下的Apply Changes以应用修改，过程需要联网，安装完成后需要为环境变量配置Path，添加E:\MinGW\bin。<br>此时重新启动VSCode，编译完代码后按快捷键F5或者在菜单栏中找到调试按钮以进行调试操作。<br>注意vscode调试需要在打开的文件夹中进行，可以在资源管理器中创建一个文件夹来保存临时代码文件。<br>打开文件夹，创建一个.cpp文件，编写一段helloworld代码，创建一个.vscode文件夹。结构如下图：<br><img src="https://ae01.alicdn.com/kf/H7e95cc578c074334aa6f283bf1d7d58fw.png" alt=""><br>在.vscode中创建四个.json文件：</p>
+</blockquote>
+<p>c_cpp_properties.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Win32"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [</span><br><span class="line">                <span class="string">"_DEBUG"</span>,</span><br><span class="line">                <span class="string">"UNICODE"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"E:\\MinGW\\bin\\g++.exe"</span>,		</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"msvc-x64"</span>,</span><br><span class="line">            <span class="string">"browse"</span>: &#123;</span><br><span class="line">                <span class="string">"path"</span>: [</span><br><span class="line">                    <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="string">"limitSymbolsToIncludedHeaders"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="string">"databaseFilename"</span>: <span class="string">""</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"c11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//compilerPath的路径与安装的WinGW的c++环境对应，其他不用改。</span></span><br></pre></td></tr></table></figure>
+<p>launch.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,	<span class="comment">//要运行的文件</span></span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="string">"environment"</span>: [],</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"miDebuggerPath"</span>: <span class="string">"E:\\MinGW\\bin\\gdb.exe"</span>,</span><br><span class="line">            <span class="string">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="string">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="string">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"complie"</span> <span class="comment">// 调试会话开始前执行的任务，类似于Ant，这里为我们的编译任务</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//miDebuggerPath这个也要改。</span></span><br></pre></td></tr></table></figure>
+<p>settings.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"iostream"</span>: <span class="string">"cpp"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>tasks.json</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"complie"</span>,			<span class="comment">//任务名</span></span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [</span><br><span class="line">                <span class="comment">// Ask msbuild to generate full paths for file names.</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasename&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileBasenameNoExtension&#125;.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"presentation"</span>: &#123;</span><br><span class="line">                <span class="comment">// Reveal the output only if unrecognized errors occur.</span></span><br><span class="line">                <span class="string">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// Use the standard MS compiler pattern to detect errors, warnings and infos</span></span><br><span class="line">            <span class="string">"problemMatcher"</span>: <span class="string">"$msCompile"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样就完成了配置，可以尽情的玩耍了。<br>去中南的oj逛了逛感觉那些同学的做题热情不够哇。。除了排名最靠前的几个同学，后面的同学刷的比较少。顺手注册A了几个题hhh<br><img src="https://ae01.alicdn.com/kf/H4c053fe50fc949168066a53a5139f5f85.png" alt=""></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>随笔</category>
