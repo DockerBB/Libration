@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.six1110.top/"/>
-  <updated>2021-01-04T15:09:18.760Z</updated>
+  <updated>2021-01-04T15:10:41.985Z</updated>
   <id>https://www.six1110.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.six1110.top/posts/1ed4c5ff.html"/>
     <id>https://www.six1110.top/posts/1ed4c5ff.html</id>
     <published>2021-01-04T14:52:00.000Z</published>
-    <updated>2021-01-04T15:09:18.760Z</updated>
+    <updated>2021-01-04T15:10:41.985Z</updated>
     
     <summary type="html">
     
@@ -34,6 +34,10 @@
     
       <category term="bfs" scheme="https://www.six1110.top/categories/%E6%A8%A1%E6%8B%9F/bfs/"/>
     
+      <category term="位运算" scheme="https://www.six1110.top/categories/%E6%A8%A1%E6%8B%9F/bfs/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+    
+      <category term="位运算" scheme="https://www.six1110.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
       <category term="模拟" scheme="https://www.six1110.top/tags/%E6%A8%A1%E6%8B%9F/"/>
     
@@ -149,9 +153,9 @@
       <category term="dfs" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/dfs/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
       <category term="dfs" scheme="https://www.six1110.top/tags/dfs/"/>
     
@@ -179,9 +183,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -204,9 +208,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -470,9 +474,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -497,9 +501,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -529,9 +533,9 @@
       <category term="动态规划" scheme="https://www.six1110.top/categories/leetcode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="leetcode" scheme="https://www.six1110.top/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="https://www.six1110.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
