@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="中南头号黑子的学习记录">
 <meta property="og:description" content="leetcode 1411. 给 N x 3 网格图涂色的方案数你有一个 $n * 3$ 的网格图 $grid$ ，你需要用 红，黄，绿 三种颜色之一给每一个格子上色，且确保相邻格子颜色不同（也就是有相同水平边或者垂直边的格子颜色不同）。给你网格图的行数 $n$ 请你返回给 $grid$ 涂色的方案数。由于答案可能会非常大，请你返回答案对 $10^9 + 7$ 取余的结果。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-21T07:46:30.651Z">
+<meta property="og:updated_time" content="2021-03-21T07:50:15.151Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.six1110.top/posts/c4165ded.html">
@@ -242,7 +242,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-21 15:46:30" itemprop="dateModified" datetime="2021-03-21T15:46:30+08:00">2021-03-21</time>
+                <time title="修改时间：2021-03-21 15:50:15" itemprop="dateModified" datetime="2021-03-21T15:50:15+08:00">2021-03-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -363,11 +363,12 @@
 <p>思路:很有意思的一道题,其实是求格雷码的逆变换，本题从格雷码生成开始分析。<br>格雷码就是 $1\sim n$ 的一个排列中，相邻的两个数字的二进制表示只有一位不同。<br>如三位的格雷码：中间列是序号，左三位是三位格雷码的二进制表示，右三位是序号的二进制表示。<br>生成方式1.<br>(1)反转前一个格雷码的二进制位的最后一位<br>(2)将右边第一个二进制位是1的位置的左边的二进制位翻转<br>具体看以下样例<br>  0 0 0 –0–&gt; 0 0 0<br>  0 0 1 –1–&gt; 0 0 1<br>  0 1 1 –2–&gt; 0 1 0<br>  0 1 0 –3–&gt; 0 1 1<br>  1 1 0 –4–&gt; 1 0 0<br>  1 1 1 –5–&gt; 1 0 1<br>  1 0 1 –6–&gt; 1 1 0<br>  1 0 0 –7–&gt; 1 1 1</p>
 <p>生成方式2.<br>显然：上述格雷码 $G(n)$ 和 $n$ 是有关系的, $G(n)$ 的二进制位表示中第 $i$ 位为 $1$ 只有两种情况(二进制位右边为最低位，左边为最高位)，序号 $n$ 的二进制表示中第 $i$ 位为 $1$ ，第 $i+1$ 位为 $0$ ，或者第 $i$ 位为 $0$ ，第 $i+1$ 位为 $1$ ，所以是个异或的过程，即 $G(n) = n \bigoplus (n &gt;&gt; 1)$</p>
 <p>完成生成格雷码的过程后，再来看其逆变换的过程，从高位到低位有：</p>
-<p>$n_k = g_k$<br>$n_{k-1} = g_{k-1} \bigoplus n_k$<br>$n_{k-2} = g_{k-2} \bigoplus n_{k-1} = g_{k-2} \bigoplus g_{k-1} \bigoplus g{k}$<br>…<br>$n_{k-j} = \bigoplus <em>{i=0}^j g</em>{k-i}$<br>所以其逆变换从最高位开始递推有：</p>
+<p>$n_k = g_k$<br>$n_{k-1} = g_{k-1} \bigoplus n_k$<br>$n_{k-2} = g_{k-2} \bigoplus n_{k-1} = g_{k-2} \bigoplus g_{k-1} \bigoplus g{k}$<br>…<br>$n_{k-j} = \bigoplus_{i=0}^j g_{k-i}$<br>所以其逆变换从最高位开始递推有：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minimumOneBitOperations</span><span class="params">(<span class="keyword">int</span> g)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;g;g&gt;&gt;=<span class="number">1</span>) n^=g;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>时间复杂度：$O(log_n)$</li>
-<li>空间复杂度：$O(1)$<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumOneBitOperations</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> g = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;n;n&gt;&gt;=<span class="number">1</span>) g^=n;</span><br><span class="line">        <span class="keyword">return</span> g;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>空间复杂度：$O(1)$<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumOneBitOperations</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> g = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;n;n&gt;&gt;=<span class="number">1</span>) g^=n;</span><br><span class="line">        <span class="keyword">return</span> g;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
     </div>
